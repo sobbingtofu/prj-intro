@@ -25,7 +25,7 @@ function MainSection() {
               </p>
             </div>
             {/* 메인텍스트 */}
-            <h1 className="text-5xl text-[#030e18] font-black leading-tight tracking-tight">
+            <h1 className="text-5xl text-[#030e18] font-[700] leading-tight tracking-tight">
               {"복잡한 비즈니스 요구사항을"}
               <br />
               {"직관적인 사용자 경험으로 구현하는"}
