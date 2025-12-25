@@ -11,23 +11,3 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-@utility text-prime {
-  color: var(--color-prime);
-}
-
-@utility text-sub {
-  color: var(--color-sub);
-}
-
-@utility bg-prime {
-  background-color: var(--color-prime);
-}
-
-@utility bg-sub {
-  background-color: var(--color-sub);
-}
-
-@utility bg-background {
-  background-color: var(--color-background);
-}
