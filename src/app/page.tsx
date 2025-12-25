@@ -1,3 +1,9 @@
+import MainSection from "../sections/MainSection/MainSection";
+
 export default function Home() {
-  return <></>;
+  return (
+    <div className="bg-black h-[4000px] ">
+      <MainSection />
+    </div>
+  );
 }
