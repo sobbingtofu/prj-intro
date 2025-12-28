@@ -2,9 +2,9 @@ function MainSection() {
   return (
     <section
       id="MainSection"
-      className="w-full h-screen min-h-[660px] max-h-[1800px] max-w-[3600px] min-w-[350px]
-        md:min-w-[940px]
-       bg-background flex justify-center items-center"
+      className="w-full h-screen max-h-[1800px] max-w-[3600px] min-w-[350px]
+      sm:pt-0 pt-[60px]
+    bg-background flex justify-center items-center overflow-y-auto"
     >
       {/* 실제 내용물 */}
       <div
@@ -17,34 +17,34 @@ function MainSection() {
       >
         {/* 왼쪽 영역 */}
         <div
-          className="border border-green-500 md:w-[80%] w-full
+          className="border border-green-500 lg:w-[80%] w-full
           flex flex-col items-start gap-y-4"
         >
           <div>
             {/* 키워드 */}
-            <div className="flex md:gap-x-3 gap-x-1.5 md:mb-4 mb-2 cursor-default select-none">
+            <div className="flex lg:gap-x-3 gap-x-1.5 lg:mb-4 mb-2 cursor-default select-none">
               <p
                 className="rounded-2xl bg-secondary px-3 py-1.5 
-                md:text-sm text-[10px] font-semibold text-primary"
+                lg:text-sm text-[10px] font-semibold text-primary"
               >
                 {"프론트엔드 개발"}
               </p>
               <p
                 className="rounded-2xl bg-light-gray px-3 py-1.5 
-                md:text-sm text-[10px] font-semibold text-gray-500 "
+                lg:text-sm text-[10px] font-semibold text-gray-500 "
               >
                 {"프로덕트 설계"}
               </p>
               <p
                 className="rounded-2xl bg-light-gray px-3 py-1.5
-                md:text-sm text-[10px] font-semibold text-gray-500 "
+                lg:text-sm text-[10px] font-semibold text-gray-500 "
               >
                 {"프로젝트 관리"}
               </p>
             </div>
             {/* 메인텍스트 */}
             <h1
-              className="xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl
+              className="xl:text-5xl lg:text-4xl sm:text-2xl text-xl
             text-[#030e18] font-[700] leading-tight tracking-tight"
             >
               {"복잡한 비즈니스 요구사항을"}
@@ -105,7 +105,7 @@ function MainSection() {
           className="relative shrink-0 border border-blue-500
           sm:w-[25%] sm:h-auto sm:aspect-auto w-auto flex justify-center items-center"
         >
-          <div className="sm:w-full w-auto sm:h-auto h-[300px] aspect-[3/4] relative border-red-500 border">
+          <div className="sm:w-full w-auto sm:h-auto h-[200px] max-w-[210px] aspect-[3/4] relative border-red-500 border">
             {/* 그림자 div */}
             <div className="absolute rounded-[2rem] bg-secondary h-full w-full z-0 top-5 left-5"></div>
             {/* 실제 이미지 영역 */}
