@@ -2,19 +2,21 @@ function MainSection() {
   return (
     <section
       id="MainSection"
-      className="w-full h-screen min-h-[660px] max-h-[1800px] max-w-[3600px] min-w-[350px] bg-background flex justify-center items-center"
+      className="w-full h-screen min-h-[660px] max-h-[1800px] max-w-[3600px] min-w-[350px]
+        md:min-w-[940px]
+       bg-background flex justify-center items-center"
     >
       {/* 실제 내용물 */}
       <div
         className="md:w-[80%] w-[90%] flex
         sm:flex-row sm:justify-between sm:h-auto
-        flex-col-reverse h-full justify-end
-        border-red-500 border"
+        flex-col-reverse h-full justify-center
+        border-black border"
       >
         {/* 왼쪽 영역 */}
         <div
           className="border border-green-500 md:w-[80%] w-full
-          flex flex-col items-start gap-y-4"
+          flex flex-col items-start gap-y-4 sm:mt-0 mt-4"
         >
           <div>
             {/* 키워드 */}
@@ -98,19 +100,16 @@ function MainSection() {
 
         {/* 이미지+그림자 영역 */}
         <div
-          className="relative shrink-0 border border-blue-500 p-10
-          sm:w-[25%] sm:h-auto sm:aspect-auto h-[60%] aspect-[9/16] w-auto"
+          className="relative shrink-0 border border-blue-500
+          sm:w-[25%] sm:h-auto sm:aspect-auto w-auto flex justify-center items-center"
         >
-          {/* 추가그림자 */}
-          <div className="absolute inset-9 translate-x-2 translate-y-3 rounded-[2rem] bg-primary/20 z-0"></div>
-
-          {/* 실제 이미지 영역 */}
-          <div
-            className="
-            relative overflow-hidden rounded-[2rem] bg-amber-300 shadow-xl
-            h-full w-full z-10 "
-            data-alt="Professional headshot of a developer against a clean background"
-          ></div>
+          <div className="sm:w-full w-auto sm:h-auto h-[300px] aspect-[3/4] relative border-red-500 border">
+            {/* 실제 이미지 영역 */}
+            <div
+              className="relative overflow-hidden rounded-[2rem] bg-amber-300 shadow-xl 
+              h-full w-full z-10"
+            ></div>
+          </div>
         </div>
       </div>
     </section>
