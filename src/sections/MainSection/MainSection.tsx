@@ -11,12 +11,14 @@ function MainSection() {
         className="md:w-[80%] w-[90%] flex
         sm:flex-row sm:justify-between sm:h-auto
         flex-col-reverse h-full justify-center
-        border-black border"
+        border-black border
+        sm:gap-0 gap-8
+        "
       >
         {/* 왼쪽 영역 */}
         <div
           className="border border-green-500 md:w-[80%] w-full
-          flex flex-col items-start gap-y-4 sm:mt-0 mt-4"
+          flex flex-col items-start gap-y-4"
         >
           <div>
             {/* 키워드 */}
@@ -104,6 +106,8 @@ function MainSection() {
           sm:w-[25%] sm:h-auto sm:aspect-auto w-auto flex justify-center items-center"
         >
           <div className="sm:w-full w-auto sm:h-auto h-[300px] aspect-[3/4] relative border-red-500 border">
+            {/* 그림자 div */}
+            <div className="absolute rounded-[2rem] bg-secondary h-full w-full z-0 top-5 left-5"></div>
             {/* 실제 이미지 영역 */}
             <div
               className="relative overflow-hidden rounded-[2rem] bg-amber-300 shadow-xl 
