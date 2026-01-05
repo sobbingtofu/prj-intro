@@ -1,101 +1,18 @@
-import React, {useRef, useState} from "react";
+import useSkillCardCarousel from "@/src/hooks/useSkillCardCarousel/useSkillCardCarousel";
+import {SKILL_CARDS} from "@/src/store/constantStore";
 
 function SkillStackCardContainer() {
-  const skillCards = [
-    {
-      title: "Modern Frontend",
-      color: "bg-primary",
-      items: [
-        "React.js, Next.js (App Router)",
-        "TypeScript, JavaScript (ES6+)",
-        "Zustand, Redux Toolkit",
-        "Tailwind CSS",
-      ],
-    },
-    {
-      title: "Backend & Systems",
-      color: "bg-orange-500",
-      items: ["Spring Boot (Java, JSP)", "MSSQL, SQL Query", "RESTful API Design", "System Architecture Design"],
-    },
-    {
-      title: "Design & UI",
-      color: "bg-purple-500",
-      items: ["Figma", "UI/UX Design", "User Flow Design", "Prototyping & Wireframing"],
-    },
-    {
-      title: "Product & Strategy",
-      color: "bg-green-500",
-      items: [
-        "프로젝트 및 프로덕트 관리 (PM)",
-        "요구사항 분석 및 기술 명세 정의",
-        "PRD/기능설계서 작성",
-        "WBS 기반 일정 및 리소스 관리",
-      ],
-    },
-  ];
-
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-  const isDragging = useRef(false);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    const diff = touchStartX.current - touchEndX.current;
-    const threshold = 50;
-
-    if (Math.abs(diff) > threshold) {
-      if (diff > 0) {
-        // 왼쪽으로 스와이프 - 다음 카드
-        setActiveCardIndex((prev) => (prev + 1) % skillCards.length);
-      } else {
-        // 오른쪽으로 스와이프 - 이전 카드
-        setActiveCardIndex((prev) => (prev - 1 + skillCards.length) % skillCards.length);
-      }
-    }
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    isDragging.current = true;
-    touchStartX.current = e.clientX;
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging.current) {
-      touchEndX.current = e.clientX;
-    }
-  };
-
-  const handleMouseUp = () => {
-    if (isDragging.current) {
-      const diff = touchStartX.current - touchEndX.current;
-      const threshold = 50;
-
-      if (Math.abs(diff) > threshold) {
-        if (diff > 0) {
-          setActiveCardIndex((prev) => (prev + 1) % skillCards.length);
-        } else {
-          setActiveCardIndex((prev) => (prev - 1 + skillCards.length) % skillCards.length);
-        }
-      }
-      isDragging.current = false;
-    }
-  };
-
-  const getCardPosition = (index: number) => {
-    const diff = index - activeCardIndex;
-    if (diff === 0) return "translate-x-0 scale-100 z-20 opacity-100";
-    if (diff === 1 || diff === -(skillCards.length - 1)) return "translate-x-[70%] scale-75 z-10 opacity-40";
-    if (diff === -1 || diff === skillCards.length - 1) return "-translate-x-[70%] scale-75 z-10 opacity-40";
-    return "translate-x-[200%] scale-50 z-0 opacity-0";
-  };
+  const {
+    activeCardIndex,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+    handleMouseDown,
+    handleMouseMove,
+    handleMouseUp,
+    getCardPosition,
+    setActiveCardIndex,
+  } = useSkillCardCarousel();
 
   return (
     <div
@@ -111,10 +28,10 @@ function SkillStackCardContainer() {
 
       {/* sm 이상: 기존 그리드 레이아웃 */}
       <div
-        className="w-full hidden sm:grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1
+        className="w-full hidden sm:grid xl:grid-cols-4 md:grid-cols-2 grid-cols-2
           md:mt-6 mt-2 justify-center gap-x-8 gap-y-4"
       >
-        {skillCards.map((card, index) => (
+        {SKILL_CARDS.map((card, index) => (
           <div
             key={index}
             className="flex-1 rounded-xl border border-gray-100 bg-white md:p-6 p-4 shadow-sm transition-shadow hover:shadow-md"
@@ -144,7 +61,7 @@ function SkillStackCardContainer() {
         onMouseLeave={handleMouseUp}
       >
         <div className="w-full h-full flex items-start justify-center">
-          {skillCards.map((card, index) => (
+          {SKILL_CARDS.map((card, index) => (
             <div
               key={index}
               className={`absolute w-[85%] rounded-xl border border-gray-100 bg-white p-4 shadow-sm 
@@ -167,7 +84,7 @@ function SkillStackCardContainer() {
 
         {/* 인디케이터 점들 */}
         <div className="flex justify-center gap-2">
-          {skillCards.map((_, index) => (
+          {SKILL_CARDS.map((_, index) => (
             <button
               key={index}
               onClick={() => setActiveCardIndex(index)}
