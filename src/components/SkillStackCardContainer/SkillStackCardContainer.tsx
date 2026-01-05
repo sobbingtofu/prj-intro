@@ -102,10 +102,12 @@ function SkillStackCardContainer() {
       className="md:w-[80%] w-[90%] flex
         flex-col justify-start
         border-black border
-        md:mt-8 mt-2 h-[300px]
+        md:mt-8 mt-3 h-[240px]
         "
     >
-      <p className="w-full font-[500] text-center md:text-xl text-[12px] sm:mt-0 mt-2">Technical Skill Stack</p>
+      <p className="w-full font-[700] md:text-left text-center md:text-xl text-[14px] sm:mt-0 mt-2 ">
+        {"기술 스택 (Tech Stack)"}
+      </p>
 
       {/* sm 이상: 기존 그리드 레이아웃 */}
       <div
@@ -132,7 +134,7 @@ function SkillStackCardContainer() {
 
       {/* sm 미만: 캐러셀 레이아웃 */}
       <div
-        className="relative w-full sm:hidden overflow-hidden h-full select-none mt-2"
+        className="w-full sm:hidden overflow-hidden h-[180px] select-none mt-2 flex flex-col justify-start"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -141,7 +143,7 @@ function SkillStackCardContainer() {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
       >
-        <div className="relative w-full h-full flex items-start justify-center">
+        <div className="w-full h-full flex items-start justify-center">
           {skillCards.map((card, index) => (
             <div
               key={index}
@@ -164,7 +166,7 @@ function SkillStackCardContainer() {
         </div>
 
         {/* 인디케이터 점들 */}
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+        <div className="flex justify-center gap-2">
           {skillCards.map((_, index) => (
             <button
               key={index}
