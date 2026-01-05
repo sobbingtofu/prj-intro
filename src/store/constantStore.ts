@@ -1,5 +1,5 @@
 import MainSection from "../sections/MainSection/MainSection";
-import SkillStackSection from "../sections/SkillStackSection/SkillStackSection";
+import SkillStackSection from "../sections/WorkExperienceSection/WorkExperienceSection";
 
 export const SECTIONS = [
   {id: 0, component: MainSection},

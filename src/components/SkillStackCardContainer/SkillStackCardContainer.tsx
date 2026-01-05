@@ -19,12 +19,10 @@ function SkillStackCardContainer() {
       className="md:w-[80%] w-[90%] flex
         flex-col justify-start
         border-black border
-        md:mt-8 mt-3 h-[240px]
+        md:mt-8 mt-3 min-h-[240px]
         "
     >
-      <p className="w-full font-[700] md:text-left text-center md:text-xl text-[14px] sm:mt-0 mt-2 ">
-        {"기술 스택 (Tech Stack)"}
-      </p>
+      <p className="w-full font-[700] md:text-left text-center md:text-xl text-[14px] sm:mt-0 mt-2 ">{"Tech Stack"}</p>
 
       {/* sm 이상: 기존 그리드 레이아웃 */}
       <div

@@ -5,9 +5,9 @@ import SidebarDesktop from "../components/SidebarDesktop/SidebarDesktop";
 import SidebarMobile from "../components/SidebarMobile/SidebarMobile";
 import {useApplyScrollEffect} from "../hooks/useApplyScrollEffect/useApplyScrollEffect";
 import MainSection from "../sections/MainSection/MainSection";
-import SkillStackSection from "../sections/SkillStackSection/SkillStackSection";
 import {SECTIONS} from "../store/constantStore";
 import {useSwipeSection} from "../hooks/useApplySwipeEffect/useApplySwipeEffect";
+import WorkExperienceSection from "../sections/WorkExperienceSection/WorkExperienceSection";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -53,7 +53,7 @@ export default function Home() {
         }}
       >
         <MainSection />
-        <SkillStackSection />
+        <WorkExperienceSection />
       </div>
     </div>
   );
