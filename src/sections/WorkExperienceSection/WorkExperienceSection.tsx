@@ -1,7 +1,8 @@
+import {MILESTONES} from "@/src/store/constantStore";
 import {useState} from "react";
 
 function WorkExperienceSection() {
-  const [selectedPoint, setSelectedPoint] = useState<string>("A");
+  const [selectedMilestoneId, setSelectedMilestoneId] = useState<number>(1);
 
   const points = ["A", "B", "C", "D"];
 
@@ -10,40 +11,40 @@ function WorkExperienceSection() {
       id="WorkExperienceSection"
       className="w-full h-screen max-h-[1800px] max-w-[3600px] min-w-[350px]
       xl:pt-0 lg:pt-[60px] sm:pt-[100px] pt-[20px]
-    bg-background2 flex flex-col xl:justify-center sm:justify-start justify-center items-center overflow-y-auto"
+    bg-white flex flex-col xl:justify-center sm:justify-start justify-center items-center overflow-y-auto"
     >
       {/* Timeline Container */}
-      <div className="w-[80%] h-[70%] min-h-[500px] px-8 ">
+      <div className="md:w-[80%] w-[85%] h-[70%] min-h-[500px] md:px-8 px-0">
         {/* Horizontal Line */}
-        <div className="relative w-full h-1 bg-gray-700">
+        <div className="relative w-full h-0.5 bg-prime-gray">
           {/* Timeline Points */}
-          <div className="absolute inset-0 flex justify-between items-center">
-            {points.map((point) => (
-              <button
-                key={point}
-                onClick={() => setSelectedPoint(point)}
-                className={`relative w-12 h-12 rounded-full border-4 transition-all duration-300 ${
-                  selectedPoint === point
-                    ? "bg-blue-500 border-blue-600 scale-110"
-                    : "bg-white border-gray-400 hover:border-blue-400"
-                }`}
+          <div className="absolute inset-0 flex justify-between items-center ">
+            {MILESTONES.map((milestone) => (
+              <div
+                key={milestone.id}
+                onClick={() => setSelectedMilestoneId(milestone.id)}
+                className={`relative w-1 h-1 rounded-full border-4 transition-all duration-300 
+                  ${
+                    selectedMilestoneId === milestone.id
+                      ? "bg-blue-500 border-blue-600 scale-110"
+                      : "bg-white border-gray-400 hover:border-blue-400"
+                  }`}
               >
                 <span
-                  className={`absolute inset-0 flex items-center justify-center font-bold text-lg ${
-                    selectedPoint === point ? "text-white" : "text-gray-700"
-                  }`}
+                  className={`absolute top-6 left-1/2 -translate-x-1/2 whitespace-nowrap font-bold md:text-sm text-[12px] w-[100px]
+                  ${selectedMilestoneId === milestone.id ? "text-black" : "text-gray-700"}`}
                 >
-                  {point}
+                  {milestone.name}
                 </span>
-              </button>
+              </div>
             ))}
           </div>
         </div>
 
         {/* Selected Point Display */}
-        <div className="mt-8 text-center">
+        <div className="mt-20 text-center">
           <p className="text-xl text-gray-700">
-            선택된 지점: <span className="font-bold">{selectedPoint}</span>
+            선택된 지점: <span className="font-bold">{selectedMilestoneId}</span>
           </p>
         </div>
       </div>

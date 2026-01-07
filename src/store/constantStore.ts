@@ -1,10 +1,8 @@
-import MainSection from "../sections/MainSection/MainSection";
-import SkillStackSection from "../sections/WorkExperienceSection/WorkExperienceSection";
 import {experienceMilestoneType} from "./constantStoreType";
 
 export const SECTIONS = [
-  {id: 0, component: MainSection},
-  {id: 1, component: SkillStackSection},
+  {id: 0, name: "main"},
+  {id: 1, name: "workExperience"},
 ];
 
 export const SKILL_CARDS = [
@@ -40,7 +38,7 @@ export const SKILL_CARDS = [
   },
 ];
 
-export const mileStones: experienceMilestoneType[] = [
+export const MILESTONES: experienceMilestoneType[] = [
   {
     id: 1,
     name: "주식회사 스마트팩토리",
