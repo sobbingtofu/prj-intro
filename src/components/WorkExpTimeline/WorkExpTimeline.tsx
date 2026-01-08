@@ -21,11 +21,15 @@ function WorkExpTimeline({selectedMilestoneId, setSelectedMilestoneId, animateTi
           {/* Timeline Points - 애니메이션 없음 */}
           <div className="relative w-full h-0.5">
             <div className="absolute inset-0 flex justify-between items-center flex-row-reverse">
-              {MILESTONES.map((milestone) => (
+              {MILESTONES.map((milestone, index) => (
                 <div
                   key={milestone.id}
                   onClick={() => setSelectedMilestoneId(milestone.id)}
-                  className="relative flex items-center cursor-pointer group"
+                  className={`relative flex items-center cursor-pointer group transition-all duration-500
+                    ${animateTimeLine ? "opacity-100 " : "opacity-0 "}`}
+                  style={{
+                    transitionDelay: animateTimeLine ? `${800 + (MILESTONES.length - 1 - index) * 200}ms` : "0ms",
+                  }}
                 >
                   {/* duration*/}
                   <div
