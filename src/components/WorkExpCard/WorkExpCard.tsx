@@ -8,8 +8,8 @@ interface WorkExpCardProps {
 function WorkExpCard({selectedMileStone, animateWorkExpCard}: WorkExpCardProps) {
   return (
     <div
-      className={`w-[75%] flex flex-col justify-start items-start mt-20 mb-12 transition-all duration-500
-        text-black
+      className={`w-[65vw] min-w-[400px] flex flex-col justify-start items-start mt-20 mb-12 transition-all duration-500
+        text-black bg-background px-10 py-8 min-h-[300px] rounded-2xl shadow-lg
         ${animateWorkExpCard ? "opacity-100 " : "opacity-0"}
         `}
     >
