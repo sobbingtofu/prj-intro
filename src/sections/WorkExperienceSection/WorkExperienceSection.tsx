@@ -1,72 +1,23 @@
 import WorkExpCard from "@/src/components/WorkExpCard/WorkExpCard";
 import WorkExpTimeline from "@/src/components/WorkExpTimeline/WorkExpTimeline";
+import useAnimateWorkExpSection from "@/src/hooks/useAnimateWorkExpSection/useAnimateWorkExpSection";
 import {MILESTONES} from "@/src/store/constantStore";
-import {useState, useEffect, useRef} from "react";
+import {useState, useRef} from "react";
 
 function WorkExperienceSection() {
   const [selectedMilestoneId, setSelectedMilestoneId] = useState<number>(1);
   const [animateTimeLine, setAnimateTimeLine] = useState<boolean>(false);
   const [animateWorkExpCard, setAnimateWorkExpCard] = useState<boolean>(false);
 
-  const workeExpCardAnimateDelayTimer = useRef<NodeJS.Timeout | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null!);
 
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.9 && !animateTimeLine) {
-          if (animateTimeLine) {
-            setAnimateTimeLine(false);
-          }
-          setAnimateTimeLine(true);
-        } else if (!entry.isIntersecting && entry.intersectionRatio === 0 && animateTimeLine) {
-          if (workeExpCardAnimateDelayTimer.current) {
-            clearTimeout(workeExpCardAnimateDelayTimer.current);
-            workeExpCardAnimateDelayTimer.current = null;
-          }
-          setAnimateTimeLine(false);
-          setAnimateWorkExpCard(false);
-          setSelectedMilestoneId(1);
-        }
-      },
-      {
-        threshold: [0, 0.9],
-      }
-    );
-
-    const currentElement = sectionRef.current;
-
-    if (currentElement) {
-      observer.observe(currentElement);
-    }
-
-    return () => {
-      if (currentElement) {
-        observer.unobserve(currentElement);
-      }
-    };
-  }, [animateTimeLine]);
-
-  useEffect(() => {
-    if (animateTimeLine) {
-      workeExpCardAnimateDelayTimer.current = setTimeout(() => {
-        setAnimateWorkExpCard(true);
-      }, 1400);
-    } else {
-      if (workeExpCardAnimateDelayTimer.current) {
-        clearTimeout(workeExpCardAnimateDelayTimer.current);
-        workeExpCardAnimateDelayTimer.current = null;
-      }
-    }
-
-    return () => {
-      if (workeExpCardAnimateDelayTimer.current) {
-        clearTimeout(workeExpCardAnimateDelayTimer.current);
-        workeExpCardAnimateDelayTimer.current = null;
-      }
-    };
-  }, [animateTimeLine]);
+  useAnimateWorkExpSection({
+    animateTimeLine,
+    setAnimateTimeLine,
+    setSelectedMilestoneId,
+    setAnimateWorkExpCard,
+    sectionRef,
+  });
 
   const selectedMileStone = MILESTONES.find((milestone) => milestone.id === selectedMilestoneId) || MILESTONES[0];
 
