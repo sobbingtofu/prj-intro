@@ -10,7 +10,7 @@ function WorkExpTimeline({selectedMilestoneId, setSelectedMilestoneId, animateTi
   return (
     <>
       {/* Timeline Container */}
-      <div className="w-[80%] h-[70%] min-h-[500px] md:px-8 px-0">
+      <div className="w-[80%] md:px-8 px-0 mt-[12vh]">
         {/* Horizontal Line Wrapper */}
         <div className="relative w-full">
           {/* Horizontal Line 애니메이션용 */}
@@ -25,7 +25,7 @@ function WorkExpTimeline({selectedMilestoneId, setSelectedMilestoneId, animateTi
                 <div
                   key={milestone.id}
                   onClick={() => setSelectedMilestoneId(milestone.id)}
-                  className={`relative flex items-center cursor-pointer group transition-all duration-500
+                  className={`relative flex items-center cursor-pointer group transition-all duration-400
                     ${animateTimeLine ? "opacity-100 " : "opacity-0 "}`}
                   style={{
                     transitionDelay: animateTimeLine ? `${600 + (MILESTONES.length - 1 - index) * 200}ms` : "0ms",
