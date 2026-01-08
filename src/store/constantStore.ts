@@ -44,7 +44,7 @@ export const MILESTONES: experienceMilestoneType[] = [
     name: "주식회사<br>스마트팩토리",
     duration: "(2024.08<br>~ 현재)",
     keyword: "기획부터 설계, 구현까지 제품의 전 생애 주기를 담당하는 개발자",
-    role: "Technical PM & Software Engineer",
+    role: "Software Engineer & Technical PM",
     summary: "솔루션 도입 전 과정(RFP 분석부터 설계, 개발, 교육)을 주도하며 고객사 비즈니스에 최적화된 시스템 구축",
     keyAchievements: [
       {

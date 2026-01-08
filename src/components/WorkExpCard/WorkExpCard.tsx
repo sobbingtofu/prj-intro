@@ -26,19 +26,22 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
 
   return (
     <div
-      className={`w-[65vw] min-w-[400px] max-w-[800px] flex flex-col justify-start items-start mt-20 mb-12 transition-all duration-500
+      className={`w-[65vw] min-w-[400px] max-w-[1000px]
+        h-[470px]
+        mt-20 mb-12 transition-all duration-500
         text-black bg-background px-10 py-8 rounded-2xl shadow-lg relative overflow-hidden
         ${animateWorkExpCard ? "opacity-100" : "opacity-0"}
         `}
     >
-      {/* 내용물 컨테이너 */}
+      {/* 전환효과 적용되는 컨테이너 */}
       <div
-        className={`w-full transition-all duration-300 ease-in-out
+        className={`w-full transition-all duration-300 ease-in-out 
           ${isTransitioning ? `opacity-0 -translate-x-8` : "opacity-100 translate-x-0"}
+          flex flex-col justify-start items-start
         `}
       >
         {/* name, duration */}
-        <div className="w-full flex justify-between items-baseline mb-4">
+        <div className="w-full flex justify-between items-baseline mb-1">
           <h1 className="text-3xl font-black">{displayMilestone.name.replace(/<br>/g, " ")}</h1>
           <div className="text-[11px] bg-gray-200 px-4 py-1 text-gray-700 rounded-[12px] whitespace-nowrap">
             <p>{displayMilestone.duration.replace(/<br>/g, " ")}</p>
@@ -52,11 +55,11 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
         <div className="text-sm text-gray-700 mb-4 leading-relaxed">{displayMilestone.keyword}</div>
 
         {/* summary */}
-        <div className="text-sm text-gray-600 mb-6 leading-relaxed">{displayMilestone.summary}</div>
+        {/* <div className="text-sm text-gray-600 mb-6 leading-relaxed">{displayMilestone.summary}</div> */}
 
         {/* Key Achievements */}
-        <div className="w-full mb-4">
-          <h3 className="text-base font-bold mb-3 text-gray-800">주요 성과</h3>
+        <div className="w-full mb-2">
+          {/* <h3 className="text-base font-bold mb-3 text-gray-800">Key Achievements</h3> */}
           <div className="space-y-3">
             {displayMilestone.keyAchievements.map((achievement, index) => (
               <div key={index}>
