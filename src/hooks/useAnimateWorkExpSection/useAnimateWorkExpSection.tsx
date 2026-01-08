@@ -20,12 +20,10 @@ function useAnimateWorkExpSection({
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.9 && !animateTimeLine) {
-          if (animateTimeLine) {
-            setAnimateTimeLine(false);
-          }
+        // console.log("WorkExpSection IntersectionObserver entry:", entry);
+        if (entry.isIntersecting) {
           setAnimateTimeLine(true);
-        } else if (!entry.isIntersecting && entry.intersectionRatio === 0 && animateTimeLine) {
+        } else if (!entry.isIntersecting) {
           if (workeExpCardAnimateDelayTimer.current) {
             clearTimeout(workeExpCardAnimateDelayTimer.current);
             workeExpCardAnimateDelayTimer.current = null;
@@ -36,7 +34,7 @@ function useAnimateWorkExpSection({
         }
       },
       {
-        threshold: [0, 0.9],
+        threshold: [0.5],
       }
     );
 
