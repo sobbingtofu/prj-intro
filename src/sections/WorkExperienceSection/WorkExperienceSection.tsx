@@ -8,6 +8,7 @@ function WorkExperienceSection() {
   const [selectedMilestoneId, setSelectedMilestoneId] = useState<number>(1);
   const [animateTimeLine, setAnimateTimeLine] = useState<boolean>(false);
   const [animateWorkExpCard, setAnimateWorkExpCard] = useState<boolean>(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const sectionRef = useRef<HTMLDivElement>(null!);
 
@@ -34,9 +35,15 @@ function WorkExperienceSection() {
         selectedMilestoneId={selectedMilestoneId}
         setSelectedMilestoneId={setSelectedMilestoneId}
         animateTimeLine={animateTimeLine}
+        isTransitioning={isTransitioning}
       />
 
-      <WorkExpCard selectedMileStone={selectedMileStone} animateWorkExpCard={animateWorkExpCard} />
+      <WorkExpCard
+        selectedMileStone={selectedMileStone}
+        animateWorkExpCard={animateWorkExpCard}
+        isTransitioning={isTransitioning}
+        setIsTransitioning={setIsTransitioning}
+      />
     </section>
   );
 }

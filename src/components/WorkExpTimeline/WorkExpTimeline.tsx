@@ -4,9 +4,21 @@ interface WorkExpTimelineProps {
   selectedMilestoneId: number;
   setSelectedMilestoneId: (id: number) => void;
   animateTimeLine?: boolean;
+  isTransitioning: boolean;
 }
 
-function WorkExpTimeline({selectedMilestoneId, setSelectedMilestoneId, animateTimeLine}: WorkExpTimelineProps) {
+function WorkExpTimeline({
+  selectedMilestoneId,
+  setSelectedMilestoneId,
+  animateTimeLine,
+  isTransitioning,
+}: WorkExpTimelineProps) {
+  const handleMilestoneClick = (milestoneId: number) => {
+    if (!isTransitioning) {
+      setSelectedMilestoneId(milestoneId);
+    }
+  };
+
   return (
     <>
       {/* Timeline Container */}
@@ -24,7 +36,7 @@ function WorkExpTimeline({selectedMilestoneId, setSelectedMilestoneId, animateTi
               {MILESTONES.map((milestone, index) => (
                 <div
                   key={milestone.id}
-                  onClick={() => setSelectedMilestoneId(milestone.id)}
+                  onClick={() => handleMilestoneClick(milestone.id)}
                   className={`relative flex items-center cursor-pointer group transition-all duration-400
                     ${animateTimeLine ? "opacity-100 " : "opacity-0 "}`}
                   style={{
