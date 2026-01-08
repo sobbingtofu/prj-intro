@@ -13,12 +13,12 @@ function WorkExpTimeline({selectedMilestoneId, setSelectedMilestoneId, animateTi
       <div className="w-[80%] h-[70%] min-h-[500px] md:px-8 px-0">
         {/* Horizontal Line Wrapper */}
         <div className="relative w-full">
-          {/* Horizontal Line - 애니메이션 적용 */}
+          {/* Horizontal Line 애니메이션용 */}
           <div
-            className={`absolute w-full h-0.5 bg-prime-gray transition-transform duration-1000 ease-out origin-right
+            className={`absolute w-full h-0.5 bg-prime-gray transition-transform duration-600 ease-out origin-right
               ${animateTimeLine ? "scale-x-100" : "scale-x-0"}`}
           />
-          {/* Timeline Points - 애니메이션 없음 */}
+          {/* Timeline Points*/}
           <div className="relative w-full h-0.5">
             <div className="absolute inset-0 flex justify-between items-center flex-row-reverse">
               {MILESTONES.map((milestone, index) => (
@@ -28,7 +28,7 @@ function WorkExpTimeline({selectedMilestoneId, setSelectedMilestoneId, animateTi
                   className={`relative flex items-center cursor-pointer group transition-all duration-500
                     ${animateTimeLine ? "opacity-100 " : "opacity-0 "}`}
                   style={{
-                    transitionDelay: animateTimeLine ? `${800 + (MILESTONES.length - 1 - index) * 200}ms` : "0ms",
+                    transitionDelay: animateTimeLine ? `${600 + (MILESTONES.length - 1 - index) * 200}ms` : "0ms",
                   }}
                 >
                   {/* duration*/}
