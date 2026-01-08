@@ -21,40 +21,58 @@ function WorkExperienceSection() {
               <div
                 key={milestone.id}
                 onClick={() => setSelectedMilestoneId(milestone.id)}
-                className="relative flex items-center cursor-pointer"
+                className="relative flex items-center cursor-pointer group"
               >
-                {/* duration div - 점 위 */}
+                {/* duration*/}
                 <div
-                  className={`absolute bottom-6 left-1/2 -translate-x-1/2 text-center font-medium
-                    md:text-[11px] text-[9px]
-                    ${selectedMilestoneId === milestone.id ? "text-gray-700" : "text-gray-400"}`}
+                  className={`absolute bottom-4 left-1/2 -translate-x-1/2 text-center font-medium
+                    md:text-[11px] text-[9px] transition-colors duration-300
+                    ${selectedMilestoneId === milestone.id ? "text-black" : "text-gray-400 group-hover:text-gray-700"}`}
                 >
-                  {milestone.duration.split("<br>").map((line, index) => (
-                    <div key={index} className="whitespace-nowrap">
-                      {line}
-                    </div>
-                  ))}
+                  <div className="sm:block hidden whitespace-nowrap">{milestone.duration.replace(/<br>/g, " ")}</div>
+                  <div className="sm:hidden block">
+                    {milestone.duration.split("<br>").map((text, index) => (
+                      <div key={index} className="whitespace-nowrap">
+                        {text}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                {/* 점 div */}
+                {/* 점 */}
                 <div
                   className={`w-1 h-1 rounded-full border-4 transition-all duration-300 
                     ${
                       selectedMilestoneId === milestone.id
                         ? "bg-blue-500 border-blue-600 scale-110"
-                        : "bg-white border-gray-400 hover:border-blue-400"
+                        : "bg-white border-gray-400 group-hover:border-blue-400"
                     }`}
                 />
-                {/* 텍스트 div - 점 아래 */}
+                {/* milestone name*/}
                 <div
-                  className={`absolute top-6 left-1/2 -translate-x-1/2 text-center font-bold
-                    md:text-[12px] text-[10px]
-                    ${selectedMilestoneId === milestone.id ? "text-black" : "text-gray-500"}`}
+                  className={`absolute pt-14 left-1/2 -translate-x-1/2 text-center font-bold
+                    md:text-[12px] text-[10px] transition-colors duration-300
+                    ${selectedMilestoneId === milestone.id ? "text-black" : "text-gray-400 group-hover:text-gray-700"}`}
                 >
-                  {milestone.name.split("<br>").map((line, index) => (
-                    <div key={index} className="whitespace-nowrap">
-                      {line}
-                    </div>
-                  ))}
+                  <div className="sm:block hidden">
+                    {milestone.id !== 2 ? (
+                      <div className="whitespace-nowrap">{milestone.name.replace(/<br>/g, " ")}</div>
+                    ) : (
+                      <>
+                        {milestone.name.split("<br>").map((text, index) => (
+                          <div key={index} className="whitespace-nowrap">
+                            {text}
+                          </div>
+                        ))}
+                      </>
+                    )}
+                  </div>
+                  <div className="sm:hidden block">
+                    {milestone.name.split("<br>").map((text, index) => (
+                      <div key={index} className="whitespace-nowrap">
+                        {text}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
