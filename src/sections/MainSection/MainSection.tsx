@@ -108,7 +108,11 @@ function MainSection() {
           className="relative shrink-0 border border-blue-500
           sm:w-[25%] sm:h-auto sm:aspect-auto w-auto flex justify-center items-center"
         >
-          <div className="sm:w-full w-auto sm:h-auto min-h-[180px] h-[30vh] max-w-[210px] aspect-[3/4] relative border-red-500 border">
+          <div
+            className="sm:w-full w-auto sm:h-auto min-h-[100px] h-[20vh] max-w-[210px]
+            sm:aspect-[3/4] aspect-[5/6]
+            relative border-red-500 border"
+          >
             {/* 그림자 div */}
             <div className="absolute sm:block hidden rounded-[2rem] bg-secondary h-full w-full z-0 top-5 left-5"></div>
             {/* 실제 이미지 영역 */}

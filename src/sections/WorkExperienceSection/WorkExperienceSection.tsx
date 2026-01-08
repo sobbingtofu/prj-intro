@@ -12,7 +12,7 @@ function WorkExperienceSection() {
     bg-white flex flex-col xl:justify-center sm:justify-start justify-center items-center overflow-y-auto"
     >
       {/* Timeline Container */}
-      <div className="md:w-[80%] w-[85%] h-[70%] min-h-[500px] md:px-8 px-0">
+      <div className="w-[80%] h-[70%] min-h-[500px] md:px-8 px-0">
         {/* Horizontal Line */}
         <div className="relative w-full h-0.5 bg-prime-gray">
           {/* Timeline Points */}
