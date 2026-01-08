@@ -41,8 +41,8 @@ export const SKILL_CARDS = [
 export const MILESTONES: experienceMilestoneType[] = [
   {
     id: 1,
-    name: "주식회사 스마트팩토리",
-    duration: "(2024.08 ~ 현재)",
+    name: "주식회사<br>스마트팩토리",
+    duration: "(2024.08<br>~ 현재)",
     keyword: "기획부터 설계, 구현까지 제품의 전 생애 주기를 담당하는 개발자",
     role: "Technical PM & Software Engineer",
     summary: "솔루션 도입 전 과정(RFP 분석부터 설계, 개발, 교육)을 주도하며 고객사 비즈니스에 최적화된 시스템 구축",
@@ -70,8 +70,8 @@ export const MILESTONES: experienceMilestoneType[] = [
   },
   {
     id: 2,
-    name: "Nemo Partners Strategy Consulting",
-    duration: "(2023.07 ~ 2023.12)",
+    name: "Nemo Partners<br>Strategy Consulting",
+    duration: "(2023.07<br>~ 2023.12)",
     keyword: "데이터와 논리에 기반하여 복잡한 비즈니스 문제를 구조화하고 해결책을 제시하는 컨설턴트",
     role: "Strategy Consultant",
     summary: "대기업 및 중견기업 대상 경영 전략 수립 및 시장 분석을 통한 비즈니스 솔루션 도출",
@@ -93,8 +93,8 @@ export const MILESTONES: experienceMilestoneType[] = [
   },
   {
     id: 3,
-    name: "미래에셋벤처투자",
-    duration: "(2022.12 ~ 2023.02)",
+    name: "미래에셋<br>벤처투자",
+    duration: "(2022.12<br>~ 2023.02)",
     keyword: "스타트업 시장환경 및 프로덕트 조사/분석 실무 수행",
     role: "Investment Analysis Assistant (인턴)",
     summary:
@@ -117,8 +117,8 @@ export const MILESTONES: experienceMilestoneType[] = [
   },
   {
     id: 4,
-    name: "기타 전문 경험",
-    duration: "(2018.12 ~ 2022.11)",
+    name: "기타<br>전문경험",
+    duration: "(2018.12<br>~ 2022.11)",
     keyword: "다양한 도메인을 경험하며 유연한 소통 능력과 실행력을 축적",
     role: "Multidisciplinary Contributor",
     summary: "게임 개발, 프로덕트 분석 및 연구, 영상 편집, 콘텐츠 기획 등 다양한 실무 경험",
