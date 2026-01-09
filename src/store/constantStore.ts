@@ -73,7 +73,7 @@ export const MILESTONES: experienceMilestoneType[] = [
     name: "Nemo Partners<br>Strategy Consulting",
     duration: "(2023.07<br>~ 2023.12)",
     keyword: "데이터와 논리에 기반하여 복잡한 비즈니스 문제를 구조화하고 해결책을 제시하는 컨설턴트",
-    role: "Strategy Consultant",
+    role: "Business Strategy Consultant",
     summary: "대기업 및 중견기업 대상 경영 전략 수립 및 시장 분석을 통한 비즈니스 솔루션 도출",
     keyAchievements: [
       {
@@ -96,7 +96,7 @@ export const MILESTONES: experienceMilestoneType[] = [
     name: "미래에셋<br>벤처투자",
     duration: "(2022.12<br>~ 2023.02)",
     keyword: "스타트업 시장환경 및 프로덕트 조사/분석 실무 수행",
-    role: "Investment Analysis Assistant (인턴)",
+    role: "Investment Research Assistant (인턴)",
     summary:
       "기술 스타트업 투자 심사 보조 위한 스타트업 별 비즈니스 모델(BM) 및 프로덕트 타당성 분석 통한 인사이트 도출",
     keyAchievements: [
@@ -117,16 +117,22 @@ export const MILESTONES: experienceMilestoneType[] = [
   },
   {
     id: 4,
-    name: "기타<br>전문경험",
-    duration: "(2018.12<br>~ 2022.11)",
+    name: "폭넓은<br>전문경험",
+    duration: "",
+    // duration: "(2018.12<br>~ 2022.11)",
     keyword: "다양한 도메인을 경험하며 유연한 소통 능력과 실행력을 축적",
     role: "Multidisciplinary Contributor",
     summary: "게임 개발, 프로덕트 분석 및 연구, 영상 편집, 콘텐츠 기획 등 다양한 실무 경험",
     keyAchievements: [
       {
+        point: "연세대학교 졸업",
+        description: "언더우드 국제대학(Underwood International College) - 기술경영(CTM), 정보디자인(IID) 복수전공",
+      },
+      {
         point: "센세이션 게임즈",
         description:
           "[PM, 게임 그래픽 디자이너] 연세대 동기들과 함께 소규모 게임개발 팀을 이뤄 Steam에 인디게임 'Soul After' 출시",
+        etc: "https://store.steampowered.com/app/2148220/Soul_After/",
       },
       {
         point: "인천스케일업챌린지",

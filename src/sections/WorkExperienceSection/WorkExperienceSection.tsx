@@ -30,19 +30,21 @@ function WorkExperienceSection() {
       bg-white flex flex-col xl:justify-start sm:justify-start justify-center items-center overflow-y-auto
       "
     >
-      <WorkExpTimeline
-        selectedMilestoneId={selectedMilestoneId}
-        setSelectedMilestoneId={setSelectedMilestoneId}
-        animateTimeLine={animateTimeLine}
-        isTransitioning={isTransitioning}
-      />
+      <div className="flex flex-col items-center flex-shrink-0">
+        <WorkExpTimeline
+          selectedMilestoneId={selectedMilestoneId}
+          setSelectedMilestoneId={setSelectedMilestoneId}
+          animateTimeLine={animateTimeLine}
+          isTransitioning={isTransitioning}
+        />
 
-      <WorkExpCard
-        selectedMileStone={selectedMileStone}
-        animateWorkExpCard={animateWorkExpCard}
-        isTransitioning={isTransitioning}
-        setIsTransitioning={setIsTransitioning}
-      />
+        <WorkExpCard
+          selectedMileStone={selectedMileStone}
+          animateWorkExpCard={animateWorkExpCard}
+          isTransitioning={isTransitioning}
+          setIsTransitioning={setIsTransitioning}
+        />
+      </div>
     </section>
   );
 }
