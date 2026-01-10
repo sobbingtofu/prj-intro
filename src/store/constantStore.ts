@@ -77,16 +77,24 @@ export const MILESTONES: experienceMilestoneType[] = [
     summary: "대기업 및 중견기업 대상 경영 전략 수립 및 시장 분석을 통한 비즈니스 솔루션 도출",
     keyAchievements: [
       {
-        point: "비즈니스 로직 구조화",
-        description: "복잡한 시장 상황과 기업의 요구사항을 분석하여 핵심 아젠다를 도출하고 실행 가능한 전략으로 구조화",
+        point: "신사업 기획 및 사업 확장 전략 수립",
+        description:
+          "다양한 산업군의 시장 동향 및 경쟁사, 고객사 기보유 역량 분석하여 신규 비즈니스 모델(BM)을 기획하고, 구체적인 시장 진입 전략 도출",
       },
       {
-        point: "데이터 기반 의사결정",
-        description: "정량적/정성적 데이터 분석을 통해 가설을 검증하고 논리적 근거에 기반한 해결책 제시",
+        point: "M&A 및 IPO 대상 기업의 CDD 수행",
+        description:
+          "기업 인수 및 상장을 위한 사업 실사(Commercial Due Diligence) 프로젝트에 참여하여 사업타당성, 잠재성 및 리스크 정밀 분석",
       },
       {
-        point: "전략적 커뮤니케이션",
-        description: "다양한 이해관계자의 니즈를 조율하고 복잡한 개념을 시각화하여 전달하는 문서화 역량 확보",
+        point: "프로젝트 RFP 분석 및 제안서 작성",
+        description:
+          "고객사 제안요청서(RFP)를 분석해 핵심 아젠다를 도출하고 논리적인 해결책을 제시하는 제안서 작성을 통해 다수의 프로젝트 수주에 기여",
+      },
+      {
+        point: "비즈니스 데이터 구조화 및 인사이트 도출",
+        description:
+          "산재된 정량적·정성적 데이터의 구조화 및 시각화 통해 의사결정을 위한 핵심 인사이트 도출 및 전략 보고서 작성",
       },
     ],
     coreSkills: ["Logical Thinking & Problem Solving", "Data Analysis", "Strategic Planning"],
@@ -96,21 +104,28 @@ export const MILESTONES: experienceMilestoneType[] = [
     name: "미래에셋<br>벤처투자",
     duration: "(2022.12<br>~ 2023.02)",
     keyword: "스타트업 시장환경 및 프로덕트 조사/분석 실무 수행",
-    role: "Investment Research Assistant (인턴)",
-    summary:
-      "기술 스타트업 투자 심사 보조 위한 스타트업 별 비즈니스 모델(BM) 및 프로덕트 타당성 분석 통한 인사이트 도출",
+    role: "Investment Research Assistant",
+    summary: "기술 스타트업 투자 심사 보조 위한 스타트업 별 비즈니스 모델(BM) 및 시장 분석 통한 인사이트 도출",
     keyAchievements: [
       {
-        point: "서비스 지표 분석",
-        description: "B2C/B2B 테크 스타트업의 주요 KPI와 성장 지표 등 스타트업 및 프로덕트에 대한 정량적 분석 수행",
+        point: "산업별 시장 동향 및 테크 트렌드 조사",
+        description:
+          "투자심사역의 의사결정에 필요한 특정 산업군의 시장 규모, 경쟁 구도 및 최신 기술 트렌드 심층 조사 수행",
       },
       {
-        point: "시장 분석 및 실사 보조",
-        description: "산업별 시장 규모와 성장 잠재성 측정 및 경쟁사 대비 서비스 경쟁력 진단",
+        point: "스타트업 비즈니스 모델 및 서비스 분석",
+        description:
+          "검토 대상 기업의 BM, 사용자 지표 등 KPI, 수익 구조를 분석하고 서비스의 성장 잠재력과 제품 경쟁력을 정량적으로 평가",
       },
       {
-        point: "제품 지향적 시야 확보",
-        description: "비즈니스의 지속 가능성과 사용자 가치를 동시에 고려하는 프로덕트 관점의 사고방식 확립",
+        point: "투자 심사 보고서 작성 및 실사 지원",
+        description:
+          "투자 심사 위원회용 보고서 작성을 보조하고, 기업 실사 과정에서 필요한 데이터 검증 및 관련 정성 자료 정리",
+      },
+      {
+        point: "투자 인사이트 도출 및 의사결정 프로세스 참여",
+        description:
+          "다양한 도메인의 서비스 분석을 통해 성공하는 프로덕트의 요건과 리스크 관리 방안을 학습하고 투자 인사이트 도출 과정 기여",
       },
     ],
     coreSkills: ["Start-up", "Product Analysis", "Industry Trend"],

@@ -26,10 +26,10 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
 
   return (
     <div
-      className={`w-[65vw] xl:w-[75vw] min-w-[400px]
-        h-[480px] 2xl:h-[600px]
+      className={`w-[65vw] xl:w-[80vw] min-w-[400px]
+        h-[460px] 2xl:h-[500px] mb-3 
         mt-20 transition-all duration-500
-        text-black bg-background px-10 py-8 rounded-2xl shadow-lg relative overflow-hidden
+        text-black bg-background px-10 py-6 rounded-2xl shadow-lg relative overflow-hidden sm:overflow-y-auto
         ${animateWorkExpCard ? "opacity-100" : "opacity-0"}
         `}
     >
@@ -41,40 +41,40 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
         `}
       >
         {/* name, duration */}
-        <div className="w-full flex justify-between items-baseline mb-1 2xl:mb-3">
-          <h1 className="text-3xl 2xl:text-4xl font-black">{displayMilestone.name.replace(/<br>/g, " ")}</h1>
-          <div className="text-[11px] bg-gray-200 px-4 py-1 text-gray-700 rounded-[12px] whitespace-nowrap">
-            <p>{displayMilestone.duration.replace(/<br>/g, " ")}</p>
-          </div>
+        <div className="w-full flex justify-between items-baseline mb-1 2xl:mb-2">
+          <h1 className="text-3xl font-black">{displayMilestone.name.replace(/<br>/g, " ")}</h1>
+          {displayMilestone.duration == "" ? null : (
+            <div className="text-[11px] bg-gray-200 px-4 py-1 text-gray-700 rounded-[12px] whitespace-nowrap">
+              <p>{displayMilestone.duration.replace(/<br>/g, " ")}</p>
+            </div>
+          )}
         </div>
 
         {/* role */}
-        <div className="text-base 2xl:text-xl font-semibold text-blue-600 mb-3 2xl:mb-5">
+        <div className="text-base 2xl:text-lg font-semibold text-blue-600 mb-3 ">
           {displayMilestone.id == 4 ? "" : displayMilestone.role}
         </div>
 
         {/* keyword */}
-        <div className="text-sm 2xl:text-lg text-gray-700 leading-relaxed mb-4 2xl:mb-8">
-          {displayMilestone.id == 4 ? "" : displayMilestone.keyword}
-        </div>
+        {displayMilestone.id == 4 ? null : (
+          <div className="text-sm 2xl:text-base text-gray-700 leading-relaxed mb-4">{displayMilestone.keyword}</div>
+        )}
 
         {/* summary */}
         {/* <div className="text-sm text-gray-600 mb-6 leading-relaxed">{displayMilestone.summary}</div> */}
 
         {/* Key Achievements */}
         {
-          <div className="w-full 2xl:mb-2 mb-0">
+          <div className="w-full">
             {/* <h3 className="text-base font-bold mb-3 text-gray-800">Key Achievements</h3> */}
             <div className="space-y-3">
               {displayMilestone.keyAchievements.map((achievement, index) => (
                 <div key={index}>
-                  <div className="text-sm lg:text-base 2xl:text-lg font-semibold text-gray-800 mb-1">
-                    • {achievement.point}
-                  </div>
-                  <div className="text-xs lg:text-sm 2xl:text-base lg:text-[14px] text-gray-600 leading-relaxed pl-4">
+                  <div className="text-sm 2xl:text-base font-semibold text-gray-800 mb-1">• {achievement.point}</div>
+                  <div className="text-xs 2xl:text-sm text-gray-600 leading-relaxed pl-2 2xl:pl-3">
                     {achievement.description}
                   </div>
-                  <div className="text-xs lg:text-sm 2xl:text-base lg:text-[14px] text-gray-600 leading-relaxed pl-4">
+                  <div className="text-xs  text-gray-600 leading-relaxed pl-4 ">
                     {achievement.etc && (
                       <a className="underline italic" href={achievement.etc} target="_blank" rel="noopener noreferrer">
                         {achievement.etc}
@@ -90,13 +90,10 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
         {/* Tech Stack */}
         {displayMilestone.techStack && displayMilestone.techStack.length > 0 && (
           <div className="w-full mt-4">
-            <h3 className="text-sm 2xl:text-base font-bold mb-2 2xl:mb-3 text-gray-800">기술 스택</h3>
+            <h3 className="text-sm font-bold mb-2 2xl:mb-3 text-gray-800">기술 스택</h3>
             <div className="flex flex-wrap gap-2">
               {displayMilestone.techStack.map((tech, index) => (
-                <span
-                  key={index}
-                  className="text-xs 2xl:text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-medium"
-                >
+                <span key={index} className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-medium">
                   {tech}
                 </span>
               ))}

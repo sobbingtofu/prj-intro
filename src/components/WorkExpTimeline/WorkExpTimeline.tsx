@@ -22,7 +22,7 @@ function WorkExpTimeline({
   return (
     <>
       {/* Timeline Container */}
-      <div className="w-[80%] md:px-8 px-0 mt-[12vh]">
+      <div className="w-[65vw] xl:w-[80vw] md:px-8 px-0 mt-[12vh]">
         {/* Horizontal Line Wrapper */}
         <div className="relative w-full">
           {/* Horizontal Line 애니메이션용 */}
@@ -45,8 +45,8 @@ function WorkExpTimeline({
                 >
                   {/* duration*/}
                   <div
-                    className={`absolute bottom-4 left-1/2 -translate-x-1/2 text-center font-medium
-                      lg:text-[13px] md:text-[11px] text-[9px] transition-colors duration-300
+                    className={`absolute bottom-4 left-1/2 -translate-x-1/2 text-center
+                      lg:text-[12px] md:text-[11px] text-[9px] transition-colors duration-300
                       ${
                         selectedMilestoneId === milestone.id ? "text-black" : "text-gray-400 group-hover:text-gray-700"
                       }`}
@@ -71,8 +71,8 @@ function WorkExpTimeline({
                   />
                   {/* milestone name*/}
                   <div
-                    className={`absolute pt-14 lg:pt-18 left-1/2 -translate-x-1/2 text-center font-bold
-                      lg:text-[15px] md:text-[12px] text-[10px] transition-colors duration-300
+                    className={`absolute pt-14 lg:pt-15 left-1/2 -translate-x-1/2 text-center font-bold
+                      lg:text-[13px] md:text-[12px] text-[10px] transition-colors duration-300
                       ${
                         selectedMilestoneId === milestone.id ? "text-black" : "text-gray-400 group-hover:text-gray-700"
                       }`}
