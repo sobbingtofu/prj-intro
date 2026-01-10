@@ -10,21 +10,21 @@ function WorkExperienceSection() {
   const [animateWorkExpCard, setAnimateWorkExpCard] = useState<boolean>(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const sectionRef = useRef<HTMLDivElement>(null!);
+  const workExpSectionRef = useRef<HTMLDivElement>(null!);
 
   useAnimateWorkExpSection({
     animateTimeLine,
     setAnimateTimeLine,
     setSelectedMilestoneId,
     setAnimateWorkExpCard,
-    sectionRef,
+    sectionRef: workExpSectionRef,
   });
 
   const selectedMileStone = MILESTONES.find((milestone) => milestone.id === selectedMilestoneId) || MILESTONES[0];
 
   return (
     <section
-      ref={sectionRef}
+      ref={workExpSectionRef}
       id="WorkExperienceSection"
       className="w-full h-screen max-h-[1800px] max-w-[3600px] min-w-[350px]
       bg-white flex flex-col xl:justify-start sm:justify-start justify-center items-center overflow-y-auto"

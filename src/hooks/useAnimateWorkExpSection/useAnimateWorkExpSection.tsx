@@ -18,7 +18,7 @@ function useAnimateWorkExpSection({
   const workeExpCardAnimateDelayTimer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    const workExpSectionObserver = new IntersectionObserver(
       ([entry]) => {
         // console.log("WorkExpSection IntersectionObserver entry:", entry);
         if (entry.isIntersecting) {
@@ -38,15 +38,15 @@ function useAnimateWorkExpSection({
       }
     );
 
-    const currentElement = sectionRef.current;
+    const currentSection = sectionRef.current;
 
-    if (currentElement) {
-      observer.observe(currentElement);
+    if (currentSection) {
+      workExpSectionObserver.observe(currentSection);
     }
 
     return () => {
-      if (currentElement) {
-        observer.unobserve(currentElement);
+      if (currentSection) {
+        workExpSectionObserver.unobserve(currentSection);
       }
     };
   }, [animateTimeLine, sectionRef, setAnimateTimeLine, setAnimateWorkExpCard, setSelectedMilestoneId]);

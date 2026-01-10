@@ -1,7 +1,11 @@
 import useSkillCardCarousel from "@/src/hooks/useSkillCardCarousel/useSkillCardCarousel";
 import {SKILL_CARDS} from "@/src/store/constantStore";
 
-function SkillStackCardContainer() {
+interface SkillStackCardContainerProps {
+  animateSkillStackArea?: boolean;
+}
+
+function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCardContainerProps) {
   const {
     activeCardIndex,
     handleTouchStart,
@@ -22,7 +26,12 @@ function SkillStackCardContainer() {
         md:mt-8 mt-3 min-h-[240px]
         "
     >
-      <p className="w-full font-[700] md:text-left text-center md:text-xl text-[14px] sm:mt-0 mt-2 ">{"Tech Stack"}</p>
+      <p
+        className={`w-full font-[700] md:text-left text-center md:text-xl text-[14px] sm:mt-0 mt-2
+          transition-all duration-250 ease-out
+          ${animateSkillStackArea ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}
+          `}
+      >{`Tech Stack`}</p>
 
       {/* sm 이상: 기존 그리드 레이아웃 */}
       <div
@@ -32,7 +41,12 @@ function SkillStackCardContainer() {
         {SKILL_CARDS.map((card, index) => (
           <div
             key={index}
-            className="flex-1 rounded-xl border border-gray-100 bg-white md:p-6 p-4 shadow-sm transition-shadow hover:shadow-md"
+            className={`flex-1 rounded-xl border border-gray-100 bg-white md:p-6 p-4 shadow-sm hover:shadow-md
+              transition-all duration-500 ease-out
+              ${animateSkillStackArea ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+            style={{
+              transitionDelay: animateSkillStackArea ? `${200 + index * 150}ms` : "0ms",
+            }}
           >
             <h3 className="xl:mb-3 mb-1.5 xl:text-lg font-bold ">{card.title}</h3>
             <ul className="space-y-2 text-[12px] xl:text-sm text-text-secondary text-gray-700">

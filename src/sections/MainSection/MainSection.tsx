@@ -1,9 +1,94 @@
 "use client";
 import SkillStackCardContainer from "@/src/components/SkillStackCardContainer/SkillStackCardContainer";
+import {useEffect, useRef, useState} from "react";
 
 function MainSection() {
+  const mainSectionRef = useRef<HTMLDivElement>(null!);
+
+  const [animateTextArea, setAnimateTextArea] = useState<boolean>(false);
+  const [animateImageArea, setAnimateImageArea] = useState<boolean>(false);
+  const [animateSkillStackArea, setAnimateSkillStackArea] = useState<boolean>(false);
+
+  const imageAreaAnimateDelayTimer = useRef<NodeJS.Timeout | null>(null);
+  const skillStackAreaTimer = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const mainSectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            setAnimateTextArea(true);
+          }, 400);
+        } else if (!entry.isIntersecting) {
+          if (imageAreaAnimateDelayTimer.current) {
+            clearTimeout(imageAreaAnimateDelayTimer.current);
+            imageAreaAnimateDelayTimer.current = null;
+          }
+          if (skillStackAreaTimer.current) {
+            clearTimeout(skillStackAreaTimer.current);
+            skillStackAreaTimer.current = null;
+          }
+          setAnimateTextArea(false);
+          setAnimateImageArea(false);
+          setAnimateSkillStackArea(false);
+        }
+      },
+      {
+        threshold: [0.8],
+      }
+    );
+
+    const currentSection = mainSectionRef.current;
+
+    if (currentSection) {
+      mainSectionObserver.observe(currentSection);
+    }
+
+    return () => {
+      if (currentSection) {
+        mainSectionObserver.unobserve(currentSection);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (animateTextArea) {
+      imageAreaAnimateDelayTimer.current = setTimeout(() => {
+        setAnimateImageArea(true);
+      }, 150);
+    } else {
+      if (imageAreaAnimateDelayTimer.current) {
+        clearTimeout(imageAreaAnimateDelayTimer.current);
+        imageAreaAnimateDelayTimer.current = null;
+      }
+    }
+
+    return () => {
+      if (imageAreaAnimateDelayTimer.current) {
+        clearTimeout(imageAreaAnimateDelayTimer.current);
+        imageAreaAnimateDelayTimer.current = null;
+      }
+    };
+  }, [animateTextArea]);
+
+  useEffect(() => {
+    if (animateImageArea) {
+      skillStackAreaTimer.current = setTimeout(() => {
+        setAnimateSkillStackArea(true);
+      }, 350);
+    }
+
+    return () => {
+      if (skillStackAreaTimer.current) {
+        clearTimeout(skillStackAreaTimer.current);
+        skillStackAreaTimer.current = null;
+      }
+    };
+  }, [animateImageArea]);
+
   return (
     <section
+      ref={mainSectionRef}
       id="MainSection"
       className="w-full h-screen max-h-[1800px] max-w-[3600px] min-w-[350px]
       xl:pt-0 lg:pt-[60px] sm:pt-[100px] pt-[20px]
@@ -20,8 +105,10 @@ function MainSection() {
       >
         {/* 텍스트 영역 */}
         <div
-          className="border border-green-500 lg:w-[80%] w-full
-          flex flex-col items-start sm:gap-y-4 gap-y-3"
+          className={`border border-green-500 lg:w-[80%] w-full
+          flex flex-col items-start sm:gap-y-4 gap-y-3
+          transition-all duration-700 ease-out
+          ${animateTextArea ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
         >
           <div>
             {/* 키워드 */}
@@ -105,8 +192,10 @@ function MainSection() {
 
         {/* 이미지+그림자 영역 */}
         <div
-          className="relative shrink-0 border border-blue-500
-          sm:w-[25%] sm:h-auto sm:aspect-auto w-auto flex justify-center items-center"
+          className={`relative shrink-0 border border-blue-500
+          sm:w-[25%] sm:h-auto sm:aspect-auto w-auto flex justify-center items-center
+          transition-all duration-700 ease-out
+          ${animateImageArea ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <div
             className="sm:w-full w-auto sm:h-auto min-h-[100px] h-[20vh] max-w-[210px]
@@ -125,7 +214,7 @@ function MainSection() {
       </div>
 
       {/* 기술 스택 영역 */}
-      <SkillStackCardContainer />
+      <SkillStackCardContainer animateSkillStackArea={animateSkillStackArea} />
     </section>
   );
 }
