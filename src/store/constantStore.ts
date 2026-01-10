@@ -95,7 +95,7 @@ export const MILESTONES: experienceMilestoneType[] = [
           "산재된 정량적·정성적 데이터의 구조화 및 시각화 통해 의사결정을 위한 핵심 인사이트 도출 및 전략 보고서 작성",
       },
     ],
-    coreSkills: ["Logical Structuring", "Problem Solving", "Data Analysis", "Strategy Formulation"],
+    coreSkills: ["Logical Structuring", "Problem Solving", "Strategy Formulation", "Data Analysis"],
   },
   {
     id: 3,
@@ -123,7 +123,7 @@ export const MILESTONES: experienceMilestoneType[] = [
       {
         point: "투자 인사이트 도출 및 의사결정 프로세스 참여",
         description:
-          "다양한 도메인의 서비스 분석을 통해 성공하는 프로덕트의 요건과 리스크 관리 방안을 학습하고 투자 인사이트 도출 과정 기여",
+          "다양한 도메인의 서비스 분석을 통해 프로덕트의 성공 요건과 리스크 관리 방안 등 투자 인사이트 도출 과정에 기여",
       },
     ],
     coreSkills: [

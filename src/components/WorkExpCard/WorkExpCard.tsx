@@ -26,7 +26,7 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
 
   return (
     <div
-      className={`w-[95vw] sm:w-[65vw] xl:w-[80vw] min-w-[350px] sm:min-w-[400px]
+      className={`w-[85vw] sm:w-[65vw] xl:w-[80vw] min-w-[350px] sm:min-w-[400px]
         h-[450px] sm:h-[460px] 2xl:h-[500px] mb-3 
         px-4 py-4 sm:px-10 sm:py-6
         sm:mt-20 mt-16 transition-all duration-500 ease-in-out
@@ -103,11 +103,11 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
         {displayMilestone.techStack && displayMilestone.techStack.length > 0 && (
           <div className="w-full mt-4">
             <h3 className="text-[13px] sm:text-sm font-bold mb-2 2xl:mb-3 text-gray-800">기술 스택</h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap sm:gap-2 gap-2">
               {displayMilestone.techStack.map((tech, index) => (
                 <span
                   key={index}
-                  className="text-[11px] sm:text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-medium"
+                  className="text-[11px] sm:text-xs bg-blue-100 text-blue-700 sm:px-3 px-2 py-1 rounded-full font-medium"
                 >
                   {tech}
                 </span>
@@ -120,11 +120,11 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
         {displayMilestone.coreSkills && displayMilestone.coreSkills.length > 0 && (
           <div className="w-full mt-4">
             <h3 className="text-[13px] sm:text-sm font-bold mb-2 text-gray-800">핵심 역량</h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap sm:gap-2 gap-1">
               {displayMilestone.coreSkills.map((skill, index) => (
                 <span
                   key={index}
-                  className="text-[11px] sm:text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium"
+                  className="text-[11px] sm:text-xs bg-green-100 text-green-700 sm:px-3 px-2 py-1 rounded-full font-medium"
                 >
                   {skill}
                 </span>
