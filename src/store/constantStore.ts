@@ -78,18 +78,16 @@ export const MILESTONES: experienceMilestoneType[] = [
     keyAchievements: [
       {
         point: "신사업 기획 및 사업 확장 전략 수립",
-        description:
-          "다양한 산업군의 시장 동향 및 경쟁사, 고객사 기보유 역량 분석하여 신규 비즈니스 모델(BM)을 기획하고, 구체적인 시장 진입 전략 도출",
+        description: "시장 동향 및 경쟁사, 기보유 역량 분석하여 신규 BM을 기획하고 구체적인 시장 진입 전략 도출",
       },
       {
-        point: "M&A 및 IPO 대상 기업의 CDD 수행",
+        point: "M&A 및 IPO 대상 기업 CDD 수행",
         description:
-          "기업 인수 및 상장을 위한 사업 실사(Commercial Due Diligence) 프로젝트에 참여하여 사업타당성, 잠재성 및 리스크 정밀 분석",
+          "기업 인수 및 상장을 위한 Commercial Due Diligence에 참여하여 사업타당성, 잠재성 및 리스크 정밀 분석",
       },
       {
         point: "프로젝트 RFP 분석 및 제안서 작성",
-        description:
-          "고객사 제안요청서(RFP)를 분석해 핵심 아젠다를 도출하고 논리적인 해결책을 제시하는 제안서 작성을 통해 다수의 프로젝트 수주에 기여",
+        description: "제안요청서(RFP) 및 시장 분석 통해 핵심 아젠다를 도출하고 논리적인 해결책을 제시하는 제안서 작성",
       },
       {
         point: "비즈니스 데이터 구조화 및 인사이트 도출",
@@ -97,7 +95,7 @@ export const MILESTONES: experienceMilestoneType[] = [
           "산재된 정량적·정성적 데이터의 구조화 및 시각화 통해 의사결정을 위한 핵심 인사이트 도출 및 전략 보고서 작성",
       },
     ],
-    coreSkills: ["Logical Thinking & Problem Solving", "Data Analysis", "Strategic Planning"],
+    coreSkills: ["Logical Structuring", "Problem Solving", "Data Analysis", "Strategy Formulation"],
   },
   {
     id: 3,
@@ -128,7 +126,12 @@ export const MILESTONES: experienceMilestoneType[] = [
           "다양한 도메인의 서비스 분석을 통해 성공하는 프로덕트의 요건과 리스크 관리 방안을 학습하고 투자 인사이트 도출 과정 기여",
       },
     ],
-    coreSkills: ["Start-up", "Product Analysis", "Industry Trend"],
+    coreSkills: [
+      "Industry & Tech Analysis",
+      "Market Research",
+      "Market-Centric Insight Generation",
+      "Product Analysis",
+    ],
   },
   {
     id: 4,
@@ -141,7 +144,7 @@ export const MILESTONES: experienceMilestoneType[] = [
     keyAchievements: [
       {
         point: "연세대학교 졸업",
-        description: "언더우드 국제대학(Underwood International College) - 기술경영(CTM), 정보디자인(IID) 복수전공",
+        description: "국제학부(UIC) - 기술경영(CTM), 정보디자인(IID) 복수전공",
       },
       {
         point: "센세이션 게임즈",
@@ -151,15 +154,15 @@ export const MILESTONES: experienceMilestoneType[] = [
       },
       {
         point: "인천스케일업챌린지",
-        description: "[조사 연구원] 스타트업 프로덕트 사용자 경험 연구 등 육성 프로그램 운영 지원",
+        description: "[조사 연구원] 프로덕트 UX 연구 및 육성 프로그램 운영 지원",
       },
       {
         point: "주식회사 이쿠얼키",
-        description: "[콘텐츠팀 인턴] 교육 컨텐츠 제작 지원 및 프로덕트 QA 보조 업무 수행",
+        description: "[콘텐츠팀 인턴] 교육 컨텐츠 제작 및 프로덕트 QA 업무 수행",
       },
       {
         point: "주식회사 BAEWUJA",
-        description: "[주니어 영상 편집자] 영상 콘텐츠 제작 위한 편집 및 후반 작업 지원",
+        description: "[영상 편집자] 교육 영상 컨텐츠 편집 및 후반 처리 작업 지원",
       },
       {
         point: "코스모스 악기",

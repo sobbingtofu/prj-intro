@@ -30,7 +30,7 @@ function WorkExperienceSection() {
       bg-white flex flex-col xl:justify-start sm:justify-start justify-center items-center overflow-y-auto
       "
     >
-      <div className="flex flex-col items-center flex-shrink-0">
+      <div className="flex flex-col items-center flex-shrink-0 h-full">
         <WorkExpTimeline
           selectedMilestoneId={selectedMilestoneId}
           setSelectedMilestoneId={setSelectedMilestoneId}
