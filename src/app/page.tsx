@@ -8,6 +8,7 @@ import MainSection from "../sections/MainSection/MainSection";
 import {SECTIONS} from "../store/constantStore";
 import {useSwipeSection} from "../hooks/useApplySwipeEffect/useApplySwipeEffect";
 import WorkExperienceSection from "../sections/WorkExperienceSection/WorkExperienceSection";
+import ProjectSection from "../sections/ProjectSection/ProjectSection";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,6 +55,7 @@ export default function Home() {
       >
         <MainSection />
         <WorkExperienceSection />
+        <ProjectSection />
       </div>
     </div>
   );

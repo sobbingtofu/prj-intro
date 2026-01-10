@@ -3,6 +3,7 @@ import {experienceMilestoneType} from "./constantStoreType";
 export const SECTIONS = [
   {id: 0, name: "main"},
   {id: 1, name: "workExperience"},
+  {id: 2, name: "project"},
 ];
 
 export const SKILL_CARDS = [

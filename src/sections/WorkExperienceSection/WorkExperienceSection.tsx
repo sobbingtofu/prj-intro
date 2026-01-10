@@ -27,8 +27,7 @@ function WorkExperienceSection() {
       ref={sectionRef}
       id="WorkExperienceSection"
       className="w-full h-screen max-h-[1800px] max-w-[3600px] min-w-[350px]
-      bg-white flex flex-col xl:justify-start sm:justify-start justify-center items-center overflow-y-auto
-      "
+      bg-white flex flex-col xl:justify-start sm:justify-start justify-center items-center overflow-y-auto"
     >
       <div className="flex flex-col items-center flex-shrink-0 h-full">
         <WorkExpTimeline
