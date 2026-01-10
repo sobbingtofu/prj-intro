@@ -50,7 +50,7 @@ export const MILESTONES: experienceMilestoneType[] = [
       {
         point: "Technical PM",
         description:
-          "고객사 RFP 분석을 통한 솔루션 제안서 작성 및 기능설계서 정의. WBS 기반의 일정 관리로 프로젝트 리딩",
+          "고객사 RFP 분석을 통한 솔루션 제안서 작성 및 기능설계서 정의, WBS 기반의 일정 관리 및 프로젝트 리딩",
       },
       {
         point: "Solution Add-on 개발",
