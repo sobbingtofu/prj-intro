@@ -22,13 +22,16 @@ function WorkExpTimeline({
   return (
     <>
       {/* Timeline Container */}
-      <div className="w-[75vw] sm:w-[65vw] xl:w-[80vw] md:px-8 px-0 mt-[14vh] sm:mt-[12vh]">
+      <div className="w-[75vw] sm:w-[65vw] xl:w-[80vw] md:px-8 px-0 mt-[14vh] sm:mt-[9vh]">
         {/* Horizontal Line Wrapper */}
         <div className="relative w-full">
           {/* Horizontal Line 애니메이션용 */}
           <div
             className={`absolute w-full h-0.5 bg-prime-gray transition-transform duration-600 ease-out origin-right
               ${animateTimeLine ? "scale-x-100" : "scale-x-0"}`}
+            style={{
+              transitionDelay: "600ms",
+            }}
           />
           {/* Timeline Points*/}
           <div className="relative w-full h-0.5">
@@ -40,7 +43,7 @@ function WorkExpTimeline({
                   className={`relative flex items-center cursor-pointer group transition-all duration-400
                     ${animateTimeLine ? "opacity-100 " : "opacity-0 "}`}
                   style={{
-                    transitionDelay: animateTimeLine ? `${600 + (MILESTONES.length - 1 - index) * 200}ms` : "0ms",
+                    transitionDelay: animateTimeLine ? `${1200 + (MILESTONES.length - 1 - index) * 250}ms` : "0ms",
                   }}
                 >
                   {/* duration*/}

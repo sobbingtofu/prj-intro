@@ -55,7 +55,7 @@ function useAnimateWorkExpSection({
     if (animateTimeLine) {
       workeExpCardAnimateDelayTimer.current = setTimeout(() => {
         setAnimateWorkExpCard(true);
-      }, 1400);
+      }, 2200);
     } else {
       if (workeExpCardAnimateDelayTimer.current) {
         clearTimeout(workeExpCardAnimateDelayTimer.current);

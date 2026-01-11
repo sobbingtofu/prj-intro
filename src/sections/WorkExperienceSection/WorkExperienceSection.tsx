@@ -30,6 +30,14 @@ function WorkExperienceSection() {
       bg-white flex flex-col xl:justify-start sm:justify-start justify-center items-center overflow-y-auto"
     >
       <div className="flex flex-col items-center flex-shrink-0 h-full">
+        <div className="w-[75vw] sm:w-[65vw] xl:w-[80vw] mt-[7vh]">
+          <h1
+            className={`font-bold md:text-xl text-[14px] transition-all duration-600 ease-out
+              ${animateTimeLine ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
+          >
+            Experience Overview
+          </h1>
+        </div>
         <WorkExpTimeline
           selectedMilestoneId={selectedMilestoneId}
           setSelectedMilestoneId={setSelectedMilestoneId}
