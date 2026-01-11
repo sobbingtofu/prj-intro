@@ -9,3 +9,19 @@ export interface experienceMilestoneType {
   techStack?: string[];
   coreSkills?: string[];
 }
+
+export interface projectType {
+  id: string;
+  title: string;
+  tagline: string;
+  description: string;
+  keyFeatures: {
+    point: string;
+    content: string;
+  }[];
+  techStack: string[];
+  links: {
+    github: string;
+    demo: string;
+  };
+}

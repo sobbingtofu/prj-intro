@@ -1,4 +1,4 @@
-import {experienceMilestoneType} from "./constantStoreType";
+import {experienceMilestoneType, projectType} from "./constantStoreType";
 
 export const SECTIONS = [
   {id: 0, name: "main"},
@@ -170,5 +170,110 @@ export const MILESTONES: experienceMilestoneType[] = [
         description: "[콘텐츠팀 인턴] 온/오프라인 마케팅 콘텐츠 제작 지원",
       },
     ],
+  },
+];
+
+export const PROJECTS: projectType[] = [
+  {
+    id: "eevee-wiki",
+    title: "EEVEE WIKI (이브이 위키)",
+    tagline: "실전 포켓몬 트레이너를 위한 고성능 데이터 사전",
+    description:
+      "방대한 데이터를 IndexedDB로 최적화하고, 기존 서비스에 없는 '다중 기술 조합 검색' 기능을 구현하여 실전 배틀 유저에게 최적화된 가치를 제공합니다.",
+    keyFeatures: [
+      {
+        point: "데이터 가공 및 파이프라인 구축",
+        content:
+          "PokeAPI의 방대한 원천 데이터(Raw Data)를 수집한 후, 서비스의 검색 및 필터링 요구사항에 최적화된 형태로 가공·정규화하여 데이터 활용도를 극대화했습니다.",
+      },
+      {
+        point: "고성능 클라이언트 캐싱",
+        content:
+          "가공된 데이터를 IndexedDB에 로컬 저장하여 네트워크 비용을 최소화하고, 재방문 시 즉각적인 데이터 응답이 가능한 환경을 구현했습니다.",
+      },
+      {
+        point: "동적 데이터 확장 및 크롤링",
+        content:
+          "Next.js API Route와 Cheerio를 활용해 기술 이미지 등 부족한 시각 정보를 실시간으로 보완하여 사용자에게 풍부한 경험을 제공합니다.",
+      },
+      {
+        point: "기기 최적화 인터렉티브 UI",
+        content:
+          "데스크탑의 분할 화면(Split View)과 모바일의 바텀 시트 UI를 통해 기기별 최적화된 검색 경험을 설계했습니다.",
+      },
+    ],
+    techStack: ["Next.js", "TypeScript", "Zustand", "Tanstack Query", "IndexedDB", "Tailwind CSS"],
+    links: {
+      github: "https://github.com/sobbingtofu/prjPokeMoveWiki",
+      demo: "https://eevee-wiki.vercel.app",
+    },
+  },
+  {
+    id: "run-pikachu",
+    title: "Run Pikachu! (달려라 피카츄!)",
+    tagline: "React로 구현한 물리 기반 횡스크롤 러닝 액션 게임",
+    description:
+      "별도의 게임 엔진 없이 React의 상태관리 만으로 사실적인 게임 엔진을 구현하고 Supabase 기반 실시간 점수 공유 시스템을 구축했습니다.",
+    keyFeatures: [
+      {
+        point: "물리 엔진 기반 액션 구현",
+        content:
+          "중력 가속도 및 더블 점프 로직을 프레임 단위로 계산하고, 에셋 프리로딩을 통해 끊김 없는 부드러운 플레이를 보장했습니다.",
+      },
+      {
+        point: "실시간 충돌 감지 최적화",
+        content:
+          "리렌더링 부하를 줄이기 위해 Map 객체로 좌표를 관리하고, 정밀한 히트박스 설계를 통해 유연한 충돌 판정 시스템을 구축했습니다.",
+      },
+      {
+        point: "동적 난이도 조절 시스템",
+        content:
+          "가중치 기반 랜덤 생성 알고리즘과 시간에 따른 가변 속도감을 적용하여 점진적으로 몰입감을 높이는 게임 환경을 설계했습니다.",
+      },
+      {
+        point: "Supabase 연동 랭킹 시스템",
+        content:
+          "Supabase 실시간 DB 연동으로 플레이어 기록의 영속성을 보장하고, 상위 랭커 스코어를 즉각 반영하는 시스템을 구현했습니다.",
+      },
+    ],
+    techStack: ["React", "TypeScript", "Zustand", "Supabase", "Vite"],
+    links: {
+      github: "https://github.com/sobbingtofu/runPikachu",
+      demo: "https://run-pikachu.vercel.app/",
+    },
+  },
+  {
+    id: "mio-nana",
+    title: "Mio & Nana",
+    tagline: "브랜드 아이덴티티를 담은 인터랙티브 카페 홈페이지",
+    description:
+      "카페의 무드를 시각적으로 전달하기 위해 섹션 기반의 매끄러운 화면 전환과 다국어 지원, 외부 지도 API 연동 등을 구현한 반응형 SPA입니다.",
+    keyFeatures: [
+      {
+        point: "섹션 내비게이션 정밀 제어",
+        content:
+          "데스크탑 스크롤과 모바일 터치 스와이프 이벤트를 최적화하여 접속 기기별 매끄러운 섹션 전환 경험을 구축했습니다.",
+      },
+      {
+        point: "다국어 지원 및 상태 관리",
+        content:
+          "Zustand를 통해 다국어 상태를 전역 관리하고, 메뉴 카테고리별 동적 필터링을 구현하여 정보 접근성을 높였습니다.",
+      },
+      {
+        point: "외부 API 및 편의 기능 연동",
+        content:
+          "카카오맵 API 연동을 통한 위치 정보 제공과 주소 복사, 루프탑 갤러리 슬라이드쇼 등 사용자 편의 기능을 구현했습니다.",
+      },
+      {
+        point: "반응형 레이아웃 최적화",
+        content:
+          "Tailwind CSS 4를 활용하여 다양한 해상도에서도 브랜드 이미지가 왜곡 없이 일관되게 유지되도록 설계했습니다.",
+      },
+    ],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "Kakao Map API"],
+    links: {
+      github: "https://github.com/sobbingtofu/prj-cafe-mionana",
+      demo: "https://mionana.vercel.app/",
+    },
   },
 ];
