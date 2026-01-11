@@ -27,10 +27,11 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
   return (
     <div
       className={`w-[85vw] sm:w-[65vw] xl:w-[80vw] min-w-[350px] sm:min-w-[400px]
-        h-[450px] sm:h-[460px] 2xl:h-[500px] mb-3 
-        px-4 py-4 sm:px-10 sm:py-6
-        sm:mt-20 mt-16 transition-all duration-500 ease-in-out
+        h-[450px] sm:min-h-[460px] sm:h-[55vh] 2xl:min-h-[520px] mb-3 
+        px-4 py-4 sm:px-10 sm:py-6 2xl:px-12 2xl:py-8
+        sm:mt-20 mt-16 2xl:mt-24 transition-all duration-500 ease-in-out
         text-black bg-background rounded-2xl shadow-lg relative overflow-hidden sm:overflow-y-auto
+        scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent
         ${animateWorkExpCard ? "opacity-100" : "opacity-0"}
         `}
     >
@@ -42,15 +43,17 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
         `}
       >
         {/* name, duration */}
-        <div className="w-full flex justify-between sm:items-baseline items-center mb-1 2xl:mb-2">
+        <div className="w-full flex justify-between sm:items-start items-center mb-1 2xl:mb-2">
           {displayMilestone.id !== 2 ? (
-            <h1 className=" text-xl sm:text-3xl font-black">{displayMilestone.name.replace(/<br>/g, " ")}</h1>
+            <h1 className=" text-xl sm:text-3xl 2xl:text-4xl font-black">
+              {displayMilestone.name.replace(/<br>/g, " ")}
+            </h1>
           ) : (
-            <h1 className=" text-xl sm:text-3xl font-black">{"Nemo Partners SGC"}</h1>
+            <h1 className=" text-xl sm:text-3xl 2xl:text-4xl font-black">{"Nemo Partners SGC"}</h1>
           )}
           {displayMilestone.duration == "" ? null : (
             <div
-              className="text-[10px] sm:text-[11px] bg-gray-200
+              className="text-[10px] sm:text-[11px] 2xl:text-sm font-[500] bg-gray-200
               sm:px-4 sm:py-1 px-2 py-0.5 text-gray-700 rounded-[12px] whitespace-nowrap"
             >
               <p>{displayMilestone.duration.replace(/<br>/g, " ")}</p>

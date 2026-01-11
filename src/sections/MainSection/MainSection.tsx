@@ -1,90 +1,12 @@
 "use client";
 import SkillStackCardContainer from "@/src/components/SkillStackCardContainer/SkillStackCardContainer";
-import {useEffect, useRef, useState} from "react";
+import useAnimateMainSection from "@/src/hooks/useAnimateMainSection/useAnimateMainSection";
+import {useRef} from "react";
 
 function MainSection() {
   const mainSectionRef = useRef<HTMLDivElement>(null!);
 
-  const [animateTextArea, setAnimateTextArea] = useState<boolean>(false);
-  const [animateImageArea, setAnimateImageArea] = useState<boolean>(false);
-  const [animateSkillStackArea, setAnimateSkillStackArea] = useState<boolean>(false);
-
-  const imageAreaAnimateDelayTimer = useRef<NodeJS.Timeout | null>(null);
-  const skillStackAreaTimer = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    const mainSectionObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            setAnimateTextArea(true);
-          }, 400);
-        } else if (!entry.isIntersecting) {
-          if (imageAreaAnimateDelayTimer.current) {
-            clearTimeout(imageAreaAnimateDelayTimer.current);
-            imageAreaAnimateDelayTimer.current = null;
-          }
-          if (skillStackAreaTimer.current) {
-            clearTimeout(skillStackAreaTimer.current);
-            skillStackAreaTimer.current = null;
-          }
-          setAnimateTextArea(false);
-          setAnimateImageArea(false);
-          setAnimateSkillStackArea(false);
-        }
-      },
-      {
-        threshold: [0.8],
-      }
-    );
-
-    const currentSection = mainSectionRef.current;
-
-    if (currentSection) {
-      mainSectionObserver.observe(currentSection);
-    }
-
-    return () => {
-      if (currentSection) {
-        mainSectionObserver.unobserve(currentSection);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (animateTextArea) {
-      imageAreaAnimateDelayTimer.current = setTimeout(() => {
-        setAnimateImageArea(true);
-      }, 150);
-    } else {
-      if (imageAreaAnimateDelayTimer.current) {
-        clearTimeout(imageAreaAnimateDelayTimer.current);
-        imageAreaAnimateDelayTimer.current = null;
-      }
-    }
-
-    return () => {
-      if (imageAreaAnimateDelayTimer.current) {
-        clearTimeout(imageAreaAnimateDelayTimer.current);
-        imageAreaAnimateDelayTimer.current = null;
-      }
-    };
-  }, [animateTextArea]);
-
-  useEffect(() => {
-    if (animateImageArea) {
-      skillStackAreaTimer.current = setTimeout(() => {
-        setAnimateSkillStackArea(true);
-      }, 350);
-    }
-
-    return () => {
-      if (skillStackAreaTimer.current) {
-        clearTimeout(skillStackAreaTimer.current);
-        skillStackAreaTimer.current = null;
-      }
-    };
-  }, [animateImageArea]);
+  const {animateTextArea, animateImageArea, animateSkillStackArea} = useAnimateMainSection({mainSectionRef});
 
   return (
     <section
