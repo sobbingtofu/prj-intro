@@ -19,9 +19,9 @@ function useAnimatePrjSection({
   useEffect(() => {
     const prjSectionObserver = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.intersectionRatio >= 0.8) {
           setAnimatePrjSectionTitle(true);
-        } else if (!entry.isIntersecting) {
+        } else if (entry.intersectionRatio <= 0) {
           if (prjCardAnimateDelayTimer.current) {
             clearTimeout(prjCardAnimateDelayTimer.current);
             prjCardAnimateDelayTimer.current = null;
@@ -31,7 +31,7 @@ function useAnimatePrjSection({
         }
       },
       {
-        threshold: [0.8],
+        threshold: [0, 0.8],
       }
     );
 

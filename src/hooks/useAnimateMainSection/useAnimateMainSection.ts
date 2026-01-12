@@ -15,11 +15,11 @@ function useAnimateMainSection({mainSectionRef}: useAnimateMainSectionProps) {
   useEffect(() => {
     const mainSectionObserver = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.intersectionRatio >= 0.8) {
           setTimeout(() => {
             setAnimateTextArea(true);
           }, 400);
-        } else if (!entry.isIntersecting) {
+        } else if (entry.intersectionRatio <= 0) {
           if (imageAreaAnimateDelayTimer.current) {
             clearTimeout(imageAreaAnimateDelayTimer.current);
             imageAreaAnimateDelayTimer.current = null;
@@ -34,7 +34,7 @@ function useAnimateMainSection({mainSectionRef}: useAnimateMainSectionProps) {
         }
       },
       {
-        threshold: [0.8],
+        threshold: [0, 0.8],
       }
     );
 
