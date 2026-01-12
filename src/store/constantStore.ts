@@ -199,7 +199,7 @@ export const PROJECTS: projectType[] = [
         content: "데스크탑의 분할 화면(Split View)과 모바일의 바텀 시트 UI를 통해 기기별 최적화된 UI 레이아웃 구현",
       },
     ],
-    techStack: ["Next.js", "TypeScript", "Zustand", "Tanstack Query", "IndexedDB", "Tailwind CSS", "Cheerio"],
+    techStack: ["Next.js", "TypeScript", "Tanstack Query", "IndexedDB"],
     links: {
       github: "https://github.com/sobbingtofu/prjPokeMoveWiki",
       demo: "https://eevee-wiki.vercel.app",
@@ -213,14 +213,14 @@ export const PROJECTS: projectType[] = [
       "별도의 게임 엔진 없이 React의 상태관리 만으로 사실적인 게임 엔진을 구현하고 Supabase 기반 실시간 점수 공유 시스템을 구축했습니다.",
     keyFeatures: [
       {
-        point: "물리 엔진 기반 액션 구현",
+        point: "상태관리 및 프리로딩",
         content:
-          "중력 가속도 및 더블 점프 로직을 프레임 단위로 계산하고, 에셋 프리로딩을 통해 끊김 없는 부드러운 플레이 보장",
+          "더블 점프 및 장애물 생성 등 게임 물리 엔진 로직의 최적화 및 에셋 프리로딩을 통한 부드러운 플레이 보장",
       },
       {
         point: "실시간 충돌 감지 최적화",
         content:
-          "리렌더링 부하를 줄이기 위해 Map 객체로 좌표를 관리하고, 정밀한 히트박스 설계를 통해 유연한 충돌 판정 시스템을 구축",
+          "실시간 장애물 좌표의 Map 객체 관리 통한 리렌더링 부하 절감 및 정밀한 히트박스 설계를 활용해 정밀한 충돌 판정 시스템 구축",
       },
       {
         point: "동적 난이도 조절 시스템",
@@ -228,11 +228,10 @@ export const PROJECTS: projectType[] = [
       },
       {
         point: "Supabase 연동 랭킹 시스템",
-        content:
-          "Supabase 실시간 DB 연동으로 플레이어 기록 실시간 공유 및 상위 랭커 스코어를 즉각 반영하는 시스템을 구현",
+        content: "Supabase 연동으로 플레이어 기록 실시간 공유 및 상위 랭커 스코어를 즉각 반영하는 시스템을 구현",
       },
     ],
-    techStack: ["React", "TypeScript", "Zustand", "Supabase", "Vite"],
+    techStack: ["Vite(React)", "TypeScript", "Zustand", "Supabase"],
     links: {
       github: "https://github.com/sobbingtofu/runPikachu",
       demo: "https://run-pikachu.vercel.app/",
@@ -243,30 +242,27 @@ export const PROJECTS: projectType[] = [
     title: "Cafe Mio & Nana",
     tagline: "브랜드 아이덴티티를 담은 인터랙티브 카페 소개 웹 어플리케이션",
     description:
-      "매끄러운 섹션 전환과 다국어 지원, 지도 API 연동을 통해 브랜드 무드를 전달하고 카페 정보를 소개하는 인터랙티브 SPA입니다.",
+      "매끄러운 섹션 전환과 다국어 지원, 지도 API 연동을 통해 카페의 브랜드 무드를 전달하고 카페 정보를 소개하는 인터랙티브 SPA입니다.",
     keyFeatures: [
       {
         point: "직관적인 섹션 내비게이션",
-        content:
-          "데스크탑의 스크롤 동작과 모바일의 스와이프 동작 등 접속 기기별 직관적인 섹션 전환을 통해 사용자 경험 증대",
+        content: "데스크탑의 스크롤 동작과 모바일의 스와이프 동작 등 접속 기기별 직관적인 섹션 전환 사용자 경험 구현",
       },
       {
-        point: "다국어 지원 및 상태 관리",
-        content:
-          "Zustand를 통해 다국어 상태를 전역 관리하고, 메뉴 카테고리별 동적 필터링을 구현하여 정보 접근성을 높였습니다.",
+        point: "전역 상태 관리 활용 기능",
+        content: "Zustand를 통해 다국어 기능 및 메뉴 카테고리별 동적 필터링 기능 구현",
       },
       {
         point: "외부 API 및 편의 기능 연동",
-        content:
-          "카카오맵 API 연동을 통한 위치 정보 제공과 주소 복사, 루프탑 갤러리 슬라이드쇼 등 사용자 편의 기능을 구현했습니다.",
+        content: "카카오맵 연동을 통한 시각적 위치 정보 제공 및 주소 등 클립보드 복사 등 사용자 편의 기능 구현",
       },
       {
         point: "반응형 레이아웃 최적화",
         content:
-          "Tailwind CSS 4를 활용하여 다양한 해상도에서도 브랜드 이미지가 왜곡 없이 일관되게 유지되도록 설계했습니다.",
+          "Tailwind 활용해 다양한 해상도에서도 이미지 슬라이드쇼 및 지도 UI 등의 레이아웃과 브랜드 이미지가 왜곡 없이 일관되게 전달되도록 설계",
       },
     ],
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "Kakao Map API"],
+    techStack: ["Next.js", "TypeScript", "Zustand", "Kakao Map API"],
     links: {
       github: "https://github.com/sobbingtofu/prj-cafe-mionana",
       demo: "https://mionana.vercel.app/",

@@ -1,4 +1,5 @@
 import {projectType} from "@/src/store/constantStoreType";
+import {prjCardTextContainerRef} from "@/src/store/refStore";
 import {useEffect, useRef, useState} from "react";
 
 interface ProjectCardProps {
@@ -26,7 +27,7 @@ function ProjectCard({prj, selectedCardId, setSelectedCardId}: ProjectCardProps)
     if (isSelected) {
       showContentDelayTimer.current = setTimeout(() => {
         setShowContent(true);
-      }, 500);
+      }, 400);
       return () => clearTimeout(showContentDelayTimer.current!);
     } else {
       if (showContentDelayTimer.current) {
@@ -42,50 +43,44 @@ function ProjectCard({prj, selectedCardId, setSelectedCardId}: ProjectCardProps)
     <div
       key={prj.id}
       onClick={() => handleCardClick(prj.id)}
-      className={`bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-500 flex flex-col
-        h-[650px] min-w-[350px] hover:scale-105 select-none`}
+      className={`bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transition-all duration-400 flex flex-col
+        2xl:h-[610px] md:h-[500px]
+        2xl:flex-1 2xl:min-w-[385px] 2xl:max-w-[450px]
+        hover:scale-105 select-none`}
     >
       {/* 이미지 */}
-      <div className={`w-full bg-cyan-300 transition-all duration-300 ${isSelected ? "h-[20%]" : "h-[60%]"}`}></div>
+      <div
+        className={`w-full bg-cyan-300 transition-all duration-300 ${
+          isSelected ? "2xl:h-[23%] md:h-[18%]" : "2xl:h-[62%] md:h-[62%]"
+        }`}
+      ></div>
 
       {/* 내용물 */}
-      <div className="p-5 flex-grow overflow-hidden">
+      <div className="2xl:p-5 md:p-3 2xl:pb-2 md:pb-0 overflow-hidden">
         {/* 제목 */}
-        <h2 className="text-2xl font-bold mb-2">{prj.title}</h2>
+        <h2 className="2xl:text-2xl md:text-xl font-bold 2xl:mb-3 md:mb-2">{prj.title}</h2>
 
         {/* 설명 */}
-        <p className="text-[15px] text-gray-700 mb-4">{prj.description}</p>
+        <p className={`2xl:text-[15px] md:text-sm text-gray-700  ${showContent ? "mb-3" : "mb-0"}`}>
+          {prj.description}
+        </p>
 
         {/* 주요 기능 */}
         <div
-          className={`transition-all duration-500 ease-in-out ${
-            showContent ? "opacity-100 translate-x-0" : "opacity-0 translate-x-5"
-          }`}
+          className={`transition-all duration-500 ease-in-out 
+            ${showContent ? "opacity-100 translate-x-0" : "opacity-0 translate-x-5"}`}
         >
           {showContent && (
-            <ul className="space-y-2 mb-4">
+            <div
+              ref={prjCardTextContainerRef}
+              className="space-y-2.5 overflow-y-auto
+              2xl:h-[215px] md:h-[180px] scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-white pr-2 mb-2"
+            >
               {prj.keyFeatures.map((feature, idx) => (
-                <li key={idx} className="text-sm">
+                <div key={idx} className="2xl:text-sm md:text-sm">
                   <span className="font-medium text-gray-800">{feature.point}:</span>
                   <span className="text-gray-600 ml-1">{feature.content}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-
-        {/* 기술스택 */}
-        <div
-          className={`transition-all duration-500 ease-in-out delay-100 ${
-            showContent ? "opacity-100 translate-x-0" : "opacity-0 translate-x-5"
-          }`}
-        >
-          {showContent && (
-            <div className="flex flex-wrap gap-2">
-              {prj.techStack.map((tech, idx) => (
-                <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
-                  {tech}
-                </span>
+                </div>
               ))}
             </div>
           )}
@@ -93,7 +88,16 @@ function ProjectCard({prj, selectedCardId, setSelectedCardId}: ProjectCardProps)
       </div>
 
       {/* 버튼 */}
-      <div className="p-5 pt-0 mt-2">
+      <div className="2xl:p-5 md:p-3 2xl:pt-0 md:pt-0 mt-auto">
+        {/* 기술스택 */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {prj.techStack.map((tech, idx) => (
+            <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 2xl:text-[11px] md:text-[10px] rounded-full">
+              {tech}
+            </span>
+          ))}
+        </div>
+
         <div className={`flex gap-3`}>
           <a
             href={prj.links.github}
