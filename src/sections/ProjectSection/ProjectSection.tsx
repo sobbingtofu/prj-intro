@@ -1,3 +1,4 @@
+import ProjectCardContainer from "@/src/components/ProjectCardContainer/ProjectCardContainer";
 import ProjectCardContainerLg from "@/src/components/ProjectCardContainer/ProjectCardContainerLg";
 import useAnimatePrjSection from "@/src/hooks/useAnimatePrjSection/useAnimatePrjSection";
 import {useRef, useState} from "react";
@@ -37,6 +38,7 @@ function ProjectSection() {
         </div>
 
         <ProjectCardContainerLg animatePrjSectionCardsLg={animatePrjSectionCardsLg} />
+        <ProjectCardContainer animatePrjSectionCards={animatePrjSectionCardsLg} />
       </div>
     </section>
   );

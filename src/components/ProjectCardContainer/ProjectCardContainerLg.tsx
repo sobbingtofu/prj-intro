@@ -50,30 +50,27 @@ function ProjectCardContainerLg({animatePrjSectionCardsLg}: ProjectCardContainer
   }, [animatePrjSectionCardsLg]);
 
   return (
-    <>
-      {/* 1024 이상(lg 이상)에서만 보이는 애들 */}
-      <div
-        ref={containerRef}
-        className={`hidden lg:block p-4 pb-8 my-4
+    <div
+      ref={containerRef}
+      className={`hidden lg:block p-4 pb-8 my-4
         w-full overflow-x-auto overflow-y-${overflowY} 
         scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100`}
-      >
-        <div ref={containerRef} className="flex flex-row justify-between w-auto gap-[2%]">
-          {PROJECTS.map((prj, index) => {
-            return (
-              <ProjectCardLg
-                key={prj.id}
-                prj={prj}
-                selectedCardId={selectedCardId}
-                setSelectedCardId={setSelectedCardId}
-                animatePrjSectionCardsLg={animatePrjSectionCardsLg}
-                index={index}
-              />
-            );
-          })}
-        </div>
+    >
+      <div ref={containerRef} className="flex flex-row justify-between w-auto gap-[2%]">
+        {PROJECTS.map((prj, index) => {
+          return (
+            <ProjectCardLg
+              key={prj.id}
+              prj={prj}
+              selectedCardId={selectedCardId}
+              setSelectedCardId={setSelectedCardId}
+              animatePrjSectionCardsLg={animatePrjSectionCardsLg}
+              index={index}
+            />
+          );
+        })}
       </div>
-    </>
+    </div>
   );
 }
 
