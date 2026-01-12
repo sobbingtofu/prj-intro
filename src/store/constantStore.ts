@@ -204,6 +204,7 @@ export const PROJECTS: projectType[] = [
       github: "https://github.com/sobbingtofu/prjPokeMoveWiki",
       demo: "https://eevee-wiki.vercel.app",
     },
+    imageSrc: ["/img/eevee-wiki/01.JPG"],
   },
   {
     id: "run-pikachu",
@@ -236,6 +237,7 @@ export const PROJECTS: projectType[] = [
       github: "https://github.com/sobbingtofu/runPikachu",
       demo: "https://run-pikachu.vercel.app/",
     },
+    imageSrc: ["/img/run-pikachu/01.png"],
   },
   {
     id: "mio-nana",
@@ -267,5 +269,6 @@ export const PROJECTS: projectType[] = [
       github: "https://github.com/sobbingtofu/prj-cafe-mionana",
       demo: "https://mionana.vercel.app/",
     },
+    imageSrc: ["/img/cafe/01.png"],
   },
 ];

@@ -1,6 +1,7 @@
 import {projectType} from "@/src/store/constantStoreType";
 import {prjCardTextContainerRef} from "@/src/store/refStore";
 import {useEffect, useRef, useState} from "react";
+import Image from "next/image";
 
 interface ProjectCardLgProps {
   prj: projectType;
@@ -54,15 +55,27 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
     >
       <div
         onClick={() => handleCardClick(prj.id)}
-        className="w-full h-full bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 ease-out hover:scale-105 select-none flex flex-col"
+        className="w-full h-full bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer
+        transition-transform duration-300 ease-out hover:scale-105 select-none flex flex-col "
       >
         {/* 이미지 */}
         <div
-          className={`w-full bg-cyan-300 transition-all duration-300 ${
-            isSelected ? "2xl:h-[23%] lg:h-[18%]" : "2xl:h-[62%] lg:h-[62%]"
-          }`}
-        ></div>
-
+          className={`w-full rounded-t-lg h-auto bg-white pt-3 transition-all duration-300
+          ${isSelected ? "2xl:h-[23%] lg:h-[18%]" : "2xl:h-[62%] lg:h-[62%]"}`}
+        >
+          <div
+            className={`w-[93%] h-full mx-auto rounded-t-lg
+            relative overflow-hidden shadow-md`}
+          >
+            <Image
+              src={prj.imageSrc?.[0] || ""}
+              alt={prj.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 400px, 450px"
+            />
+          </div>
+        </div>
         {/* 내용물 */}
         <div className="2xl:p-5 lg:p-3 2xl:pb-2 lg:pb-0 overflow-hidden">
           {/* 제목 */}

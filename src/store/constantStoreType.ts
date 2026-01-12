@@ -24,4 +24,5 @@ export interface projectType {
     github: string;
     demo: string;
   };
+  imageSrc?: string[];
 }
