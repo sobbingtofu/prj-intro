@@ -54,7 +54,7 @@ function ProjectCardContainerLg({animatePrjSectionCardsLg}: ProjectCardContainer
       {/* 1024 이상(lg 이상)에서만 보이는 애들 */}
       <div
         ref={containerRef}
-        className={`hidden lg:block p-4 my-4
+        className={`hidden lg:block p-4 pb-8 my-4
         w-full overflow-x-auto overflow-y-${overflowY} 
         scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100`}
       >
