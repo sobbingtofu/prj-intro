@@ -1,10 +1,19 @@
-import ProjectCardContainer from "@/src/components/ProjectCardContainer/ProjectCardContainer";
+import ProjectCardContainerLg from "@/src/components/ProjectCardContainer/ProjectCardContainerLg";
+import useAnimatePrjSection from "@/src/hooks/useAnimatePrjSection/useAnimatePrjSection";
 import {useRef, useState} from "react";
 
 function ProjectSection() {
-  const projectSectionRef = useRef<HTMLElement>(null);
+  const projectSectionRef = useRef<HTMLDivElement>(null!);
 
-  const [animateProjectSectionTitle, setAnimateProjectSectionTitle] = useState<boolean>(true);
+  const [animatePrjSectionTitle, setAnimatePrjSectionTitle] = useState<boolean>(false);
+  const [animatePrjSectionCardsLg, setAnimatePrjSectionCardsLg] = useState<boolean>(false);
+
+  useAnimatePrjSection({
+    animatePrjSectionTitle,
+    setAnimatePrjSectionTitle,
+    sectionRef: projectSectionRef,
+    setAnimatePrjSectionCardsLg,
+  });
 
   return (
     <section
@@ -21,13 +30,13 @@ function ProjectSection() {
         <div className="mt-[10vh] w-full">
           <h1
             className={`font-bold text-xl transition-all duration-600 ease-out
-              ${animateProjectSectionTitle ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
+              ${animatePrjSectionTitle ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
           >
             {"Dev Projects"}
           </h1>
         </div>
 
-        <ProjectCardContainer />
+        <ProjectCardContainerLg animatePrjSectionCardsLg={animatePrjSectionCardsLg} />
       </div>
     </section>
   );
