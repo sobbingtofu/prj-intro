@@ -2,11 +2,11 @@ import {PROJECTS} from "@/src/store/constantStore";
 import {useState, useRef, useEffect} from "react";
 import ProjectCardLg from "../ProjectCard/ProjectCardLg";
 
-interface ProjectCardContainerLgProps {
+interface ProjectCardFlexContainerProps {
   animatePrjSectionCardsLg: boolean;
 }
 
-function ProjectCardContainerLg({animatePrjSectionCardsLg}: ProjectCardContainerLgProps) {
+function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexContainerProps) {
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -74,4 +74,4 @@ function ProjectCardContainerLg({animatePrjSectionCardsLg}: ProjectCardContainer
   );
 }
 
-export default ProjectCardContainerLg;
+export default ProjectCardFlexContainer;

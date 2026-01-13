@@ -1,5 +1,5 @@
-import ProjectCardContainer from "@/src/components/ProjectCardContainer/ProjectCardContainer";
-import ProjectCardContainerLg from "@/src/components/ProjectCardContainer/ProjectCardContainerLg";
+import ProjectAccordianContainer from "@/src/components/ProjectCardContainer/ProjectAccordianContainer";
+import ProjectCardFlexContainer from "@/src/components/ProjectCardContainer/ProjectCardFlexContainer";
 import useAnimatePrjSection from "@/src/hooks/useAnimatePrjSection/useAnimatePrjSection";
 import {useRef, useState} from "react";
 
@@ -37,8 +37,8 @@ function ProjectSection() {
           </h1>
         </div>
 
-        <ProjectCardContainerLg animatePrjSectionCardsLg={animatePrjSectionCardsLg} />
-        <ProjectCardContainer animatePrjSectionCards={animatePrjSectionCardsLg} />
+        <ProjectCardFlexContainer animatePrjSectionCardsLg={animatePrjSectionCardsLg} />
+        <ProjectAccordianContainer animatePrjSectionCards={animatePrjSectionCardsLg} />
       </div>
     </section>
   );

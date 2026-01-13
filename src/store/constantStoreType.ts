@@ -25,4 +25,5 @@ export interface projectType {
     demo: string;
   };
   imageSrc?: string[];
+  iconSrc?: string;
 }

@@ -205,6 +205,7 @@ export const PROJECTS: projectType[] = [
       demo: "https://eevee-wiki.vercel.app",
     },
     imageSrc: ["/img/eevee-wiki/01.JPG"],
+    iconSrc: "/icon/icon-eevee-wiki.png",
   },
   {
     id: "run-pikachu",
@@ -238,6 +239,7 @@ export const PROJECTS: projectType[] = [
       demo: "https://run-pikachu.vercel.app/",
     },
     imageSrc: ["/img/run-pikachu/01.png"],
+    iconSrc: "/icon/icon-run-pikachu.jpg",
   },
   {
     id: "mio-nana",
@@ -270,5 +272,6 @@ export const PROJECTS: projectType[] = [
       demo: "https://mionana.vercel.app/",
     },
     imageSrc: ["/img/cafe/01.png"],
+    iconSrc: "/icon/icon-cafe-mionana.png",
   },
 ];
