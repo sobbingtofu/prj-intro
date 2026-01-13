@@ -1,9 +1,9 @@
 import {projectType} from "@/src/store/constantStoreType";
-import {RefObject, SetStateAction, useLayoutEffect, useRef} from "react";
+import {RefObject, useLayoutEffect, useRef} from "react";
 
 interface UseAnimatePrjAccordianProps {
   accordianCardsMapRef: RefObject<Map<string, HTMLDivElement>>;
-  setSelectedCardId: (value: SetStateAction<string | null>) => void;
+  setSelectedCardId: (id: string | null) => void;
   orderedProjects: projectType[];
 }
 

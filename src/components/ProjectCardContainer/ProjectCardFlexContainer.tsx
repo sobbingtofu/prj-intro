@@ -1,13 +1,14 @@
 import {PROJECTS} from "@/src/store/constantStore";
-import {useState, useRef, useEffect} from "react";
+import {useRef, useEffect, useState} from "react";
 import ProjectCardLg from "../ProjectCard/ProjectCardLg";
+import zustandStore from "@/src/store/zustandStore";
 
 interface ProjectCardFlexContainerProps {
   animatePrjSectionCardsLg: boolean;
 }
 
 function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexContainerProps) {
-  const [selectedFlexCardId, setSelectedFlexCardId] = useState<string | null>(null);
+  const {selectedFlexCardId, setSelectedFlexCardId} = zustandStore();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [overflowY, setOverflowY] = useState<string>("hidden");
@@ -24,7 +25,7 @@ function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexCon
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [setSelectedFlexCardId]);
 
   useEffect(() => {
     if (animatePrjSectionCardsLg) {
@@ -39,6 +40,8 @@ function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexCon
       overflowYDelayTimer.current = setTimeout(() => {
         setOverflowY("hidden");
       }, 0);
+      // 섹션을 벗어날 때 선택된 카드 초기화
+      setSelectedFlexCardId(null);
     }
 
     return () => {
@@ -47,7 +50,7 @@ function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexCon
         overflowYDelayTimer.current = null;
       }
     };
-  }, [animatePrjSectionCardsLg]);
+  }, [animatePrjSectionCardsLg, setSelectedFlexCardId]);
 
   return (
     <div

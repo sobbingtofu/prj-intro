@@ -1,15 +1,15 @@
 import {PROJECTS} from "@/src/store/constantStore";
-import {useState, useRef, useEffect} from "react";
+import {useRef, useEffect} from "react";
 import useAnimatePrjAccordian from "@/src/hooks/useAnimatePrjAccordian/useAnimatePrjAccordian";
 import ProjectAccordianCard from "./ProjectAccordianCard";
+import zustandStore from "@/src/store/zustandStore";
 
 interface ProjectAccordianContainerProps {
   animatePrjSectionCards: boolean;
 }
 
 function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianContainerProps) {
-  const [selectedAccordianCardId, setSelectedAccordianCardId] = useState<string | null>(null);
-  const [orderedProjects, setOrderedProjects] = useState(PROJECTS);
+  const {selectedAccordianCardId, setSelectedAccordianCardId, orderedProjects, setOrderedProjects} = zustandStore();
 
   /** 아코디언 위치할 컨테이너 ref */
   const prjCardsContainerRef = useRef<HTMLDivElement>(null);
@@ -36,7 +36,15 @@ function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianCon
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [setSelectedAccordianCardId]);
+
+  useEffect(() => {
+    // 섹션을 벗어날 때 아코디언 카드 순서와 선택 상태 초기화
+    if (!animatePrjSectionCards) {
+      setSelectedAccordianCardId(null);
+      setOrderedProjects(PROJECTS);
+    }
+  }, [animatePrjSectionCards, setSelectedAccordianCardId, setOrderedProjects]);
 
   return (
     <div
@@ -53,7 +61,6 @@ function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianCon
             setSelectedCardId={setSelectedAccordianCardId}
             prevCardRectArr={prevCardRectArr}
             cardToOpenIdRef={cardToOpenIdRef}
-            setOrderedProjects={setOrderedProjects}
             prj={prj}
             index={index}
             animatePrjSectionCards={animatePrjSectionCards}

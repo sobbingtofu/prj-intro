@@ -1,7 +1,8 @@
 import {projectType} from "@/src/store/constantStoreType";
 import {canClickPrjCard, prjAccordianCardTextContainerRef} from "@/src/store/refStore";
 import Image from "next/image";
-import {RefObject, SetStateAction, useRef} from "react";
+import {RefObject, useRef} from "react";
+import zustandStore from "@/src/store/zustandStore";
 
 interface ProjectAccordianCardProps {
   prj: projectType;
@@ -12,7 +13,6 @@ interface ProjectAccordianCardProps {
   setSelectedCardId: (id: string | null) => void;
   prevCardRectArr: RefObject<Map<string, DOMRect>>;
   cardToOpenIdRef: RefObject<string | null>;
-  setOrderedProjects: (value: SetStateAction<projectType[]>) => void;
 }
 
 function ProjectAccordianCard({
@@ -24,8 +24,8 @@ function ProjectAccordianCard({
   setSelectedCardId,
   prevCardRectArr,
   cardToOpenIdRef,
-  setOrderedProjects,
 }: ProjectAccordianCardProps) {
+  const {setOrderedProjects} = zustandStore();
   const cardClickDelayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const cardClickDelay = 840; // ms
