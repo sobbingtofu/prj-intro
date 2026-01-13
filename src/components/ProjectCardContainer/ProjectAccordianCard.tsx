@@ -1,6 +1,7 @@
 import {projectType} from "@/src/store/constantStoreType";
+import {canClickPrjCard} from "@/src/store/refStore";
 import Image from "next/image";
-import {RefObject, SetStateAction} from "react";
+import {RefObject, SetStateAction, useRef} from "react";
 
 interface ProjectAccordianCardProps {
   prj: projectType;
@@ -25,9 +26,24 @@ function ProjectAccordianCard({
   cardToOpenIdRef,
   setOrderedProjects,
 }: ProjectAccordianCardProps) {
+  const cardClickDelayTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const cardClickDelay = 840; // ms
+
   const handleCardClick = (cardId: string) => {
+    if (!canClickPrjCard.current) return;
+
+    canClickPrjCard.current = false;
+
+    if (cardClickDelayTimerRef.current) {
+      clearTimeout(cardClickDelayTimerRef.current);
+    }
+
     if (selectedCardId === cardId) {
       setSelectedCardId(null);
+      cardClickDelayTimerRef.current = setTimeout(() => {
+        canClickPrjCard.current = true;
+      }, cardClickDelay);
     } else {
       // 현재 카드들의 위치 정보값을 "이전위치" Map 객체인 prevCardRectArr에 저장
       accordianCardsMapRef.current.forEach((cardHtmlElement, index) => {
@@ -44,6 +60,11 @@ function ProjectAccordianCard({
         const others = prev.filter((p) => p.id !== cardId);
         return [selectedPrj, ...others];
       });
+
+      cardClickDelayTimerRef.current = setTimeout(() => {
+        console.log("아코디언 카드 클릭 가능 상태로 변경");
+        canClickPrjCard.current = true;
+      }, cardClickDelay);
     }
   };
 
