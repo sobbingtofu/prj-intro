@@ -23,6 +23,8 @@ function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianCon
     orderedProjects,
   });
 
+  const isNoCardSelected = selectedCardId === null;
+
   useEffect(() => {
     /** 아코디언 컨테이너 외부 클릭 시 >> 카드 선택 해제 */
     const handleClickOutside = (event: MouseEvent) => {
@@ -37,7 +39,11 @@ function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianCon
   }, []);
 
   return (
-    <div ref={prjCardsContainerRef} className={`lg:hidden p-0 pb-8 my-4 w-full space-y-4`}>
+    <div
+      ref={prjCardsContainerRef}
+      className={`lg:hidden p-0 pb-8 my-4 w-full gap-y-4 flex flex-col max-h-[90vh] border transition-all duration-500 ease-in-out`}
+      style={{justifyContent: isNoCardSelected ? "flex-start" : "space-between"}}
+    >
       {orderedProjects.map((prj, index) => {
         return (
           <ProjectAccordianCard

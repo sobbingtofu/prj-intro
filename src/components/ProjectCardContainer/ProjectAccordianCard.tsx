@@ -95,7 +95,7 @@ function ProjectAccordianCard({
         <div
           className="flex items-center transition-all duration-500 ease-in-out"
           style={{
-            padding: isSelected ? "8px 12px" : "12px",
+            padding: isNoCardSelected ? "30px 12px" : isSelected ? "10px 12px" : "10px 12px",
           }}
         >
           <div
@@ -120,7 +120,7 @@ function ProjectAccordianCard({
           </div>
           <div className="flex-1">
             <h3
-              className="text-base font-bold mb-1 transition-all duration-500 ease-in-out"
+              className="text-base font-bold mb-2 transition-all duration-500 ease-in-out"
               style={{transitionDelay: headerDelay}}
             >
               {prj.title}
@@ -139,7 +139,7 @@ function ProjectAccordianCard({
           </div>
           <div className="flex-shrink-0 ml-4">
             <svg
-              className={`w-6 h-6 text-gray-500 transition-transform duration-300
+              className={`w-4 h-4 text-gray-500 transition-transform duration-300
                         ${isSelected ? "rotate-180" : ""}`}
               fill="none"
               stroke="currentColor"
@@ -153,12 +153,12 @@ function ProjectAccordianCard({
         {/* 확장되는 내용 (바디) */}
         <div
           className={`transition-all duration-500 ease-in-out overflow-hidden
-                    ${isSelected ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}
+                    ${isSelected ? "max-h-[52vh] opacity-100" : "max-h-0 opacity-0"}`}
           style={{transitionDelay: bodyDelay}}
         >
-          <div className="px-4 pb-4 space-y-4 border-t border-gray-200 pt-4">
-            {/* 이미지 갤러리 */}
-            <div className="relative w-full h-48 rounded-lg overflow-hidden shadow-md">
+          <div className="px-4 pb-4 space-y-4 pt-1">
+            {/* 이미지 */}
+            <div className="relative w-full h-40 rounded-lg overflow-hidden shadow-md">
               <Image
                 src={prj.imageSrc?.[0] || ""}
                 alt={prj.title}
@@ -168,13 +168,9 @@ function ProjectAccordianCard({
               />
             </div>
 
-            {/* 설명 */}
-            <p className="text-sm text-gray-700">{prj.description}</p>
-
             {/* 주요 기능 */}
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-gray-800">주요 기능</h4>
-              <div className="space-y-2 pl-2">
+              <div className="space-y-2 overflow-y-auto max-h-[18vh] pr-2 border-b border-gray-200 pb-2">
                 {prj.keyFeatures.map((feature, idx) => (
                   <div key={idx} className="text-sm">
                     <span className="font-medium text-gray-800">{feature.point}:</span>
@@ -186,11 +182,10 @@ function ProjectAccordianCard({
 
             {/* 기술스택 */}
             <div className="space-y-2">
-              <h4 className="text-sm font-semibold text-gray-800">기술 스택</h4>
               <div className="flex flex-wrap gap-2">
                 {prj.techStack.map((tech, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
-                    {tech}
+                  <span key={idx} className=" text-blue-700 text-[11px] rounded-full">
+                    {"#" + tech}
                   </span>
                 ))}
               </div>
