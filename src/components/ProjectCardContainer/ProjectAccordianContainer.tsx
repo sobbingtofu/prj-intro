@@ -8,7 +8,7 @@ interface ProjectAccordianContainerProps {
 }
 
 function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianContainerProps) {
-  const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
+  const [selectedAccordianCardId, setSelectedAccordianCardId] = useState<string | null>(null);
   const [orderedProjects, setOrderedProjects] = useState(PROJECTS);
 
   /** 아코디언 위치할 컨테이너 ref */
@@ -19,17 +19,17 @@ function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianCon
 
   const {prevCardRectArr, cardToOpenIdRef} = useAnimatePrjAccordian({
     accordianCardsMapRef,
-    setSelectedCardId,
+    setSelectedCardId: setSelectedAccordianCardId,
     orderedProjects,
   });
 
-  const isNoCardSelected = selectedCardId === null;
+  const isNoCardSelected = selectedAccordianCardId === null;
 
   useEffect(() => {
     /** 아코디언 컨테이너 외부 클릭 시 >> 카드 선택 해제 */
     const handleClickOutside = (event: MouseEvent) => {
       if (prjCardsContainerRef.current && !prjCardsContainerRef.current.contains(event.target as Node)) {
-        setSelectedCardId(null);
+        setSelectedAccordianCardId(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -49,8 +49,8 @@ function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianCon
           <ProjectAccordianCard
             key={index}
             accordianCardsMapRef={accordianCardsMapRef}
-            selectedCardId={selectedCardId}
-            setSelectedCardId={setSelectedCardId}
+            selectedCardId={selectedAccordianCardId}
+            setSelectedCardId={setSelectedAccordianCardId}
             prevCardRectArr={prevCardRectArr}
             cardToOpenIdRef={cardToOpenIdRef}
             setOrderedProjects={setOrderedProjects}

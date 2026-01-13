@@ -7,7 +7,7 @@ interface ProjectCardFlexContainerProps {
 }
 
 function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexContainerProps) {
-  const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
+  const [selectedFlexCardId, setSelectedFlexCardId] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [overflowY, setOverflowY] = useState<string>("hidden");
@@ -17,7 +17,7 @@ function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexCon
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setSelectedCardId(null);
+        setSelectedFlexCardId(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -62,8 +62,8 @@ function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexCon
             <ProjectCardLg
               key={prj.id}
               prj={prj}
-              selectedCardId={selectedCardId}
-              setSelectedCardId={setSelectedCardId}
+              selectedCardId={selectedFlexCardId}
+              setSelectedCardId={setSelectedFlexCardId}
               animatePrjSectionCardsLg={animatePrjSectionCardsLg}
               index={index}
             />
