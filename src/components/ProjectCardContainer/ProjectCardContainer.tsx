@@ -31,9 +31,12 @@ function ProjectCardContainer({animatePrjSectionCards}: ProjectCardContainerProp
   };
 
   return (
-    <div ref={containerRef} className={`lg:hidden p-4 pb-8 my-4 w-full space-y-4`}>
+    <div ref={containerRef} className={`lg:hidden p-0 pb-8 my-4 w-full space-y-4`}>
       {PROJECTS.map((prj, index) => {
         const isSelected = selectedCardId === prj.id;
+        const headerDelay = isSelected ? "0ms" : "500ms";
+        const bodyDelay = isSelected ? "350ms" : "0ms";
+
         return (
           <div
             key={prj.id}
@@ -43,22 +46,51 @@ function ProjectCardContainer({animatePrjSectionCards}: ProjectCardContainerProp
               transitionDelay: animatePrjSectionCards ? `${350 + index * 180}ms` : "0ms",
             }}
           >
-            {/* 아코디언 헤더 */}
+            {/* 아코디언 */}
             <div
               onClick={() => handleCardClick(prj.id)}
-              className="w-full bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer
-                transition-all duration-300 ease-out hover:shadow-xl select-none"
+              className="w-full bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer select-none"
             >
-              {/* 접혀있을 때 보이는 부분 */}
-              <div className="flex items-center gap-4 p-4">
-                <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden shadow-md">
+              {/* 접혀있을 때 보이는 부분 (헤더) */}
+              <div
+                className="flex items-center transition-all duration-500 ease-in-out"
+                style={{
+                  padding: isSelected ? "8px 12px" : "12px",
+                }}
+              >
+                <div
+                  className={`relative flex-shrink-0 rounded-lg overflow-hidden shadow-md transition-all duration-500 ease-in-out`}
+                  style={{
+                    width: isSelected ? "0px" : "64px",
+                    height: isSelected ? "0px" : "64px",
+                    opacity: isSelected ? 0 : 1,
+                    marginRight: isSelected ? "0px" : "16px",
+                    transform: isSelected ? "translateX(-20px)" : "translateX(0)",
+                    transitionDelay: headerDelay,
+                  }}
+                >
                   <Image src={prj.imageSrc?.[0] || ""} alt={prj.title} fill className="object-cover" sizes="80px" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold mb-1">{prj.title}</h3>
-                  <p className="text-sm text-gray-600 line-clamp-2">{prj.description}</p>
+                <div className="flex-1 overflow-hidden">
+                  <h3
+                    className="text-base font-bold mb-1 transition-all duration-500 ease-in-out"
+                    style={{transitionDelay: headerDelay}}
+                  >
+                    {prj.title}
+                  </h3>
+                  <div
+                    className="transition-all duration-500 ease-in-out"
+                    style={{
+                      maxHeight: isSelected ? "0px" : "40px",
+                      opacity: isSelected ? 0 : 1,
+                      transform: isSelected ? "translateX(-20px)" : "translateX(0)",
+                      transitionDelay: headerDelay,
+                    }}
+                  >
+                    <p className="text-xs text-gray-600 line-clamp-2">{prj.description}</p>
+                  </div>
                 </div>
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 ml-4">
                   <svg
                     className={`w-6 h-6 text-gray-500 transition-transform duration-300
                       ${isSelected ? "rotate-180" : ""}`}
@@ -71,10 +103,11 @@ function ProjectCardContainer({animatePrjSectionCards}: ProjectCardContainerProp
                 </div>
               </div>
 
-              {/* 확장되는 내용 */}
+              {/* 확장되는 내용 (바디) */}
               <div
                 className={`transition-all duration-500 ease-in-out overflow-hidden
                   ${isSelected ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"}`}
+                style={{transitionDelay: bodyDelay}}
               >
                 <div className="px-4 pb-4 space-y-4 border-t border-gray-200 pt-4">
                   {/* 이미지 갤러리 */}

@@ -25,12 +25,12 @@ function ProjectSection() {
     >
       <div
         className="flex flex-col items-center flex-shrink-0 h-full
-        w-[75vw] sm:w-[80vw] "
+        w-[90vw] sm:w-[80vw] "
       >
         {/* 섹션 타이틀 */}
         <div className="mt-[10vh] w-full">
           <h1
-            className={`font-bold text-xl transition-all duration-600 ease-out
+            className={`font-bold text-base sm:text-xl transition-all duration-600 ease-out
               ${animatePrjSectionTitle ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
           >
             {"Dev Projects"}
