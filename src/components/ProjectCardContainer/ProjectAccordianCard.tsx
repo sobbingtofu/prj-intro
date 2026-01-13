@@ -166,6 +166,27 @@ function ProjectAccordianCard({
                 className="object-cover"
                 sizes="(max-width: 640px) 100vw, 640px"
               />
+              {/* 반투명 바 & 버튼 */}
+              <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-3 py-2 flex items-center justify-end gap-2">
+                <a
+                  href={prj.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="px-3 py-1.5 bg-gray-800/100 text-white text-xs font-medium rounded hover:bg-gray-700 transition-colors"
+                >
+                  GitHub
+                </a>
+                <a
+                  href={prj.links.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="px-3 py-1.5 bg-blue-600/100 text-white text-xs font-medium rounded hover:bg-blue-500 transition-colors"
+                >
+                  Visit
+                </a>
+              </div>
             </div>
 
             {/* 주요 기능 */}
@@ -194,28 +215,6 @@ function ProjectAccordianCard({
                   </span>
                 ))}
               </div>
-            </div>
-
-            {/* 버튼 */}
-            <div className="flex gap-3 pt-2">
-              <a
-                href={prj.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="flex-1 px-4 py-2 bg-gray-800 text-white text-sm font-medium rounded hover:bg-gray-700 transition-colors text-center"
-              >
-                GitHub
-              </a>
-              <a
-                href={prj.links.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="flex-1 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-500 transition-colors text-center"
-              >
-                Visit
-              </a>
             </div>
           </div>
         </div>
