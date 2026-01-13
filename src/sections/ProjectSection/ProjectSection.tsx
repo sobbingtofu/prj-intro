@@ -30,7 +30,7 @@ function ProjectSection() {
         {/* 섹션 타이틀 */}
         <div className="mt-[10vh] w-full">
           <h1
-            className={`font-bold text-base sm:text-xl transition-all duration-600 ease-out
+            className={`font-bold text-[14px] md:text-xl transition-all duration-600 ease-out
               ${animatePrjSectionTitle ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
           >
             {"Dev Projects"}

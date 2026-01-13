@@ -95,8 +95,8 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
               <div
                 ref={prjCardTextContainerRef}
                 className="2xl:space-y-2.5 lg:space-y-2 overflow-y-auto
-              scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-white pr-2 mb-2
-              2xl:h-[215px] lg:h-[227px] "
+                scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-white pr-2 mb-2
+                2xl:h-[215px] lg:h-[227px] "
               >
                 {prj.keyFeatures.map((feature, idx) => (
                   <div key={idx} className="2xl:text-sm lg:text-[13px]">

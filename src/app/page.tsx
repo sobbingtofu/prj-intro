@@ -9,14 +9,14 @@ import {SECTIONS} from "../store/constantStore";
 import {useSwipeSection} from "../hooks/useApplySwipeEffect/useApplySwipeEffect";
 import WorkExperienceSection from "../sections/WorkExperienceSection/WorkExperienceSection";
 import ProjectSection from "../sections/ProjectSection/ProjectSection";
-import {prjCardTextContainerRef} from "../store/refStore";
+import {prjAccordianCardTextContainerRef, prjCardTextContainerRef} from "../store/refStore";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
-  const exceptionRefs = useMemo(() => [prjCardTextContainerRef], []);
+  const exceptionRefs = useMemo(() => [prjCardTextContainerRef, prjAccordianCardTextContainerRef], []);
 
   const {offset} = useApplyScrollEffect({
     currentSectionIndex,
@@ -37,7 +37,7 @@ export default function Home() {
     swipeThreshold: 50,
     velocityThreshold: 0.5,
     transitionDelay: 300,
-    exceptionContainerRefs: [],
+    exceptionContainerRefs: exceptionRefs,
   });
 
   return (

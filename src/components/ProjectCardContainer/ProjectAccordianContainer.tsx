@@ -41,7 +41,7 @@ function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianCon
   return (
     <div
       ref={prjCardsContainerRef}
-      className={`lg:hidden p-0 pb-8 my-4 w-full gap-y-4 flex flex-col max-h-[90vh] border transition-all duration-500 ease-in-out`}
+      className={`lg:hidden p-0 pb-8 my-4 w-full gap-y-4 flex flex-col max-h-[90vh] transition-all duration-500 ease-in-out`}
       style={{justifyContent: isNoCardSelected ? "flex-start" : "space-between"}}
     >
       {orderedProjects.map((prj, index) => {

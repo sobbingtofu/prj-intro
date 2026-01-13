@@ -1,5 +1,5 @@
 import {projectType} from "@/src/store/constantStoreType";
-import {canClickPrjCard} from "@/src/store/refStore";
+import {canClickPrjCard, prjAccordianCardTextContainerRef} from "@/src/store/refStore";
 import Image from "next/image";
 import {RefObject, SetStateAction, useRef} from "react";
 
@@ -169,16 +169,21 @@ function ProjectAccordianCard({
             </div>
 
             {/* 주요 기능 */}
-            <div className="space-y-2">
-              <div className="space-y-2 overflow-y-auto max-h-[18vh] pr-2 border-b border-gray-200 pb-2">
-                {prj.keyFeatures.map((feature, idx) => (
-                  <div key={idx} className="text-sm">
-                    <span className="font-medium text-gray-800">{feature.point}:</span>
-                    <span className="text-gray-600 ml-1">{feature.content}</span>
-                  </div>
-                ))}
+            {isSelected && (
+              <div className="space-y-2">
+                <div
+                  className="space-y-2 overflow-y-auto max-h-[18vh] pr-2 border-b border-gray-200 pb-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-white"
+                  ref={prjAccordianCardTextContainerRef}
+                >
+                  {prj.keyFeatures.map((feature, idx) => (
+                    <div key={idx} className="text-sm">
+                      <span className="font-medium text-gray-800">{feature.point}:</span>
+                      <span className="text-gray-600 ml-1">{feature.content}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* 기술스택 */}
             <div className="space-y-2">
