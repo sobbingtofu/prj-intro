@@ -60,8 +60,8 @@ function useSkillCardCarousel() {
   const getCardPosition = (index: number) => {
     const diff = index - activeCardIndex;
     if (diff === 0) return "translate-x-0 scale-100 z-20 opacity-100";
-    if (diff === 1 || diff === -(SKILL_CARDS.length - 1)) return "translate-x-[70%] scale-75 z-10 opacity-40";
-    if (diff === -1 || diff === SKILL_CARDS.length - 1) return "-translate-x-[70%] scale-75 z-10 opacity-40";
+    if (diff === 1 || diff === -(SKILL_CARDS.length - 1)) return "translate-x-[70%] scale-75 z-10 opacity-0";
+    if (diff === -1 || diff === SKILL_CARDS.length - 1) return "-translate-x-[70%] scale-75 z-10 opacity-0";
     return "translate-x-[200%] scale-50 z-0 opacity-0";
   };
   return {

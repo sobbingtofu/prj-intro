@@ -22,8 +22,7 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
     <div
       className="md:w-[80%] w-[90%] flex
         flex-col justify-start
-        border-black border
-        md:mt-8 mt-3 min-h-[240px]
+        md:mt-8 mt-[6vh] min-h-[240px]
         "
     >
       <p
@@ -63,7 +62,7 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
 
       {/* sm 미만: 캐러셀 레이아웃 */}
       <div
-        className="w-full sm:hidden overflow-hidden h-[180px] select-none mt-2 flex flex-col justify-start"
+        className="w-full sm:hidden overflow-hidden select-none mt-3 flex flex-col justify-start"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -72,24 +71,24 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
       >
-        <div className="w-full h-full flex items-start justify-center">
+        <div className="w-full flex items-start justify-center h-[210px] ">
           {SKILL_CARDS.map((card, index) => (
             <div
               key={index}
-              className={`absolute w-[85%] rounded-xl border border-gray-100 bg-white p-4 shadow-sm 
-                  transition-all duration-500 ease-out cursor-grab active:cursor-grabbing
+              className={`absolute w-[90%] rounded-xl border border-gray-100 bg-white p-4 shadow-sm  h-[190px] 
+                  transition-all duration-500 ease-out cursor-grab active:cursor-grabbing flex flex-col
                   ${getCardPosition(index)}`}
               style={{touchAction: "pan-y"}}
             >
-              <h3 className="mb-1.5 text-base font-bold text-text-main">{card.title}</h3>
-              <ul className="space-y-2 text-[12px] text-text-secondary text-gray-700">
+              <h3 className="mb-3 text-base font-bold text-base flex-shrink-0">{card.title}</h3>
+              <div className="flex flex-col justify-between flex-1 text-[13px] text-text-secondary text-gray-700">
                 {card.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-center gap-2">
+                  <div key={itemIndex} className="flex items-center gap-2">
                     <span className={`h-1.5 w-1.5 rounded-full ${card.color}`}></span>
                     {item}
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
