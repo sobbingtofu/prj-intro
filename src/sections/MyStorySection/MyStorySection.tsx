@@ -8,14 +8,14 @@ function MyStorySection() {
 
   const [animateMyStorySectionTitle, setAnimateMyStorySectionTitle] = useState<boolean>(false);
   const [animateMyStoryContentsAppearance, setAnimateMyStoryContentsAppearance] = useState<boolean>(false);
-  const [selectedCardIds, setSelectedCardIds] = useState<number[]>([]);
+  const [selectedCardId, setSelectedCardId] = useState<number>(1);
 
   useAnimateMyStorySection({
     animateMyStorySectionTitle,
     setAnimateMyStorySectionTitle,
     myStorySectionRef,
     setAnimateMyStoryContentsAppearance,
-    setSelectedCardIds,
+    setSelectedCardId,
   });
 
   return (
@@ -40,25 +40,27 @@ function MyStorySection() {
         </div>
 
         {/* My Story 콘텐츠 */}
-
-        <div className={`mt-8 w-full flex flex-row overflow-x-auto ease-out gap-x-10 h-full min-h-[480px] items-start`}>
-          {MY_STORIES.map((story, index) => (
-            <MyStoryCard
-              key={story.id}
-              story={story}
-              index={index}
-              isVisible={animateMyStoryContentsAppearance}
-              isSelected={selectedCardIds.includes(story.id)}
-              onToggle={() => {
-                if (selectedCardIds.includes(story.id)) {
-                  setSelectedCardIds(selectedCardIds.filter((id) => id !== story.id));
-                } else {
-                  setSelectedCardIds([...selectedCardIds, story.id]);
-                }
-              }}
-            />
-          ))}
-        </div>
+        {
+          <div
+            className={`mt-16 w-full grid grid-cols-2 grid-rows-2 gap-4 h-full min-h-[480px] max-h-[610px]`}
+            style={{
+              gridTemplateColumns: selectedCardId === 1 || selectedCardId === 3 ? "6fr 4fr" : "4fr 6fr",
+              gridTemplateRows: selectedCardId === 1 || selectedCardId === 2 ? "6fr 4fr" : "4fr 6fr",
+              transition: "grid-template-columns 350ms ease-out, grid-template-rows 350ms ease-out",
+            }}
+          >
+            {MY_STORIES.map((story, index) => (
+              <MyStoryCard
+                key={story.id}
+                story={story}
+                index={index}
+                isVisible={animateMyStoryContentsAppearance}
+                isSelected={selectedCardId === story.id}
+                setSelectedCardId={setSelectedCardId}
+              />
+            ))}
+          </div>
+        }
       </div>
     </section>
   );

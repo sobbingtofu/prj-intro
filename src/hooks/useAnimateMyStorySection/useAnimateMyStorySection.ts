@@ -5,7 +5,7 @@ interface useAnimateMyStorySectionProps {
   setAnimateMyStorySectionTitle: (value: boolean) => void;
   myStorySectionRef: RefObject<HTMLDivElement> | null;
   setAnimateMyStoryContentsAppearance: (value: boolean) => void;
-  setSelectedCardIds: (value: number[]) => void;
+  setSelectedCardId: (value: number) => void;
 }
 
 function useAnimateMyStorySection({
@@ -13,7 +13,7 @@ function useAnimateMyStorySection({
   setAnimateMyStorySectionTitle,
   myStorySectionRef,
   setAnimateMyStoryContentsAppearance,
-  setSelectedCardIds,
+  setSelectedCardId,
 }: useAnimateMyStorySectionProps) {
   const myStoryCardAnimateDelayTimer = useRef<NodeJS.Timeout | null>(null);
 
@@ -29,7 +29,7 @@ function useAnimateMyStorySection({
           }
           setAnimateMyStorySectionTitle(false);
           setAnimateMyStoryContentsAppearance(false);
-          setSelectedCardIds([]);
+          setSelectedCardId(1);
         }
       },
       {
@@ -53,7 +53,7 @@ function useAnimateMyStorySection({
     setAnimateMyStorySectionTitle,
     animateMyStorySectionTitle,
     setAnimateMyStoryContentsAppearance,
-    setSelectedCardIds,
+    setSelectedCardId,
   ]);
 
   useEffect(() => {
