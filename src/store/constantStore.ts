@@ -136,7 +136,7 @@ export const MILESTONES: experienceMilestoneType[] = [
   },
   {
     id: 4,
-    name: "폭넓은<br>전문경험",
+    name: "교육 및<br>전문경험",
     duration: "",
     // duration: "(2018.12<br>~ 2022.11)",
     keyword: "다양한 도메인을 경험하며 유연한 소통 능력과 실행력을 축적",
