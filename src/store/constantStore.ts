@@ -55,7 +55,8 @@ export const MILESTONES: experienceMilestoneType[] = [
       },
       {
         point: "Solution Add-on 개발",
-        description: "Spring Boot 기반으로 고객사 전용 추가 기능(Add-on), 커스텀 유저 플로우 및 API 개발",
+        description:
+          "Spring Boot 기반 Process Asset Library 및 IT Service Management 솔루션의 추가 기능, 커스텀 유저 플로우 및 API 개발",
       },
       {
         point: "UI/UX 및 시스템 고도화",
