@@ -2,7 +2,7 @@ import useAnimateMyStoryCard from "@/src/hooks/useAnimateMyStoryCard/useAnimateM
 import {myStoryType} from "@/src/store/constantStoreType";
 import {useMemo, CSSProperties} from "react";
 
-interface MyStoryBentoCardOptimizedProps {
+interface MyStoryBentoCardProps {
   story: myStoryType;
   index: number;
   isVisible: boolean;
@@ -11,14 +11,7 @@ interface MyStoryBentoCardOptimizedProps {
   contentRef: {current: HTMLDivElement | null};
 }
 
-function MyStoryBentoCardOptimized({
-  story,
-  index,
-  isVisible,
-  isSelected,
-  setSelectedCardId,
-  contentRef,
-}: MyStoryBentoCardOptimizedProps) {
+function MyStoryBentoCard({story, index, isVisible, isSelected, setSelectedCardId, contentRef}: MyStoryBentoCardProps) {
   const {showContent, isTitleCenter} = useAnimateMyStoryCard({isSelected});
 
   const handleCardClick = (storyId: number) => {
@@ -69,6 +62,23 @@ function MyStoryBentoCardOptimized({
     [showContent]
   );
 
+  const parsedContent = useMemo(() => {
+    return story.content.split("<br>").map((line, lineIndex) => (
+      <p key={lineIndex} className={lineIndex > 0 ? "mt-2.5" : ""}>
+        {line.split(/(\*\*.*?\*\*)/).map((part, i) => {
+          if (part.startsWith("**") && part.endsWith("**")) {
+            return (
+              <strong key={i} className="font-bold">
+                {part.slice(2, -2)}
+              </strong>
+            );
+          }
+          return part;
+        })}
+      </p>
+    ));
+  }, [story.content]);
+
   return (
     <div onClick={() => handleCardClick(story.id)} key={story.id} className={cardClassName} style={cardStyle}>
       <div
@@ -97,24 +107,10 @@ function MyStoryBentoCardOptimized({
           contentVisibility: isSelected ? "visible" : "hidden",
         }}
       >
-        {story.content.split("<br>").map((line, lineIndex) => (
-          <p key={lineIndex} className={lineIndex > 0 ? "mt-2.5" : ""}>
-            {line.split(/(\*\*.*?\*\*)/).map((part, i) => {
-              if (part.startsWith("**") && part.endsWith("**")) {
-                return (
-                  <strong key={i} className="font-bold">
-                    {part.slice(2, -2)}
-                  </strong>
-                );
-              }
-              return part;
-            })}
-            {lineIndex < story.content.split("<br>").length - 1 && <br />}
-          </p>
-        ))}
+        {parsedContent}
       </div>
     </div>
   );
 }
 
-export default MyStoryBentoCardOptimized;
+export default MyStoryBentoCard;
