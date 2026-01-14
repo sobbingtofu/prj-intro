@@ -9,7 +9,12 @@ import {SECTIONS} from "../store/constantStore";
 import {useSwipeSection} from "../hooks/useApplySwipeEffect/useApplySwipeEffect";
 import WorkExperienceSection from "../sections/WorkExperienceSection/WorkExperienceSection";
 import ProjectSection from "../sections/ProjectSection/ProjectSection";
-import {myStoryBentoCardTextRefs, prjAccordianCardTextContainerRef, prjCardTextContainerRef} from "../store/refStore";
+import {
+  myStoryAccordianCardTextRefs,
+  myStoryBentoCardTextRefs,
+  prjAccordianCardTextContainerRef,
+  prjCardTextContainerRef,
+} from "../store/refStore";
 import MyStorySection from "../sections/MyStorySection/MyStorySection";
 
 export default function Home() {
@@ -18,7 +23,12 @@ export default function Home() {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
   const exceptionRefs = useMemo(
-    () => [prjCardTextContainerRef, prjAccordianCardTextContainerRef, ...myStoryBentoCardTextRefs],
+    () => [
+      prjCardTextContainerRef,
+      prjAccordianCardTextContainerRef,
+      ...myStoryBentoCardTextRefs,
+      ...myStoryAccordianCardTextRefs,
+    ],
     []
   );
 

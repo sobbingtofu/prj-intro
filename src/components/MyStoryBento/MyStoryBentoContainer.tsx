@@ -51,9 +51,11 @@ function MyStoryBentoContainer({
 
   return (
     <div
-      className={`mt-16 w-full grid grid-cols-2 grid-rows-2 gap-4 h-[610px] 
+      className={`mt-16 w-full grid-cols-2 grid-rows-2 gap-4 h-[610px] 
             scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-whites
-            ${overflowY === "auto" ? "overflow-y-auto" : "overflow-y-hidden"}`}
+            ${overflowY === "auto" ? "overflow-y-auto" : "overflow-y-hidden"}
+            hidden lg:grid
+            `}
       style={{
         gridTemplateColumns: selectedCardId === 1 || selectedCardId === 3 ? "6fr 4fr" : "4fr 6fr",
         gridTemplateRows: selectedCardId === 1 || selectedCardId === 2 ? "6fr 4fr" : "4fr 6fr",

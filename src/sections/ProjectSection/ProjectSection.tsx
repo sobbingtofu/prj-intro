@@ -37,7 +37,9 @@ function ProjectSection() {
           </h1>
         </div>
 
+        {/* lg 이상 */}
         <ProjectCardFlexContainer animatePrjSectionCardsLg={animatePrjSectionCardsLg} />
+        {/* lg 이하 */}
         <ProjectAccordianContainer animatePrjSectionCards={animatePrjSectionCardsLg} />
       </div>
     </section>

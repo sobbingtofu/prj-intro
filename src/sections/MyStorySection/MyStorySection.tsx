@@ -1,4 +1,5 @@
 import MyStoryBentoContainer from "@/src/components/MyStoryBento/MyStoryBentoContainer";
+import MyStoryAccordian from "@/src/components/MyStoryAccordian/MyStoryAccordian";
 import useAnimateMyStorySection from "@/src/hooks/useAnimateMyStorySection/useAnimateMyStorySection";
 import {useRef, useState} from "react";
 
@@ -38,10 +39,17 @@ function MyStorySection() {
           </h1>
         </div>
 
-        {/* My Story 콘텐츠 */}
+        {/* lg 이상*/}
         <MyStoryBentoContainer
           selectedCardId={selectedCardId}
           animateMyStoryContentsAppearance={animateMyStoryContentsAppearance}
+          setSelectedCardId={setSelectedCardId}
+        />
+
+        {/* lg 이하 */}
+        <MyStoryAccordian
+          animateMyStoryContentsAppearance={animateMyStoryContentsAppearance}
+          selectedCardId={selectedCardId}
           setSelectedCardId={setSelectedCardId}
         />
       </div>
