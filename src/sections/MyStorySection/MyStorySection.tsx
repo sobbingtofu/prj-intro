@@ -1,7 +1,6 @@
-import MyStoryCard from "@/src/components/MyStoryCard/MyStoryCard";
+import MyStoryBentoContainer from "@/src/components/MyStoryBento/MyStoryBentoContainer";
 import useAnimateMyStorySection from "@/src/hooks/useAnimateMyStorySection/useAnimateMyStorySection";
-import {MY_STORIES} from "@/src/store/constantStore";
-import React, {useRef, useState} from "react";
+import {useRef, useState} from "react";
 
 function MyStorySection() {
   const myStorySectionRef = useRef<HTMLDivElement>(null!);
@@ -22,7 +21,7 @@ function MyStorySection() {
     <section
       id="MyStorySection"
       ref={myStorySectionRef}
-      className="w-full h-screen max-h-[1800px] max-w-[3600px] min-w-[350px] pb-10
+      className="w-full h-screen max-h-[1800px] max-w-[3600px] min-w-[350px] pb-10 
       bg-white flex flex-col xl:justify-start sm:justify-start justify-center items-center "
     >
       <div
@@ -40,27 +39,11 @@ function MyStorySection() {
         </div>
 
         {/* My Story 콘텐츠 */}
-        {
-          <div
-            className={`mt-16 w-full grid grid-cols-2 grid-rows-2 gap-4 h-full min-h-[480px] max-h-[610px]`}
-            style={{
-              gridTemplateColumns: selectedCardId === 1 || selectedCardId === 3 ? "6fr 4fr" : "4fr 6fr",
-              gridTemplateRows: selectedCardId === 1 || selectedCardId === 2 ? "6fr 4fr" : "4fr 6fr",
-              transition: "grid-template-columns 350ms ease-out, grid-template-rows 350ms ease-out",
-            }}
-          >
-            {MY_STORIES.map((story, index) => (
-              <MyStoryCard
-                key={story.id}
-                story={story}
-                index={index}
-                isVisible={animateMyStoryContentsAppearance}
-                isSelected={selectedCardId === story.id}
-                setSelectedCardId={setSelectedCardId}
-              />
-            ))}
-          </div>
-        }
+        <MyStoryBentoContainer
+          selectedCardId={selectedCardId}
+          animateMyStoryContentsAppearance={animateMyStoryContentsAppearance}
+          setSelectedCardId={setSelectedCardId}
+        />
       </div>
     </section>
   );

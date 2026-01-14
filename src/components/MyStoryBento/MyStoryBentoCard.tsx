@@ -1,7 +1,7 @@
 import useAnimateMyStoryCard from "@/src/hooks/useAnimateMyStoryCard/useAnimateMyStoryCard";
 import {myStoryType} from "@/src/store/constantStoreType";
 
-interface MyStoryCardProps {
+interface MyStoryBentoCardProps {
   story: myStoryType;
   index: number;
   isVisible: boolean;
@@ -9,7 +9,7 @@ interface MyStoryCardProps {
   setSelectedCardId: (id: number) => void;
 }
 
-function MyStoryCard({story, index, isVisible, isSelected, setSelectedCardId}: MyStoryCardProps) {
+function MyStoryBentoCard({story, index, isVisible, isSelected, setSelectedCardId}: MyStoryBentoCardProps) {
   const {showContent, isTitleCenter} = useAnimateMyStoryCard({isSelected});
 
   const handleCardClick = (storyId: number) => {
@@ -28,6 +28,8 @@ function MyStoryCard({story, index, isVisible, isSelected, setSelectedCardId}: M
                 `}
       style={{
         transitionDelay: isVisible ? `${index * 150}ms` : "0ms",
+        minHeight: isSelected ? "350px" : "90px",
+        minWidth: "366px",
       }}
     >
       <div
@@ -69,4 +71,4 @@ function MyStoryCard({story, index, isVisible, isSelected, setSelectedCardId}: M
   );
 }
 
-export default MyStoryCard;
+export default MyStoryBentoCard;
