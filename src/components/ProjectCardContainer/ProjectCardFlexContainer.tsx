@@ -31,7 +31,7 @@ function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexCon
     if (animatePrjSectionCardsLg) {
       overflowYDelayTimer.current = setTimeout(() => {
         setOverflowY("auto");
-      }, 800);
+      }, 3000);
     } else {
       if (overflowYDelayTimer.current) {
         clearTimeout(overflowYDelayTimer.current);
@@ -40,7 +40,6 @@ function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexCon
       overflowYDelayTimer.current = setTimeout(() => {
         setOverflowY("hidden");
       }, 0);
-      // 섹션을 벗어날 때 선택된 카드 초기화
       setSelectedFlexCardId(null);
     }
 
