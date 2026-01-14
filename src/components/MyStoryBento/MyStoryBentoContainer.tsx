@@ -40,6 +40,20 @@ function MyStoryBentoContainer({
     };
   }, [animateMyStoryContentsAppearance, setSelectedCardId]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setOverflowY("hidden");
+    }, 0);
+
+    if (overflowYDelayTimer.current) {
+      clearTimeout(overflowYDelayTimer.current);
+      overflowYDelayTimer.current = null;
+    }
+    overflowYDelayTimer.current = setTimeout(() => {
+      setOverflowY("auto");
+    }, 1000);
+  }, [selectedCardId]);
+
   return (
     <div
       className={`mt-16 w-full grid grid-cols-2 grid-rows-2 gap-4 h-[610px] 

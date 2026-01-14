@@ -40,9 +40,19 @@ function MyStoryBentoCard({story, index, isVisible, isSelected, setSelectedCardI
           transform: isTitleCenter ? "translate(-50%, -50%)" : "translate(0, 0)",
         }}
       >
-        <div className={isTitleCenter ? "text-center" : "text-left"}>
-          <h1 className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">{story.keyWord}</h1>
-          <h3 className="text-xl font-bold text-gray-900 mb-4 whitespace-nowrap">{story.id + ". " + story.title}</h3>
+        <div>
+          <h1
+            className="absolute text-sm font-semibold text-primary uppercase tracking-wide mb-2 transition-all duration-500 ease-out select-none whitespace-nowrap"
+            style={{
+              left: isTitleCenter ? "50%" : "0px",
+              transform: isTitleCenter ? "translate(-50%, -50%)" : "translate(0, 0)",
+            }}
+          >
+            {story.keyWord}
+          </h1>
+          <h3 className="pt-6 text-xl font-bold text-gray-900 mb-4 whitespace-nowrap">
+            {story.id + ". " + story.title}
+          </h3>
         </div>
       </div>
       {isSelected && (
