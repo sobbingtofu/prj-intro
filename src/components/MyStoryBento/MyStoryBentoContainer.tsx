@@ -18,47 +18,42 @@ function MyStoryBentoContainer({
 
   const overflowYDelayTimer = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    if (animateMyStoryContentsAppearance) {
-      overflowYDelayTimer.current = setTimeout(() => {
-        setOverflowY("auto");
-      }, 3000);
-    } else {
-      if (overflowYDelayTimer.current) {
-        clearTimeout(overflowYDelayTimer.current);
-        overflowYDelayTimer.current = null;
-      }
-      overflowYDelayTimer.current = setTimeout(() => {
-        setOverflowY("hidden");
-      }, 0);
-    }
-
-    return () => {
-      if (overflowYDelayTimer.current) {
-        clearTimeout(overflowYDelayTimer.current);
-        overflowYDelayTimer.current = null;
-      }
-    };
-  }, [animateMyStoryContentsAppearance, setSelectedCardId]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setOverflowY("hidden");
-    }, 0);
-
+  // 타이머 정리 헬퍼 함수
+  const clearTimer = () => {
     if (overflowYDelayTimer.current) {
       clearTimeout(overflowYDelayTimer.current);
       overflowYDelayTimer.current = null;
     }
-    overflowYDelayTimer.current = setTimeout(() => {
-      setOverflowY("auto");
-    }, 1000);
+  };
+
+  // 1. 섹션 진입/퇴장 시 overflow 제어
+  useEffect(() => {
+    clearTimer();
+
+    if (animateMyStoryContentsAppearance) {
+      overflowYDelayTimer.current = setTimeout(() => setOverflowY("auto"), 3000);
+    } else {
+      setTimeout(() => setOverflowY("hidden"), 0);
+    }
+
+    return clearTimer;
+  }, [animateMyStoryContentsAppearance]);
+
+  // 2. 카드 선택 변경 시 overflow 제어
+  useEffect(() => {
+    clearTimer();
+    setTimeout(() => setOverflowY("hidden"), 0);
+
+    overflowYDelayTimer.current = setTimeout(() => setOverflowY("auto"), 1000);
+
+    return clearTimer;
   }, [selectedCardId]);
 
   return (
     <div
       className={`mt-16 w-full grid grid-cols-2 grid-rows-2 gap-4 h-[610px] 
-            overflow-y-${overflowY} scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-whites`}
+            scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-whites
+            ${overflowY === "auto" ? "overflow-y-auto" : "overflow-y-hidden"}`}
       style={{
         gridTemplateColumns: selectedCardId === 1 || selectedCardId === 3 ? "6fr 4fr" : "4fr 6fr",
         gridTemplateRows: selectedCardId === 1 || selectedCardId === 2 ? "6fr 4fr" : "4fr 6fr",
