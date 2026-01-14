@@ -10,6 +10,7 @@ import {useSwipeSection} from "../hooks/useApplySwipeEffect/useApplySwipeEffect"
 import WorkExperienceSection from "../sections/WorkExperienceSection/WorkExperienceSection";
 import ProjectSection from "../sections/ProjectSection/ProjectSection";
 import {prjAccordianCardTextContainerRef, prjCardTextContainerRef} from "../store/refStore";
+import MyStorySection from "../sections/MyStorySection/MyStorySection";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,6 +58,7 @@ export default function Home() {
         <MainSection />
         <WorkExperienceSection />
         <ProjectSection />
+        <MyStorySection />
       </div>
     </div>
   );
