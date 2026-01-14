@@ -23,7 +23,7 @@ function MyStoryBentoCard({story, index, isVisible, isSelected, setSelectedCardI
       transitionDelay: isVisible ? `${index * 150}ms` : "0ms",
       "--card-height": isSelected ? "350px" : "90px",
       minWidth: isSelected ? "500px" : "366px",
-      minHeight: isSelected ? "320px" : "120px",
+      minHeight: isSelected ? "340px" : "120px",
     }),
     [isVisible, index, isSelected]
   ) as CSSProperties & {"--card-height": string};
@@ -57,7 +57,7 @@ function MyStoryBentoCard({story, index, isVisible, isSelected, setSelectedCardI
   const contentClassName = useMemo(
     () =>
       `2xl:text-base text-sm text-black leading-relaxed text-justify transition-all duration-400 ease-in-out
-      2xl:mt-20 mt-16 h-[200px] overflow-y-auto pr-1.5 p-1 scrollbar-thin scrollbar-track-gray-200 scrollbar-thumb-gray-400 
+      2xl:mt-20 mt-16 h-[220px] overflow-y-auto pr-1.5 p-1 scrollbar-thin scrollbar-track-gray-200 scrollbar-thumb-gray-400 
        ${showContent ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`,
     [showContent]
   );
