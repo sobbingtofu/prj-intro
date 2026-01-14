@@ -62,7 +62,11 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
 
       {/* sm 미만: 캐러셀 레이아웃 */}
       <div
-        className="w-full sm:hidden overflow-hidden select-none mt-3 flex flex-col justify-start"
+        className={`w-full sm:hidden overflow-hidden select-none mt-3 flex flex-col justify-start transition-all duration-250 ease-out
+          ${animateSkillStackArea ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"} `}
+        style={{
+          transitionDelay: animateSkillStackArea ? `${400}ms` : "0ms",
+        }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -71,7 +75,13 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
       >
-        <div className="w-full flex items-start justify-center h-[210px] ">
+        <div
+          className={`w-full flex items-start justify-center h-[210px] transition-all duration-250 ease-out
+            ${animateSkillStackArea ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"} `}
+          style={{
+            transitionDelay: animateSkillStackArea ? `${400}ms` : "0ms",
+          }}
+        >
           {SKILL_CARDS.map((card, index) => (
             <div
               key={index}
