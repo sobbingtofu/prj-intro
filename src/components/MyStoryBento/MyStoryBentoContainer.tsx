@@ -1,6 +1,7 @@
 import {MY_STORIES} from "@/src/store/constantStore";
 import MyStoryBentoCard from "./MyStoryBentoCard";
 import {useEffect, useRef, useState} from "react";
+import {myStoryBentoCardTextRefs} from "@/src/store/refStore";
 
 interface MyStoryBentoContainerProps {
   selectedCardId: number;
@@ -72,6 +73,7 @@ function MyStoryBentoContainer({
           isVisible={animateMyStoryContentsAppearance}
           isSelected={selectedCardId === story.id}
           setSelectedCardId={setSelectedCardId}
+          contentRef={myStoryBentoCardTextRefs[index]}
         />
       ))}
     </div>

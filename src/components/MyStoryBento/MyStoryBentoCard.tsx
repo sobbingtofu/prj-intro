@@ -8,6 +8,7 @@ interface MyStoryBentoCardOptimizedProps {
   isVisible: boolean;
   isSelected: boolean;
   setSelectedCardId: (id: number) => void;
+  contentRef: {current: HTMLDivElement | null};
 }
 
 function MyStoryBentoCardOptimized({
@@ -16,6 +17,7 @@ function MyStoryBentoCardOptimized({
   isVisible,
   isSelected,
   setSelectedCardId,
+  contentRef,
 }: MyStoryBentoCardOptimizedProps) {
   const {showContent, isTitleCenter} = useAnimateMyStoryCard({isSelected});
 
@@ -27,7 +29,8 @@ function MyStoryBentoCardOptimized({
     () => ({
       transitionDelay: isVisible ? `${index * 150}ms` : "0ms",
       "--card-height": isSelected ? "350px" : "90px",
-      minWidth: "366px",
+      minWidth: isSelected ? "500px" : "366px",
+      minHeight: isSelected ? "320px" : "120px",
     }),
     [isVisible, index, isSelected]
   ) as CSSProperties & {"--card-height": string};
@@ -54,14 +57,14 @@ function MyStoryBentoCardOptimized({
       `relative bg-gradient-to-br from-background/50 to-background2/80
        rounded-lg shadow-md hover:shadow-lg cursor-pointer overflow-hidden
        transition-all duration-500 ease-out p-[36px]
-       ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}
-       ${isSelected ? "will-change-[min-height]" : ""}`,
-    [isVisible, isSelected]
+       ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`,
+    [isVisible]
   );
 
   const contentClassName = useMemo(
     () =>
-      `text-base text-black leading-relaxed text-justify transition-all duration-400 ease-in-out pt-20
+      `2xl:text-base text-sm text-black leading-relaxed text-justify transition-all duration-400 ease-in-out
+      2xl:mt-20 mt-16 h-[200px] overflow-y-auto pr-1.5 p-1 scrollbar-thin scrollbar-track-gray-200 scrollbar-thumb-gray-400 
        ${showContent ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`,
     [showContent]
   );
@@ -87,6 +90,7 @@ function MyStoryBentoCardOptimized({
       </div>
       <div
         className={contentClassName}
+        ref={contentRef}
         style={{
           opacity: isSelected ? undefined : 0,
           pointerEvents: isSelected ? "auto" : "none",
