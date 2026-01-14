@@ -94,7 +94,7 @@ function MyStoryAccordianCard({
           <div className="px-4 pb-4 pt-0">
             <div
               ref={contentRef}
-              className="text-xs sm:text-sm text-black leading-relaxed text-justify overflow-y-auto max-h-[28vh] pr-2 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200"
+              className="text-[13px] sm:text-sm text-black leading-relaxed text-justify overflow-y-auto max-h-[28vh] pr-2 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200"
             >
               {parsedContent}
             </div>
