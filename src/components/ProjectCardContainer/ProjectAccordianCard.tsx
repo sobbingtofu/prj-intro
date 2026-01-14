@@ -3,6 +3,7 @@ import {canClickPrjCard, prjAccordianCardTextContainerRef} from "@/src/store/ref
 import Image from "next/image";
 import {RefObject, useRef} from "react";
 import zustandStore from "@/src/store/zustandStore";
+import OpenCloseIcon from "../OpenCloseIcon/OpenCloseIcon";
 
 interface ProjectAccordianCardProps {
   prj: projectType;
@@ -138,15 +139,7 @@ function ProjectAccordianCard({
             </div>
           </div>
           <div className="flex-shrink-0 ml-4">
-            <svg
-              className={`w-4 h-4 text-gray-500 transition-transform duration-300
-                        ${isSelected ? "rotate-180" : ""}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
+            <OpenCloseIcon isSelected={isSelected} size="base" />
           </div>
         </div>
 

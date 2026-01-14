@@ -27,3 +27,10 @@ export interface projectType {
   imageSrc?: string[];
   iconSrc?: string;
 }
+
+export interface myStoryType {
+  id: number;
+  keyWord: string;
+  title: string;
+  content: string;
+}
