@@ -2,6 +2,7 @@
 import SkillStackCardContainer from "@/src/components/SkillStackCardContainer/SkillStackCardContainer";
 import useAnimateMainSection from "@/src/hooks/useAnimateMainSection/useAnimateMainSection";
 import {useRef} from "react";
+import Image from "next/image";
 
 function MainSection() {
   const mainSectionRef = useRef<HTMLDivElement>(null!);
@@ -119,13 +120,15 @@ function MainSection() {
               ${animateImageArea ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
               <div
-                className="sm:w-full w-auto sm:h-auto min-h-[90px] h-[16vh] max-w-[210px]
+                className="sm:w-full w-auto sm:h-auto min-h-[90px] h-[16vh] max-w-[280px]
                 sm:aspect-[3/4] aspect-[5/6] relative"
               >
                 {/* 그림자 div */}
                 <div className="absolute sm:block hidden rounded-[2rem] bg-secondary h-full w-full z-0 top-5 left-5"></div>
                 {/* 실제 이미지 영역 */}
-                <div className="relative overflow-hidden rounded-[2rem] bg-amber-300 shadow-xl h-full w-full z-10"></div>
+                <div className="relative overflow-hidden rounded-[2rem] shadow-xl h-full w-full z-10">
+                  <Image src="/img/me.jpg" alt="프로필" fill className="object-cover" priority />
+                </div>
               </div>
             </div>
           </div>
