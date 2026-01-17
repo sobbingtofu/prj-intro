@@ -83,7 +83,8 @@ function MainSection() {
               md:px-5 md:py-3 px-2 py-2
               md:text-sm text-xs font-bold text-white
               transition-transform hover:translate-y-[-2px] hover:shadow-lg"
-                  href="#projects"
+                  href="/files/KijoonYun-ProductEngineer-Resume.pdf"
+                  download="KijoonYun-ProductEngineer-Resume.pdf"
                 >
                   이력서 다운로드
                 </a>
@@ -144,7 +145,8 @@ function MainSection() {
               px-2 py-2
               text-xs font-bold text-white
               transition-transform hover:translate-y-[-2px] hover:shadow-lg"
-              href="#projects"
+              href="/files/KijoonYun-ProductEngineer-Resume.pdf"
+              download="KijoonYun-ProductEngineer-Resume.pdf"
             >
               이력서 다운로드
             </a>
