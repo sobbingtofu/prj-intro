@@ -44,7 +44,7 @@ function MyStoryBentoContainer({
     clearTimer();
     setTimeout(() => setOverflowY("hidden"), 0);
 
-    overflowYDelayTimer.current = setTimeout(() => setOverflowY("auto"), 1000);
+    overflowYDelayTimer.current = setTimeout(() => setOverflowY("auto"), 5000);
 
     return clearTimer;
   }, [selectedCardId]);
@@ -53,10 +53,10 @@ function MyStoryBentoContainer({
     <div
       className={`mt-16 w-full grid-cols-2 grid-rows-2 gap-4 h-[610px] 
             scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-whites
-            ${overflowY === "auto" ? "overflow-y-auto" : "overflow-y-hidden"}
             hidden lg:grid
             `}
       style={{
+        overflowY: overflowY == "hidden" ? "hidden" : "auto",
         gridTemplateColumns: selectedCardId === 1 || selectedCardId === 3 ? "6fr 4fr" : "4fr 6fr",
         gridTemplateRows: selectedCardId === 1 || selectedCardId === 2 ? "6fr 4fr" : "4fr 6fr",
         transition: "grid-template-columns 350ms ease-out, grid-template-rows 350ms ease-out",
