@@ -63,7 +63,7 @@ function MainSection() {
                   <br />
                   {"직관적인 사용자 경험으로 구현하는"}
                   <br />
-                  {"프론트엔드 개발자, 윤기준입니다."}
+                  {"프로덕트 엔지니어, 윤기준입니다."}
                 </h1>
               </div>
               {/* 서브텍스트 */}
@@ -120,7 +120,7 @@ function MainSection() {
               ${animateImageArea ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
               <div
-                className="sm:w-full w-auto sm:h-auto min-h-[90px] h-[16vh] max-w-[280px]
+                className="sm:w-full w-auto sm:h-auto min-h-[110px] h-[16vh] max-w-[280px]
                 sm:aspect-[3/4] aspect-[5/6] relative"
               >
                 {/* 그림자 div */}

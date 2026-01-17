@@ -16,7 +16,7 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
   return (
     <div
       className="hidden sm:flex z-200 sm:w-[180px] sm:h-screen sm:sticky top-0 shrink-0
-      bg-gradient-to-br from-gray-900 to-black justify-center items-center
+      bg-gradient-to-br from-[#050d2a] to-black justify-center items-center
       "
     >
       <div className="flex sm:flex-col h-[50%] sm:justify-between sm:items-start sm:px-2">

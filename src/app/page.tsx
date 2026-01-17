@@ -60,7 +60,7 @@ export default function Home() {
       <SidebarDesktop currentSectionIndex={currentSectionIndex} setCurrentSectionIndex={setCurrentSectionIndex} />
 
       {/* 모바일 용 사이드바 */}
-      <SidebarMobile />
+      <SidebarMobile currentSectionIndex={currentSectionIndex} setCurrentSectionIndex={setCurrentSectionIndex} />
       <div
         className="flex-1 min-w-0"
         style={{
