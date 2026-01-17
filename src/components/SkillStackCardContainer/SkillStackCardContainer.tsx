@@ -35,7 +35,7 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
       {/* sm 이상: 기존 그리드 레이아웃 */}
       <div
         className="w-full hidden sm:grid xl:grid-cols-4 md:grid-cols-2 grid-cols-2
-          md:mt-6 mt-2 justify-center gap-x-8 gap-y-4"
+          md:mt-6 mt-2 justify-center gap-x-8 gap-y-4 pb-[20px]"
       >
         {SKILL_CARDS.map((card, index) => (
           <div
