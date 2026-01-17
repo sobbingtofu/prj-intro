@@ -35,7 +35,7 @@ function WorkExperienceSection() {
             className={`font-bold md:text-xl text-[14px] transition-all duration-600 ease-out
               ${animateTimeLine ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
           >
-            Experience Overview
+            Work Experience
           </h1>
         </div>
         <WorkExpTimeline

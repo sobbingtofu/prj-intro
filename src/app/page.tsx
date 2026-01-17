@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <div ref={containerRef} className="bg-black h-screen flex flex-row overflow-hidden">
       {/* 데스크탑 용 사이드바 */}
-      <SidebarDesktop />
+      <SidebarDesktop currentSectionIndex={currentSectionIndex} setCurrentSectionIndex={setCurrentSectionIndex} />
 
       {/* 모바일 용 사이드바 */}
       <SidebarMobile />
