@@ -62,7 +62,7 @@ export default function Home() {
       {/* 모바일 용 사이드바 */}
       <SidebarMobile />
       <div
-        className="flex-1 w-full"
+        className="flex-1 min-w-0"
         style={{
           transform: `translateY(calc(-${currentSectionIndex * 100}vh + ${offset}vh))`,
           transition: "transform 0.5s cubic-bezier(0, 0, 0.24, 1.01)",

@@ -15,16 +15,16 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
 
   return (
     <div
-      className="hidden sm:flex z-200 sm:w-[200px] sm:h-screen sm:sticky top-0 shrink-0
+      className="hidden sm:flex z-200 sm:w-[180px] sm:h-screen sm:sticky top-0 shrink-0
       bg-gradient-to-br from-gray-900 to-black justify-center items-center
       "
     >
-      <div className="flex sm:flex-col h-[50%] sm:justify-between sm:items-start sm:px-6 ">
+      <div className="flex sm:flex-col h-[50%] sm:justify-between sm:items-start sm:px-2">
         {SECTIONS.map((section) => (
           <button
             key={section.id}
             onClick={() => setCurrentSectionIndex(section.id)}
-            className={`w-full text-left py-3 px-4 rounded-lg transition-all duration-300 ease-out cursor-pointer text-right
+            className={`w-full py-3 px-4 rounded-xl transition-all duration-300 ease-out cursor-pointer text-right
             ${
               currentSectionIndex === section.id
                 ? "bg-white text-black font-semibold scale-105 shadow-lg"

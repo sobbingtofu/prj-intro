@@ -9,11 +9,11 @@ function MainSection() {
   const {animateTextArea, animateImageArea, animateSkillStackArea} = useAnimateMainSection({mainSectionRef});
 
   return (
-    <section ref={mainSectionRef} id="MainSection" className="w-full h-screen">
+    <section ref={mainSectionRef} id="MainSection" className="w-full h-screen overflow-y-auto overflow-x-hidden">
       <div
         className="h-full w-full max-h-[1800px] max-w-[3600px] min-w-[350px]
-        xl:pt-0 lg:pt-[60px] sm:pt-[100px] pt-[20px]
-      bg-background flex flex-col xl:justify-center sm:justify-start justify-center items-center overflow-y-auto overflow-x-hidden"
+        xl:pt-0 lg:pt-[60px] sm:pt-[100px] pt-[20px] 
+      bg-background flex flex-col xl:justify-center sm:justify-start justify-center items-center"
       >
         {/* 소개 영역 */}
         <div className="md:w-[80%] w-[90%] flex flex-col sm:mt-0 mt-[1vh]">
@@ -21,7 +21,7 @@ function MainSection() {
           <div
             className="flex
           sm:flex-row sm:justify-between sm:h-auto
-          flex-row-reverse h-auto justify-between sm:gap-0 gap-4
+          flex-row-reverse h-auto justify-between sm:gap-4 gap-4
           "
           >
             {/* 텍스트 영역 */}
