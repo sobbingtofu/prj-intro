@@ -27,7 +27,7 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
   return (
     <div
       className={`w-[85vw] sm:w-[65vw] xl:w-[80vw] min-w-[350px] sm:min-w-[400px]
-        h-[470px] sm:min-h-[460px] sm:h-[55vh] 2xl:min-h-[520px] mb-3 
+        h-[470px] sm:min-h-[460px] sm:h-[66vh] 2xl:min-h-[520px] mb-3 
         px-4 py-4 sm:px-10 sm:py-6 2xl:px-12 2xl:py-8
         sm:mt-20 mt-[10vh] 2xl:mt-24 transition-all duration-500 ease-in-out
         text-black bg-background rounded-2xl shadow-lg relative overflow-hidden sm:overflow-y-auto
