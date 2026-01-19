@@ -28,7 +28,7 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
     <div
       className={`w-[85vw] sm:w-[65vw] xl:w-[80vw] min-w-[350px] sm:min-w-[400px]
         h-[470px] sm:min-h-[460px] sm:h-[60vh] 2xl:min-h-[520px] mb-3 
-        px-4 py-4 sm:px-10 sm:py-6 2xl:px-12 2xl:py-8
+        px-4 py-4 sm:px-10 sm:py-6 xl:px-12 xl:py-8 2xl:px-12 2xl:py-10
         sm:mt-20 mt-[10vh] 2xl:mt-[10vh] transition-all duration-500 ease-in-out
         text-black bg-background rounded-2xl shadow-lg relative overflow-hidden sm:overflow-y-auto
         scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent
@@ -49,7 +49,7 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
               {displayMilestone.name.replace(/<br>/g, " ")}
             </h1>
           ) : (
-            <h1 className=" text-xl sm:text-3xl 2xl:text-4xl font-black">{"Nemo Partners SGC"}</h1>
+            <h1 className="text-xl sm:text-3xl 2xl:text-4xl font-black">{"Nemo Partners SGC"}</h1>
           )}
           {displayMilestone.duration == "" ? null : (
             <div
