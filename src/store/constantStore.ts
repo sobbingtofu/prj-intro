@@ -190,7 +190,7 @@ export const PROJECTS: projectType[] = [
       },
       {
         point: "고성능 클라이언트 캐싱",
-        content: "IndexedDB 활용 통한 네트워크 비용 최소화 및 재방문 시 즉각적인 서비스 이용 가능 환경 구현 ",
+        content: "IndexedDB 활용 통한 네트워크 비용 최소화 및 재방문 시 즉각적인 서비스 이용 가능 환경 구현",
       },
       {
         point: "동적 데이터 확장 및 크롤링",
