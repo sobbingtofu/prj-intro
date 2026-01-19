@@ -26,7 +26,7 @@ function MyStorySection() {
       bg-white flex flex-col xl:justify-start sm:justify-start justify-center items-center "
     >
       <div
-        className="flex flex-col items-center flex-shrink-0 h-full
+        className="flex flex-col items-center flex-shrink-0 h-full overflow-y-hidden
         w-[90vw] sm:w-[80vw] "
       >
         {/* 섹션 타이틀 */}
