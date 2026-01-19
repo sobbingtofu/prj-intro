@@ -22,7 +22,7 @@ function WorkExpTimeline({
   return (
     <>
       {/* Timeline Container */}
-      <div className="w-[75vw] sm:w-[65vw] xl:w-[80vw] md:px-8 px-0 mt-[5vh] sm:mt-[9vh]">
+      <div className="w-[75vw] sm:w-[65vw] xl:w-[80vw] md:px-8 px-0 mt-[5vh] sm:mt-[8vh]">
         {/* Horizontal Line Wrapper */}
         <div className="relative w-full">
           {/* Horizontal Line 애니메이션용 */}
