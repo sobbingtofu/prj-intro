@@ -11,12 +11,7 @@ export const SKILL_CARDS = [
   {
     title: "Modern Frontend",
     color: "bg-primary",
-    items: [
-      "React.js, Next.js (App Router)",
-      "TypeScript, JavaScript (ES6+)",
-      "Zustand, Redux Toolkit",
-      "Tailwind CSS",
-    ],
+    items: ["React.js, Next.js", "TypeScript, JavaScript", "Zustand, Redux Toolkit", "Tailwind CSS"],
   },
   {
     title: "Backend & Systems",
@@ -32,8 +27,8 @@ export const SKILL_CARDS = [
     title: "Product & Strategy",
     color: "bg-green-500",
     items: [
-      "프로젝트 및 프로덕트 관리 (PM)",
-      "요구사항 분석 및 기술 명세 정의",
+      "프로젝트/프로덕트 관리 (PM)",
+      "요구사항 분석/기술 명세 정의",
       "PRD/기능설계서 작성",
       "WBS 기반 일정 및 리소스 관리",
     ],
