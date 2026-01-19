@@ -31,7 +31,7 @@ function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexCon
     if (animatePrjSectionCardsLg) {
       overflowYDelayTimer.current = setTimeout(() => {
         setOverflowY("auto");
-      }, 3000);
+      }, 4000);
     } else {
       if (overflowYDelayTimer.current) {
         clearTimeout(overflowYDelayTimer.current);
@@ -55,7 +55,7 @@ function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexCon
     <div
       ref={containerRef}
       className={`hidden lg:block p-4 pb-8 mt-4 2xl:mt-10
-        w-full overflow-x-auto overflow-y-${overflowY} 
+        w-full overflow-x-auto ${overflowY === "auto" ? "overflow-y-auto" : "overflow-y-hidden"} 
         scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100`}
     >
       <div ref={containerRef} className="flex flex-row justify-between w-auto gap-[2%]">
