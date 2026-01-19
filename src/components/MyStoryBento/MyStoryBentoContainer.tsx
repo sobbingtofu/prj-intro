@@ -51,7 +51,7 @@ function MyStoryBentoContainer({
 
   return (
     <div
-      className={`mt-16 w-full grid-cols-2 grid-rows-2 gap-4 h-[610px] 
+      className={`2xl:mt-16 mt-8 w-full grid-cols-2 grid-rows-2 gap-4 h-[610px] 
             scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-whites
             hidden lg:grid
             `}

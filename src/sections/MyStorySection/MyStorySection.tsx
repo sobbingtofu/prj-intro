@@ -30,7 +30,7 @@ function MyStorySection() {
         w-[90vw] sm:w-[80vw] "
       >
         {/* 섹션 타이틀 */}
-        <div className="mt-[10vh] w-full">
+        <div className="mt-[12vh] sm:mt-[5vh] 2xl:mt-[8vh] w-full">
           <h1
             className={`font-bold text-[14px] md:text-xl transition-all duration-600 ease-out
               ${animateMyStorySectionTitle ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}

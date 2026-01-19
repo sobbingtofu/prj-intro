@@ -11,12 +11,7 @@ export const SKILL_CARDS = [
   {
     title: "Modern Frontend",
     color: "bg-primary",
-    items: [
-      "React.js, Next.js (App Router)",
-      "TypeScript, JavaScript (ES6+)",
-      "Zustand, Redux Toolkit",
-      "Tailwind CSS",
-    ],
+    items: ["React.js, Next.js", "TypeScript, JavaScript", "Zustand, Redux Toolkit", "Tailwind CSS"],
   },
   {
     title: "Backend & Systems",
@@ -32,8 +27,8 @@ export const SKILL_CARDS = [
     title: "Product & Strategy",
     color: "bg-green-500",
     items: [
-      "프로젝트 및 프로덕트 관리 (PM)",
-      "요구사항 분석 및 기술 명세 정의",
+      "프로젝트/프로덕트 관리 (PM)",
+      "요구사항 분석/기술 명세 정의",
       "PRD/기능설계서 작성",
       "WBS 기반 일정 및 리소스 관리",
     ],
@@ -190,7 +185,7 @@ export const PROJECTS: projectType[] = [
       },
       {
         point: "고성능 클라이언트 캐싱",
-        content: "IndexedDB 활용 통한 네트워크 비용 최소화 및 재방문 시 즉각적인 서비스 이용 가능 환경 구현 ",
+        content: "IndexedDB 활용 통한 네트워크 비용 최소화 및 재방문 시 즉각적인 서비스 이용 가능 환경 구현",
       },
       {
         point: "동적 데이터 확장 및 크롤링",

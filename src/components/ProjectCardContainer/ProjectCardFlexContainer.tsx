@@ -54,7 +54,7 @@ function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexCon
   return (
     <div
       ref={containerRef}
-      className={`hidden lg:block p-4 pb-8 my-4
+      className={`hidden lg:block p-4 pb-8 mt-4 2xl:mt-10
         w-full overflow-x-auto overflow-y-${overflowY} 
         scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100`}
     >
