@@ -13,7 +13,7 @@ function MainSection() {
     <section ref={mainSectionRef} id="MainSection" className="w-full h-screen">
       <div
         className="h-full w-full max-w-[3600px] min-w-[350px]
-        xl:pt-0 lg:pt-[60px] sm:pt-[100px] pt-[20px]
+        xl:pt-[10px] lg:pt-[60px] sm:pt-[100px] pt-[20px]
       bg-background flex flex-col xl:justify-center sm:justify-start justify-center items-center
         overflow-y-auto overflow-x-hidden"
       >
@@ -56,8 +56,8 @@ function MainSection() {
                 </div>
                 {/* 메인텍스트 */}
                 <h1
-                  className="xl:text-5xl lg:text-4xl sm:text-2xl text-[16px]
-            text-[#030e18] font-[700] leading-tight tracking-tight"
+                  className="xl:text-[44px] lg:text-4xl sm:text-2xl text-[16px]
+                text-[#030e18] font-[700] leading-tight tracking-tight"
                 >
                   {"복잡한 비즈니스 요구사항을"}
                   <br />
@@ -80,9 +80,9 @@ function MainSection() {
               <div className="sm:flex hidden flex-wrap gap-4 md:pt-4 pt-1 items-start select-none">
                 <a
                   className="flex items-center justify-center rounded-lg bg-primary
-              md:px-5 md:py-3 px-2 py-2
-              md:text-sm text-xs font-bold text-white
-              transition-transform hover:translate-y-[-2px] hover:shadow-lg"
+                  md:px-5 md:py-3 px-2 py-2
+                  md:text-sm text-xs font-bold text-white
+                  transition-transform hover:translate-y-[-2px] hover:shadow-lg"
                   href="/files/KijoonYun-ProductEngineer-Resume.pdf"
                   download="KijoonYun-ProductEngineer-Resume.pdf"
                 >
@@ -90,9 +90,9 @@ function MainSection() {
                 </a>
                 <a
                   className="flex items-center justify-center rounded-lg bg-prime-gray
-              md:px-5 md:py-3 px-2 py-2
-              md:text-sm text-xs font-bold text-white
-              transition-transform hover:translate-y-[-2px] hover:shadow-lg"
+                  md:px-5 md:py-3 px-2 py-2
+                  md:text-sm text-xs font-bold text-white
+                  transition-transform hover:translate-y-[-2px] hover:shadow-lg"
                   href="https://github.com/sobbingtofu"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -101,9 +101,9 @@ function MainSection() {
                 </a>
                 <a
                   className="flex items-center justify-center rounded-lg bg-prime-gray
-              md:px-5 md:py-3 px-2 py-2
-              md:text-sm text-xs font-bold text-white
-              transition-transform hover:translate-y-[-2px] hover:shadow-lg"
+                  md:px-5 md:py-3 px-2 py-2
+                  md:text-sm text-xs font-bold text-white
+                  transition-transform hover:translate-y-[-2px] hover:shadow-lg"
                   href="https://eevee-wiki.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
