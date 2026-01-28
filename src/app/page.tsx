@@ -1,42 +1,24 @@
 "use client";
 
 import {useMemo, useRef, useState} from "react";
-import SidebarDesktop from "../components/SidebarDesktop/SidebarDesktop";
-import SidebarMobile from "../components/SidebarMobile/SidebarMobile";
-import {useApplyScrollEffect} from "../hooks/useApplyScrollEffect/useApplyScrollEffect";
 import MainSection from "../sections/MainSection/MainSection";
+import WorkExperienceSection from "../sections/WorkExperienceSection/WorkExperienceSection";
+import {useApplyScrollEffect} from "../hooks/useApplyScrollEffect/useApplyScrollEffect";
 import {SECTIONS} from "../store/constantStore";
 import {useSwipeSection} from "../hooks/useApplySwipeEffect/useApplySwipeEffect";
-import WorkExperienceSection from "../sections/WorkExperienceSection/WorkExperienceSection";
-import ProjectSection from "../sections/ProjectSection/ProjectSection";
-import {
-  myStoryAccordianCardTextRefs,
-  myStoryBentoCardTextRefs,
-  prjAccordianCardTextContainerRef,
-  prjCardTextContainerRef,
-} from "../store/refStore";
-import MyStorySection from "../sections/MyStorySection/MyStorySection";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
-  const exceptionRefs = useMemo(
-    () => [
-      prjCardTextContainerRef,
-      prjAccordianCardTextContainerRef,
-      ...myStoryBentoCardTextRefs,
-      ...myStoryAccordianCardTextRefs,
-    ],
-    []
-  );
+  const exceptionRefs = useMemo(() => [], []);
 
   const {offset} = useApplyScrollEffect({
     currentSectionIndex,
     setCurrentSectionIndex,
     targetContainerRef: containerRef,
-    totalSectionsCount: SECTIONS.length,
+    totalSectionsCount: [SECTIONS[0], SECTIONS[1]].length,
     scrollThreshold: 7,
     resetDelay: 450,
     maxOffset: 30,
@@ -47,7 +29,7 @@ export default function Home() {
     currentSectionIndex,
     setCurrentSectionIndex,
     targetContainerRef: containerRef,
-    totalSectionsCount: SECTIONS.length,
+    totalSectionsCount: [SECTIONS[0], SECTIONS[1]].length,
     swipeThreshold: 50,
     velocityThreshold: 0.5,
     transitionDelay: 300,
@@ -56,11 +38,6 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className="bg-black h-screen flex flex-row overflow-hidden">
-      {/* 데스크탑 용 사이드바 */}
-      <SidebarDesktop currentSectionIndex={currentSectionIndex} setCurrentSectionIndex={setCurrentSectionIndex} />
-
-      {/* 모바일 용 사이드바 */}
-      <SidebarMobile currentSectionIndex={currentSectionIndex} setCurrentSectionIndex={setCurrentSectionIndex} />
       <div
         className="flex-1 min-w-0"
         style={{
@@ -70,8 +47,6 @@ export default function Home() {
       >
         <MainSection />
         <WorkExperienceSection />
-        <ProjectSection />
-        <MyStorySection />
       </div>
     </div>
   );
