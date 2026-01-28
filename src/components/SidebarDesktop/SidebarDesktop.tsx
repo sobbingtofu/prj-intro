@@ -1,4 +1,4 @@
-import {SECTIONS} from "@/src/store/constantStore";
+import {SECTIONS_OLD} from "@/src/store/constantStore";
 
 interface SidebarDesktopProps {
   currentSectionIndex: number;
@@ -20,7 +20,7 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
       "
     >
       <div className="flex sm:flex-col h-[50%] sm:justify-between sm:items-start sm:px-2">
-        {SECTIONS.map((section) => (
+        {SECTIONS_OLD.map((section) => (
           <button
             key={section.id}
             onClick={() => setCurrentSectionIndex(section.id)}

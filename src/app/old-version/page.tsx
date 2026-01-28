@@ -2,7 +2,7 @@
 
 import {useApplyScrollEffect} from "@/src/hooks/useApplyScrollEffect/useApplyScrollEffect";
 import {useSwipeSection} from "@/src/hooks/useApplySwipeEffect/useApplySwipeEffect";
-import {SECTIONS} from "@/src/store/constantStore";
+import {SECTIONS_OLD} from "@/src/store/constantStore";
 import {
   myStoryAccordianCardTextRefs,
   myStoryBentoCardTextRefs,
@@ -36,7 +36,7 @@ export default function Home() {
     currentSectionIndex,
     setCurrentSectionIndex,
     targetContainerRef: containerRef,
-    totalSectionsCount: SECTIONS.length,
+    totalSectionsCount: SECTIONS_OLD.length,
     scrollThreshold: 7,
     resetDelay: 450,
     maxOffset: 30,
@@ -47,7 +47,7 @@ export default function Home() {
     currentSectionIndex,
     setCurrentSectionIndex,
     targetContainerRef: containerRef,
-    totalSectionsCount: SECTIONS.length,
+    totalSectionsCount: SECTIONS_OLD.length,
     swipeThreshold: 50,
     velocityThreshold: 0.5,
     transitionDelay: 300,

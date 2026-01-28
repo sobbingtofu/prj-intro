@@ -1,10 +1,16 @@
 import {experienceMilestoneType, myStoryType, projectType} from "./constantStoreType";
 
-export const SECTIONS = [
+export const SECTIONS_OLD = [
   {id: 0, name: "main"},
   {id: 1, name: "workExperience"},
   {id: 2, name: "project"},
   {id: 3, name: "myStory"},
+];
+
+export const SECTIONS = [
+  {id: 0, name: "main"},
+  {id: 1, name: "workExperience"},
+  {id: 2, name: "project"},
 ];
 
 export const SKILL_CARDS = [

@@ -1,4 +1,4 @@
-import {SECTIONS} from "@/src/store/constantStore";
+import {SECTIONS_OLD} from "@/src/store/constantStore";
 
 interface SidebarMobileProps {
   currentSectionIndex: number;
@@ -19,7 +19,7 @@ function SidebarMobile({currentSectionIndex, setCurrentSectionIndex}: SidebarMob
       bg-gradient-to-r from-[#050d2a] to-black justify-between items-center shadow-lg"
     >
       <div className="flex flex-row w-full justify-between items-center gap-2 max-w-[500px]">
-        {SECTIONS.map((section) => (
+        {SECTIONS_OLD.map((section) => (
           <button
             key={section.id}
             onClick={() => setCurrentSectionIndex(section.id)}
