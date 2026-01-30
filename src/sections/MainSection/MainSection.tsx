@@ -3,11 +3,15 @@ import Image from "next/image";
 
 function MainSection() {
   return (
-    <section id="MainSection" className="w-full h-screen overflow-auto bg-background flex items-center justify-center">
-      <div className="flex-1">
+    <section id="MainSection" className="w-full h-screen overflow-auto bg-background flex items-start justify-center">
+      <div
+        className="flex-1 h-full w-full
+        bg-background 2xl:pt-[calc((100vh-830px)/2)] pt-[calc((100vh-780px)/2)] pb-[calc((100vh-780px)/2)]"
+      >
+        {/* 실제 내용물 컨테이너 */}
         <div
           className="2xl:w-[1520px] w-[1200px] h-[780px] mx-auto bg-background 
-          2xl:pt-[20px] pt-[45px] pb-[35px] px-[50px] border"
+          2xl:pt-[20px] pt-[45px] pb-[35px] px-[50px] "
         >
           {/* 서브텍스트 및 이미지 */}
           <div
@@ -31,7 +35,7 @@ function MainSection() {
             </div>
           </div>
           {/* 헤더 텍스트 및 강조점 */}
-          <div className="w-full flex items-end 2xl:mt-[25px] mt-[35px]">
+          <div className="w-full flex items-end 2xl:mt-[25px] mt-[45px]">
             {/* 헤더 텍스트 */}
             <div
               className="flex flex-col items-end ml-auto w-full
