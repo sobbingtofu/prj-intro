@@ -25,15 +25,14 @@ function MainSection() {
       className="w-full h-screen overflow-auto bg-background flex items-start justify-center"
     >
       <div
-        className="flex-1 h-full w-full bg-background
+        className="flex-1 h-full w-full bg-background border border-blue-700
         2xl:pt-[calc((100vh-830px)/2)] pt-[calc((100vh-780px)/2)] pb-[calc((100vh-780px)/2)]
-        2xl:px-[calc((100vw-1520px-220px)/2)] px-[calc((100vw-1200px-220px)/2)]
-         
-         "
+        2xl:px-[calc((100vw-1520px-220px)/2)] px-[calc((100vw-1200px-220px)/2)]"
       >
-        {/* 실제 내용물 컨테이너 */}
+        {/* 실제 내용물 컨테이너 : sm 이상 */}
         <div
-          className="2xl:w-[1520px] w-[1200px] h-[780px] bg-background
+          className="hidden sm:block
+          2xl:w-[1520px] w-[1200px] h-[780px] bg-background border border-red-500
           2xl:pt-[20px] pt-[45px] pb-[35px] px-[50px]"
         >
           {/* 서브텍스트 및 이미지 */}
@@ -105,6 +104,7 @@ function MainSection() {
             <SkillStackCardContainer animateSkillStackArea={animateSkillStackArea} />
           </div>
         </div>
+        {/* 실제 내용물 컨테이너 : sm 미만 */}
       </div>
 
       {/* Easter Egg */}

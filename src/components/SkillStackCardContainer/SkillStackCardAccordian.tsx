@@ -1,4 +1,4 @@
-import useSkillCardCarousel_old from "@/src/hooks/useSkillCardCarousel/useSkillCardCarousel_old";
+import useSkillCardCarousel from "@/src/hooks/useSkillCardCarousel/useSkillCardCarousel";
 import {SKILL_CARDS_OLD} from "@/src/store/constantStore";
 
 interface SkillStackCardContainerProps {
@@ -16,7 +16,7 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
     handleMouseUp,
     getCardPosition,
     setActiveCardIndex,
-  } = useSkillCardCarousel_old();
+  } = useSkillCardCarousel();
 
   return (
     <div
@@ -25,41 +25,6 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
         md:mt-8 mt-[6vh] min-h-[240px]
         "
     >
-      <p
-        className={`w-full font-[700] md:text-left text-center md:text-xl text-[14px] sm:mt-0 mt-2
-          transition-all duration-250 ease-out
-          ${animateSkillStackArea ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}
-          `}
-      >{`Tech Stack`}</p>
-
-      {/* sm 이상: 기존 그리드 레이아웃 */}
-      <div
-        className="w-full hidden sm:grid xl:grid-cols-4 md:grid-cols-2 grid-cols-2
-          md:mt-6 mt-2 justify-center gap-x-8 gap-y-4 pb-[20px]"
-      >
-        {SKILL_CARDS_OLD.map((card, index) => (
-          <div
-            key={index}
-            className={`flex-1 rounded-xl border border-gray-100 bg-white md:p-6 p-4 shadow-sm hover:shadow-md
-              transition-all duration-500 ease-out
-              ${animateSkillStackArea ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-            style={{
-              transitionDelay: animateSkillStackArea ? `${200 + index * 150}ms` : "0ms",
-            }}
-          >
-            <h3 className="xl:mb-3 mb-1.5 xl:text-lg font-bold ">{card.title}</h3>
-            <ul className="space-y-2 text-[12px] xl:text-sm text-text-secondary text-gray-700">
-              {card.items.map((item, itemIndex) => (
-                <li key={itemIndex} className="flex items-center gap-2">
-                  <span className={`h-1.5 w-1.5 rounded-full ${card.color}`}></span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
       {/* sm 미만: 캐러셀 레이아웃 */}
       <div
         className={`w-full sm:hidden overflow-hidden select-none mt-3 flex flex-col justify-start transition-all duration-250 ease-out
