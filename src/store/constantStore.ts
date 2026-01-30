@@ -31,6 +31,7 @@ export const SKILL_CARDS = [
     skill: [
       {key: "UI / UX", item: ["Figma, Prototyping"]},
       {key: "TOOLS", item: ["Git&Github, SourceTree, Notion"]},
+      {key: "OFFICE", item: ["MS Excel, PowerPoint, Word"]},
     ],
   },
 ];

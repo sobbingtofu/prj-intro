@@ -50,7 +50,7 @@ function SkillStackCardAccordian({animateSkillStackArea = false}: SkillStackCard
               style={{touchAction: "pan-y"}}
             >
               <h3 className="mb-4 text-base font-bold  text-[12px] flex-shrink-0">{card.title}</h3>
-              <div className="flex flex-col justify-start gap-y-6 flex-1  text-gray-700">
+              <div className="flex flex-col justify-center gap-y-6 flex-1  text-gray-700">
                 {card.skill.map((skillItem, index) => (
                   <div key={index} className="flex items-center gap-2">
                     <div className="font-bold text-white bg-black px-1.5 py-1 rounded-sm text-[10px]">
