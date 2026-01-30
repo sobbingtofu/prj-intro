@@ -1,10 +1,10 @@
 import WorkExpCard from "@/src/components/WorkExpCard/WorkExpCard";
 import WorkExpTimeline from "@/src/components/WorkExpTimeline/WorkExpTimeline";
-import useAnimateWorkExpSection from "@/src/hooks/useAnimateWorkExpSection/useAnimateWorkExpSection";
+import useAnimateWorkExpSection_old from "@/src/hooks/useAnimateWorkExpSection/useAnimateWorkExpSection_old";
 import {MILESTONES} from "@/src/store/constantStore";
 import {useState, useRef} from "react";
 
-function WorkExperienceSection() {
+function WorkExperienceSection_old() {
   const [selectedMilestoneId, setSelectedMilestoneId] = useState<number>(1);
   const [animateTimeLine, setAnimateTimeLine] = useState<boolean>(false);
   const [animateWorkExpCard, setAnimateWorkExpCard] = useState<boolean>(false);
@@ -12,7 +12,7 @@ function WorkExperienceSection() {
 
   const workExpSectionRef = useRef<HTMLDivElement>(null!);
 
-  useAnimateWorkExpSection({
+  useAnimateWorkExpSection_old({
     animateTimeLine,
     setAnimateTimeLine,
     setSelectedMilestoneId,
@@ -56,4 +56,4 @@ function WorkExperienceSection() {
   );
 }
 
-export default WorkExperienceSection;
+export default WorkExperienceSection_old;

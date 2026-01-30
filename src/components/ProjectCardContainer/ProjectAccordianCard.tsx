@@ -26,7 +26,7 @@ function ProjectAccordianCard({
   prevCardRectArr,
   cardToOpenIdRef,
 }: ProjectAccordianCardProps) {
-  const {setOrderedProjects} = zustandStore();
+  const setOrderedProjects = zustandStore((state) => state.setOrderedProjects);
   const cardClickDelayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const cardClickDelay = 840; // ms

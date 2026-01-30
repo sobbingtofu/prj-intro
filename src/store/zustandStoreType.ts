@@ -7,4 +7,7 @@ export interface zustandStoreType {
   setSelectedAccordianCardId: (id: string | null) => void;
   orderedProjects: projectType[];
   setOrderedProjects: (projects: projectType[] | ((prev: projectType[]) => projectType[])) => void;
+
+  animateNavigation: boolean;
+  setAnimateNavigation: (animate: boolean) => void;
 }

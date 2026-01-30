@@ -1,17 +1,32 @@
+"use client";
+
 import SkillStackCardContainer from "@/src/components/SkillStackCardContainer/SkillStackCardContainer";
 import Image from "next/image";
+import useAnimateMainSection from "@/src/hooks/useAnimateMainSection/useAnimateMainSection";
+import {mainSectionRef} from "@/src/store/refStore";
 
 function MainSection() {
+  const {animateMainText, animateStarIcon, animateSubText, animateImage, animateSkillStackArea} = useAnimateMainSection(
+    {mainSectionRef},
+  );
+
   return (
-    <section id="MainSection" className="w-full h-screen overflow-auto bg-background flex items-start justify-center">
+    <section
+      ref={mainSectionRef}
+      id="MainSection"
+      className="w-full h-screen overflow-auto bg-background flex items-start justify-center"
+    >
       <div
-        className="flex-1 h-full w-full
-        bg-background 2xl:pt-[calc((100vh-830px)/2)] pt-[calc((100vh-780px)/2)] pb-[calc((100vh-780px)/2)]"
+        className="flex-1 h-full w-full bg-background
+        2xl:pt-[calc((100vh-830px)/2)] pt-[calc((100vh-780px)/2)] pb-[calc((100vh-780px)/2)]
+        2xl:px-[calc((100vw-1520px-220px)/2)] px-[calc((100vw-1200px-220px)/2)]
+         
+         "
       >
         {/* 실제 내용물 컨테이너 */}
         <div
-          className="2xl:w-[1520px] w-[1200px] h-[780px] mx-auto bg-background 
-          2xl:pt-[20px] pt-[45px] pb-[35px] px-[50px] "
+          className="2xl:w-[1520px] w-[1200px] h-[780px] bg-background
+          2xl:pt-[20px] pt-[45px] pb-[35px] px-[50px]"
         >
           {/* 서브텍스트 및 이미지 */}
           <div
@@ -19,8 +34,10 @@ function MainSection() {
             2xl:w-[65%] w-[70%] 2xl:mr-[180px] mr-[130px] 2xl:h-[180px] h-[160px]"
           >
             <div
-              className="flex flex-col 2xl:text-[15px] text-sm
-              font-[400] tracking-[-0.02em] leading-[1.7] space-y-[-3px] "
+              className={`flex flex-col 2xl:text-[15px] text-sm
+              font-[400] tracking-[-0.02em] leading-[1.7] space-y-[-3px]
+              transition-all duration-700 ease-out
+              ${animateSubText ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
               <p>B2B 솔루션에서 요구사항 분석부터 기능 설계 및 개발,</p>
               <p>테스트 및 배포, 운영까지 전체 사이클을 경험했고,</p>
@@ -30,7 +47,11 @@ function MainSection() {
               <p className="font-[600]">프로덕트를 완성하는 개발자를 지향합니다.</p>
             </div>
 
-            <div className="h-full aspect-[3/4] aspect-[5/6] relative">
+            <div
+              className={`h-full aspect-[3/4] relative
+              transition-all duration-700 ease-out
+              ${animateImage ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"}`}
+            >
               <Image src="/img/meFinal.png" alt="프로필" fill className="object-cover" priority />
             </div>
           </div>
@@ -38,9 +59,11 @@ function MainSection() {
           <div className="w-full flex items-end 2xl:mt-[25px] mt-[45px]">
             {/* 헤더 텍스트 */}
             <div
-              className="flex flex-col items-end ml-auto w-full
+              className={`flex flex-col items-end ml-auto w-full
               2xl:text-[85px] text-[68px]
-              tracking-[-0.02em] leading-[1.3] space-y-[-3px] font-[500]"
+              tracking-[-0.02em] leading-[1.3] space-y-[-3px] font-[500]
+              transition-all duration-700 ease-out
+              ${animateMainText ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
             >
               <h2>
                 프로덕트의 <span className="font-[700]">시작</span>부터 <span className="font-[700]">끝</span>까지,
@@ -54,15 +77,17 @@ function MainSection() {
             </div>
             {/* 강조점 */}
             <div
-              className="2xl:w-[120px] 2xl:ml-[60px] w-[90px] ml-[40px]
-              aspect-square relative"
+              className={`2xl:w-[120px] 2xl:ml-[60px] w-[90px] ml-[40px]
+              aspect-square relative
+              transition-all duration-700 ease-out
+              ${animateStarIcon ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
             >
-              <Image src="/img/star.png" alt="프로필" fill className="object-cover" priority />
+              <Image src="/img/star.png" alt="강조점" fill className="object-cover" priority />
             </div>
           </div>
           {/* 기술 카드 */}
           <div className="2xl:mt-[65px] mt-[75px] ml-auto items-start 2xl:mr-[180px] mr-[130px] 2xl:w-[65%] w-[70%]">
-            <SkillStackCardContainer animateSkillStackArea={true} />
+            <SkillStackCardContainer animateSkillStackArea={animateSkillStackArea} />
           </div>
         </div>
       </div>

@@ -1,34 +1,27 @@
-import zustandStore from "@/src/store/zustandStore";
-import {Dispatch, SetStateAction, useEffect, useRef, useState} from "react";
+import {RefObject, useEffect, useRef} from "react";
 
 interface UseAnimateWorkExpSectionProps {
-  sectionRef: {
-    current: HTMLDivElement | null;
-  };
-  setSelectedMilestoneId: Dispatch<SetStateAction<number>>;
+  animateTimeLine: boolean;
+  setAnimateTimeLine: (value: boolean) => void;
+  setAnimateWorkExpCard: (value: boolean) => void;
+  setSelectedMilestoneId: (id: number) => void;
+  sectionRef: RefObject<HTMLDivElement>;
 }
 
-function useAnimateWorkExpSection({sectionRef, setSelectedMilestoneId}: UseAnimateWorkExpSectionProps) {
-  const [animateTimeLine, setAnimateTimeLine] = useState<boolean>(false);
-  const [animateWorkExpCard, setAnimateWorkExpCard] = useState<boolean>(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
+function useAnimateWorkExpSection_old({
+  animateTimeLine,
+  setAnimateTimeLine,
+  setSelectedMilestoneId,
+  setAnimateWorkExpCard,
+  sectionRef,
+}: UseAnimateWorkExpSectionProps) {
   const workeExpCardAnimateDelayTimer = useRef<NodeJS.Timeout | null>(null);
-  const navigationDelayTimer = useRef<NodeJS.Timeout | null>(null);
-
-  const setAnimateNavigation = zustandStore((state) => state.setAnimateNavigation);
-  const animateNavigation = zustandStore((state) => state.animateNavigation);
 
   useEffect(() => {
     const workExpSectionObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.intersectionRatio >= 0.8) {
           setAnimateTimeLine(true);
-          if (!animateNavigation) {
-            navigationDelayTimer.current = setTimeout(() => {
-              setAnimateNavigation(true);
-            }, 500);
-          }
         } else if (entry.intersectionRatio <= 0) {
           if (workeExpCardAnimateDelayTimer.current) {
             clearTimeout(workeExpCardAnimateDelayTimer.current);
@@ -54,20 +47,8 @@ function useAnimateWorkExpSection({sectionRef, setSelectedMilestoneId}: UseAnima
       if (currentSection) {
         workExpSectionObserver.unobserve(currentSection);
       }
-      if (navigationDelayTimer.current) {
-        clearTimeout(navigationDelayTimer.current);
-        navigationDelayTimer.current = null;
-      }
     };
-  }, [
-    animateTimeLine,
-    sectionRef,
-    setAnimateTimeLine,
-    setAnimateWorkExpCard,
-    setSelectedMilestoneId,
-    setAnimateNavigation,
-    animateNavigation,
-  ]);
+  }, [animateTimeLine, sectionRef, setAnimateTimeLine, setAnimateWorkExpCard, setSelectedMilestoneId]);
 
   useEffect(() => {
     if (animateTimeLine) {
@@ -88,15 +69,7 @@ function useAnimateWorkExpSection({sectionRef, setSelectedMilestoneId}: UseAnima
       }
     };
   }, [animateTimeLine, setAnimateWorkExpCard]);
-  return {
-    setSelectedMilestoneId,
-    animateTimeLine,
-    setAnimateTimeLine,
-    animateWorkExpCard,
-    setAnimateWorkExpCard,
-    isTransitioning,
-    setIsTransitioning,
-  };
+  return null;
 }
 
-export default useAnimateWorkExpSection;
+export default useAnimateWorkExpSection_old;

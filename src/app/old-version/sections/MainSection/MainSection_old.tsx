@@ -1,13 +1,14 @@
 "use client";
-import SkillStackCardContainer from "@/src/components/SkillStackCardContainer/SkillStackCardContainer";
-import useAnimateMainSection from "@/src/hooks/useAnimateMainSection/useAnimateMainSection";
+
 import {useRef} from "react";
 import Image from "next/image";
+import useAnimateMainSection_old from "@/src/hooks/useAnimateMainSection/useAnimateMainSection_old";
+import SkillStackCardContainer from "../../components/SkillStackCardContainer/SkillStackCardContainer";
 
-function MainSection() {
+function MainSection_old() {
   const mainSectionRef = useRef<HTMLDivElement>(null!);
 
-  const {animateTextArea, animateImageArea, animateSkillStackArea} = useAnimateMainSection({mainSectionRef});
+  const {animateTextArea, animateImageArea, animateSkillStackArea} = useAnimateMainSection_old({mainSectionRef});
 
   return (
     <section ref={mainSectionRef} id="MainSection" className="w-full h-screen">
@@ -182,4 +183,4 @@ function MainSection() {
   );
 }
 
-export default MainSection;
+export default MainSection_old;

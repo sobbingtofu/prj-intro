@@ -12,8 +12,8 @@ import {
 import {useMemo, useRef, useState} from "react";
 import SidebarDesktop from "./components/SidebarDesktop/SidebarDesktop";
 import SidebarMobile from "./components/SidebarMobile/SidebarMobile";
-import MainSection from "./sections/MainSection/MainSection_old";
-import WorkExperienceSection from "./sections/WorkExperienceSection/WorkExperienceSection";
+import MainSection_old from "./sections/MainSection/MainSection_old";
+import WorkExperienceSection_old from "./sections/WorkExperienceSection/WorkExperienceSection_old";
 import ProjectSection from "./sections/ProjectSection/ProjectSection";
 import MyStorySection from "./sections/MyStorySection/MyStorySection";
 
@@ -68,8 +68,8 @@ export default function Home() {
           transition: "transform 0.5s cubic-bezier(0, 0, 0.24, 1.01)",
         }}
       >
-        <MainSection />
-        <WorkExperienceSection />
+        <MainSection_old />
+        <WorkExperienceSection_old />
         <ProjectSection />
         <MyStorySection />
       </div>

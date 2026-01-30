@@ -1,15 +1,20 @@
+import useAnimateWorkExpSection from "@/src/hooks/useAnimateWorkExpSection/useAnimateWorkExpSection";
 import {experienceMilestoneType} from "@/src/store/constantStoreType";
-import {useState, useEffect} from "react";
+import {workExpSectionRef} from "@/src/store/refStore";
+import {useState, useEffect, SetStateAction, Dispatch} from "react";
 
 interface WorkExpCardProps {
   selectedMileStone: experienceMilestoneType;
-  animateWorkExpCard: boolean;
-  isTransitioning: boolean;
-  setIsTransitioning: (value: boolean) => void;
+  setSelectedMilestoneId: Dispatch<SetStateAction<number>>;
 }
 
-function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, setIsTransitioning}: WorkExpCardProps) {
+function WorkExpCard({selectedMileStone, setSelectedMilestoneId}: WorkExpCardProps) {
   const [displayMilestone, setDisplayMilestone] = useState(selectedMileStone);
+
+  const {setIsTransitioning, isTransitioning, animateWorkExpCard} = useAnimateWorkExpSection({
+    sectionRef: workExpSectionRef,
+    setSelectedMilestoneId: setSelectedMilestoneId,
+  });
 
   useEffect(() => {
     if (selectedMileStone.id !== displayMilestone.id) {

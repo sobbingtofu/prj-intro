@@ -1,23 +1,23 @@
+import useAnimateWorkExpSection from "@/src/hooks/useAnimateWorkExpSection/useAnimateWorkExpSection";
 import {MILESTONES} from "@/src/store/constantStore";
-
+import {workExpSectionRef} from "@/src/store/refStore";
+import {Dispatch, SetStateAction} from "react";
 interface WorkExpTimelineProps {
   selectedMilestoneId: number;
-  setSelectedMilestoneId: (id: number) => void;
-  animateTimeLine?: boolean;
-  isTransitioning: boolean;
+  setSelectedMilestoneId: Dispatch<SetStateAction<number>>;
 }
 
-function WorkExpTimeline({
-  selectedMilestoneId,
-  setSelectedMilestoneId,
-  animateTimeLine,
-  isTransitioning,
-}: WorkExpTimelineProps) {
+function WorkExpTimeline({selectedMilestoneId, setSelectedMilestoneId}: WorkExpTimelineProps) {
   const handleMilestoneClick = (milestoneId: number) => {
     if (!isTransitioning) {
       setSelectedMilestoneId(milestoneId);
     }
   };
+
+  const {animateTimeLine, isTransitioning} = useAnimateWorkExpSection({
+    sectionRef: workExpSectionRef,
+    setSelectedMilestoneId,
+  });
 
   return (
     <>

@@ -13,7 +13,7 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
           className={`transition-all duration-500 ease-out
             ${animateSkillStackArea ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
           style={{
-            transitionDelay: animateSkillStackArea ? `${200 + index * 150}ms` : "0ms",
+            transitionDelay: animateSkillStackArea ? `${index * 150}ms` : "0ms",
           }}
         >
           <h3 className="font-bold capitalize text-[11px] flex items-center gap-1.5">

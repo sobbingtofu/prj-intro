@@ -1,41 +1,79 @@
-import {RefObject, useEffect, useRef, useState} from "react";
+import zustandStore from "@/src/store/zustandStore";
+import {useEffect, useRef, useState} from "react";
 
 interface useAnimateMainSectionProps {
-  mainSectionRef: RefObject<HTMLDivElement>;
+  mainSectionRef: {
+    current: HTMLDivElement | null;
+  };
 }
 
 function useAnimateMainSection({mainSectionRef}: useAnimateMainSectionProps) {
-  const [animateTextArea, setAnimateTextArea] = useState<boolean>(false);
-  const [animateImageArea, setAnimateImageArea] = useState<boolean>(false);
+  const [animateMainText, setAnimateMainText] = useState<boolean>(false);
+  const [animateStarIcon, setAnimateStarIcon] = useState<boolean>(false);
+  const [animateSubText, setAnimateSubText] = useState<boolean>(false);
+  const [animateImage, setAnimateImage] = useState<boolean>(false);
   const [animateSkillStackArea, setAnimateSkillStackArea] = useState<boolean>(false);
+  const [animateArrowDown, setAnimateArrowDown] = useState<boolean>(false);
 
-  const imageAreaAnimateDelayTimer = useRef<NodeJS.Timeout | null>(null);
+  const setAnimateNavigation = zustandStore((state) => state.setAnimateNavigation);
+
+  const starIconTimer = useRef<NodeJS.Timeout | null>(null);
+  const subTextTimer = useRef<NodeJS.Timeout | null>(null);
+  const imageTimer = useRef<NodeJS.Timeout | null>(null);
   const skillStackAreaTimer = useRef<NodeJS.Timeout | null>(null);
+  const arrowDownTimer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const mainSectionObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.intersectionRatio >= 0.8) {
+          setAnimateNavigation(false);
+
           setTimeout(() => {
-            setAnimateTextArea(true);
-          }, 400);
-        } else if (entry.intersectionRatio <= 0) {
-          if (imageAreaAnimateDelayTimer.current) {
-            clearTimeout(imageAreaAnimateDelayTimer.current);
-            imageAreaAnimateDelayTimer.current = null;
+            /*
+            [ 애니메이션 1 ]
+            trigger: 메인 섹션이 뷰포트에 80% 이상 보인 후 200ms 경과
+            action: 헤더 텍스트 등장
+            **/
+            setAnimateMainText(true);
+          }, 200);
+        } else if (entry.intersectionRatio < 0.7) {
+          setAnimateArrowDown(false);
+        }
+
+        if (entry.intersectionRatio <= 0) {
+          // 모든 타이머 청소
+          if (starIconTimer.current) {
+            clearTimeout(starIconTimer.current);
+            starIconTimer.current = null;
+          }
+          if (subTextTimer.current) {
+            clearTimeout(subTextTimer.current);
+            subTextTimer.current = null;
+          }
+          if (imageTimer.current) {
+            clearTimeout(imageTimer.current);
+            imageTimer.current = null;
           }
           if (skillStackAreaTimer.current) {
             clearTimeout(skillStackAreaTimer.current);
             skillStackAreaTimer.current = null;
           }
-          setAnimateTextArea(false);
-          setAnimateImageArea(false);
+          if (arrowDownTimer.current) {
+            clearTimeout(arrowDownTimer.current);
+            arrowDownTimer.current = null;
+          }
+          // 모든 상태 초기화
+          setAnimateMainText(false);
+          setAnimateStarIcon(false);
+          setAnimateSubText(false);
+          setAnimateImage(false);
           setAnimateSkillStackArea(false);
         }
       },
       {
         threshold: [0, 0.8],
-      }
+      },
     );
 
     const currentSection = mainSectionRef.current;
@@ -49,31 +87,81 @@ function useAnimateMainSection({mainSectionRef}: useAnimateMainSectionProps) {
         mainSectionObserver.unobserve(currentSection);
       }
     };
-  }, [mainSectionRef]);
+  }, [mainSectionRef, setAnimateNavigation]);
 
   useEffect(() => {
-    if (animateTextArea) {
-      imageAreaAnimateDelayTimer.current = setTimeout(() => {
-        setAnimateImageArea(true);
-      }, 150);
+    if (animateMainText) {
+      starIconTimer.current = setTimeout(() => {
+        /*
+        [ 애니메이션 2 ]
+        trigger: 헤더텍스트 등장 시작된 후 200ms 경과
+        action: 강조점 등장
+        **/
+        setAnimateStarIcon(true);
+      }, 200);
     } else {
-      if (imageAreaAnimateDelayTimer.current) {
-        clearTimeout(imageAreaAnimateDelayTimer.current);
-        imageAreaAnimateDelayTimer.current = null;
+      if (starIconTimer.current) {
+        clearTimeout(starIconTimer.current);
+        starIconTimer.current = null;
       }
     }
 
     return () => {
-      if (imageAreaAnimateDelayTimer.current) {
-        clearTimeout(imageAreaAnimateDelayTimer.current);
-        imageAreaAnimateDelayTimer.current = null;
+      if (starIconTimer.current) {
+        clearTimeout(starIconTimer.current);
+        starIconTimer.current = null;
       }
     };
-  }, [animateTextArea]);
+  }, [animateMainText]);
 
   useEffect(() => {
-    if (animateImageArea) {
+    if (animateMainText) {
+      subTextTimer.current = setTimeout(() => {
+        /*
+        [ 애니메이션 3 ]
+        trigger: 헤더텍스트 등장 시작된 후 400ms 경과
+        action: 서브텍스트 등장
+        **/
+        setAnimateSubText(true);
+      }, 400);
+
+      if (animateMainText) {
+        imageTimer.current = setTimeout(() => {
+          /*
+          [ 애니메이션 4 ]
+          trigger: 헤더텍스트 등장 시작된 후 480ms 경과
+          action: 이미지 등장
+          **/
+          setAnimateImage(true);
+        }, 480);
+      }
+    } else {
+      if (subTextTimer.current) {
+        clearTimeout(subTextTimer.current);
+        subTextTimer.current = null;
+      }
+    }
+
+    return () => {
+      if (subTextTimer.current) {
+        clearTimeout(subTextTimer.current);
+        subTextTimer.current = null;
+      }
+      if (imageTimer.current) {
+        clearTimeout(imageTimer.current);
+        imageTimer.current = null;
+      }
+    };
+  }, [animateMainText]);
+
+  useEffect(() => {
+    if (animateSubText && animateImage) {
       skillStackAreaTimer.current = setTimeout(() => {
+        /*
+        [ 애니메이션 5 ]
+        trigger: 헤더텍스트 등장 시작된 후 500ms 경과
+        action: 스킬 스택 영역 등장
+        **/
         setAnimateSkillStackArea(true);
       }, 350);
     }
@@ -84,12 +172,40 @@ function useAnimateMainSection({mainSectionRef}: useAnimateMainSectionProps) {
         skillStackAreaTimer.current = null;
       }
     };
-  }, [animateImageArea]);
+  }, [animateSubText, animateImage]);
+
+  useEffect(() => {
+    if (animateSkillStackArea) {
+      arrowDownTimer.current = setTimeout(() => {
+        /*
+        [ 애니메이션 6 ]
+        trigger: 스킬 스택 영역 등장 시작된 후 100ms 경과
+        action: 화살표 등장
+        **/
+        setAnimateArrowDown(true);
+      }, 100);
+    } else {
+      if (arrowDownTimer.current) {
+        clearTimeout(arrowDownTimer.current);
+        arrowDownTimer.current = null;
+      }
+    }
+
+    return () => {
+      if (arrowDownTimer.current) {
+        clearTimeout(arrowDownTimer.current);
+        arrowDownTimer.current = null;
+      }
+    };
+  }, [animateSkillStackArea]);
 
   return {
-    animateTextArea,
-    animateImageArea,
+    animateMainText,
+    animateStarIcon,
+    animateSubText,
+    animateImage,
     animateSkillStackArea,
+    animateArrowDown,
   };
 }
 
