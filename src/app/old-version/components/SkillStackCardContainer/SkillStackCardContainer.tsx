@@ -1,5 +1,5 @@
 import useSkillCardCarousel from "@/src/hooks/useSkillCardCarousel/useSkillCardCarousel";
-import {SKILL_CARDS} from "@/src/store/constantStore";
+import {SKILL_CARDS_OLD} from "@/src/store/constantStore";
 
 interface SkillStackCardContainerProps {
   animateSkillStackArea?: boolean;
@@ -37,7 +37,7 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
         className="w-full hidden sm:grid xl:grid-cols-4 md:grid-cols-2 grid-cols-2
           md:mt-6 mt-2 justify-center gap-x-8 gap-y-4 pb-[20px]"
       >
-        {SKILL_CARDS.map((card, index) => (
+        {SKILL_CARDS_OLD.map((card, index) => (
           <div
             key={index}
             className={`flex-1 rounded-xl border border-gray-100 bg-white md:p-6 p-4 shadow-sm hover:shadow-md
@@ -82,7 +82,7 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
             transitionDelay: animateSkillStackArea ? `${400}ms` : "0ms",
           }}
         >
-          {SKILL_CARDS.map((card, index) => (
+          {SKILL_CARDS_OLD.map((card, index) => (
             <div
               key={index}
               className={`absolute w-[90%] rounded-xl border border-gray-100 bg-white p-4 shadow-sm  h-[190px] 
@@ -105,7 +105,7 @@ function SkillStackCardContainer({animateSkillStackArea = false}: SkillStackCard
 
         {/* 인디케이터 점들 */}
         <div className="flex justify-center gap-2">
-          {SKILL_CARDS.map((_, index) => (
+          {SKILL_CARDS_OLD.map((_, index) => (
             <button
               key={index}
               onClick={() => setActiveCardIndex(index)}

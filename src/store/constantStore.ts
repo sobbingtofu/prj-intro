@@ -1,12 +1,5 @@
 import {experienceMilestoneType, myStoryType, projectType} from "./constantStoreType";
 
-export const SECTIONS_OLD = [
-  {id: 0, name: "main"},
-  {id: 1, name: "workExperience"},
-  {id: 2, name: "project"},
-  {id: 3, name: "myStory"},
-];
-
 export const SECTIONS = [
   {id: 0, name: "main"},
   {id: 1, name: "workExperience"},
@@ -14,6 +7,42 @@ export const SECTIONS = [
 ];
 
 export const SKILL_CARDS = [
+  {
+    title: "MODERN FRONTEND",
+    color: "bg-primary",
+    skill: [
+      {key: "REACT", item: ["Typescript, Next.js"]},
+      {key: "STATE", item: ["Zustand, Recoil, Redux Toolkit"]},
+      {key: "STYLE", item: ["Styled-Components, Tailwind CSS"]},
+    ],
+  },
+  {
+    title: "BACKEND & SYSTEMS",
+    color: "bg-purple-500",
+    skill: [
+      {key: "JAVA", item: ["Spring Boot, RESTful API"]},
+      {key: "DB", item: ["MSSQL, SQL Query"]},
+      {key: "ARCH", item: ["System Architecture Design"]},
+    ],
+  },
+  {
+    title: "DESIGN & ETC",
+    color: "bg-purple-500",
+    skill: [
+      {key: "UI / UX", item: ["Figma, Prototyping"]},
+      {key: "TOOLS", item: ["Git&Github, SourceTree, Notion"]},
+    ],
+  },
+];
+
+export const SECTIONS_OLD = [
+  {id: 0, name: "main"},
+  {id: 1, name: "workExperience"},
+  {id: 2, name: "project"},
+  {id: 3, name: "myStory"},
+];
+
+export const SKILL_CARDS_OLD = [
   {
     title: "Modern Frontend",
     color: "bg-primary",
