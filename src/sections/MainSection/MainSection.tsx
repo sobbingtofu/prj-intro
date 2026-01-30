@@ -5,6 +5,9 @@ import Image from "next/image";
 import useAnimateMainSection from "@/src/hooks/useAnimateMainSection/useAnimateMainSection";
 import {mainSectionRef} from "@/src/store/refStore";
 import useAnimateSpinningStar from "@/src/hooks/useAnimateSpinningStar/useAnimateSpinningStar";
+import {useState} from "react";
+import {createPortal} from "react-dom";
+import ImageModal from "@/src/components/ImageModal/ImageModal";
 
 function MainSection() {
   const {animateMainText, animateStarIcon, animateSubText, animateImage, animateSkillStackArea} = useAnimateMainSection(
@@ -12,6 +15,8 @@ function MainSection() {
   );
 
   const {starRef, handleStarClick, handleMouseEnter, handleMouseLeave} = useAnimateSpinningStar();
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   return (
     <section
@@ -51,8 +56,9 @@ function MainSection() {
             </div>
 
             <div
-              className={`h-full aspect-[3/4] relative
-              transition-all duration-700 ease-out
+              onDoubleClick={() => setIsPopupOpen(true)}
+              className={`h-full aspect-[3/4] relative 
+              transition-all duration-700 ease-out hover:opacity-90
               ${animateImage ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"}`}
             >
               <Image src="/img/meFinal.png" alt="프로필" fill className="object-cover" priority />
@@ -88,8 +94,7 @@ function MainSection() {
               aspect-square relative
               transition-all duration-700 ease-out
               animate-spin-and-bounce
-              hover:scale-102
-              cursor-pointer
+              hover:scale-102 cursor-pointer
               ${animateStarIcon ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
             >
               <Image src="/img/star.png" alt="강조점" fill className="object-cover" priority />
@@ -101,6 +106,11 @@ function MainSection() {
           </div>
         </div>
       </div>
+
+      {/* Easter Egg */}
+      {isPopupOpen &&
+        typeof window !== "undefined" &&
+        createPortal(<ImageModal setIsPopupOpen={setIsPopupOpen} imgSrc="/img/cat.jpg" />, document.body)}
     </section>
   );
 }

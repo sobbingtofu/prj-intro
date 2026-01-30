@@ -24,7 +24,7 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
 
   return (
     <div
-      className="hidden sm:block z-200 sm:w-[180px] sm:h-screen sm:sticky top-0 shrink-0
+      className="hidden sm:block z-50 sm:w-[180px] sm:h-screen sm:sticky top-0 shrink-0
       bg-background"
     >
       <div className="bg-background flex justify-between items-center flex-col h-full max-h-[830px] min-h-[330px] space-y-5 mt-10 pb-20">
