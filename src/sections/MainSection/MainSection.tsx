@@ -1,5 +1,6 @@
 "use client";
 
+import {useState, useRef} from "react";
 import SkillStackCardContainer from "@/src/components/SkillStackCardContainer/SkillStackCardContainer";
 import Image from "next/image";
 import useAnimateMainSection from "@/src/hooks/useAnimateMainSection/useAnimateMainSection";
@@ -9,6 +10,49 @@ function MainSection() {
   const {animateMainText, animateStarIcon, animateSubText, animateImage, animateSkillStackArea} = useAnimateMainSection(
     {mainSectionRef},
   );
+
+  const [isStarClicked, setIsStarClicked] = useState(false);
+  const clickTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const starRef = useRef<HTMLDivElement>(null);
+
+  // 애니메이션 속도 업데이트
+  const updateAnimationSpeed = (playbackRate: number) => {
+    if (starRef.current) {
+      const animations = starRef.current.getAnimations();
+      console.log("애니메이션 개수:", animations.length, "목표 속도:", playbackRate);
+      if (animations.length > 0) {
+        animations.forEach((animation) => {
+          animation.playbackRate = playbackRate;
+          console.log("애니메이션 속도 변경됨:", animation.playbackRate);
+        });
+      }
+    }
+  };
+
+  const handleStarClick = () => {
+    if (clickTimerRef.current) {
+      clearTimeout(clickTimerRef.current);
+    }
+    setIsStarClicked(true);
+    updateAnimationSpeed(30);
+    clickTimerRef.current = setTimeout(() => {
+      setIsStarClicked(false);
+      updateAnimationSpeed(1);
+    }, 1500);
+  };
+
+  const handleMouseEnter = () => {
+    if (!isStarClicked) {
+      updateAnimationSpeed(3);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsStarClicked(false);
+    if (!isStarClicked) {
+      updateAnimationSpeed(1);
+    }
+  };
 
   return (
     <section
@@ -77,9 +121,16 @@ function MainSection() {
             </div>
             {/* 강조점 */}
             <div
+              ref={starRef}
+              onClick={handleStarClick}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
               className={`2xl:w-[120px] 2xl:ml-[60px] w-[90px] ml-[40px]
               aspect-square relative
               transition-all duration-700 ease-out
+              animate-spin-and-bounce
+              hover:scale-102
+              cursor-pointer
               ${animateStarIcon ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}
             >
               <Image src="/img/star.png" alt="강조점" fill className="object-cover" priority />
