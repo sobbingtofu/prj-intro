@@ -110,7 +110,7 @@ function MainSection() {
       {/* Easter Egg */}
       {isPopupOpen &&
         typeof window !== "undefined" &&
-        createPortal(<ImageModal setIsPopupOpen={setIsPopupOpen} imgSrc="/img/cat.jpg" />, document.body)}
+        createPortal(<ImageModal setIsPopupOpen={setIsPopupOpen} imgSrc="/img/square-cow.jpg" />, document.body)}
     </section>
   );
 }
