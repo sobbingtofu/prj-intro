@@ -7,6 +7,7 @@ import {useApplyScrollEffect} from "../hooks/useApplyScrollEffect/useApplyScroll
 import {SECTIONS} from "../store/constantStore";
 import {useSwipeSection} from "../hooks/useApplySwipeEffect/useApplySwipeEffect";
 import SidebarDesktop from "../components/SidebarDesktop/SidebarDesktop";
+import SidebarMobile from "../components/SidebarMobile/SidebarMobile";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -41,6 +42,7 @@ export default function Home() {
     <div ref={containerRef} className="bg-black h-screen flex flex-row overflow-hidden">
       {/* 데스크탑 용 사이드바 */}
       <SidebarDesktop currentSectionIndex={currentSectionIndex} setCurrentSectionIndex={setCurrentSectionIndex} />
+      <SidebarMobile currentSectionIndex={currentSectionIndex} setCurrentSectionIndex={setCurrentSectionIndex} />
       <div
         className="flex-1 min-w-0"
         style={{
