@@ -65,9 +65,12 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
         {/* 아래화살표*/}
         {
           <div
-            className={`w-[80px] h-[95px] ml-auto mr-[20px] relative 
+            className={`w-[80px] h-[95px] ml-auto mr-[20px] relative cursor-pointer select-none hover:scale-106
               transition-all duration-200 ease-out
-              ${animateArrowDown ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"}`}
+              ${animateArrowDown ? "opacity-100 translate-y-0 animate-gentle-bounce" : "opacity-0 -translate-y-8"}`}
+            onClick={() => {
+              setCurrentSectionIndex(1);
+            }}
           >
             <Image src="/icon/arrow-down.png" alt="프로필" fill className="object-contain" priority />
           </div>

@@ -49,3 +49,18 @@ body {
 .scrollbar-track-white::-webkit-scrollbar-track {
   background: white;
 }
+
+/* Custom gentle bounce animation */
+@keyframes gentle-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-gentle-bounce {
+  animation: gentle-bounce 1.5s ease-in-out infinite;
+}
