@@ -38,6 +38,7 @@ export default function Home() {
 
   return (
     <div ref={containerRef} className="bg-black h-screen flex flex-row overflow-hidden">
+      {/* <div className="bg-green-300" style={{width: "70px", height: "100vh"}}></div> */}
       <div
         className="flex-1 min-w-0"
         style={{
