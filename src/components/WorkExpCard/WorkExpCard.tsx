@@ -66,7 +66,7 @@ function WorkExpCard({selectedMileStone, setSelectedMilestoneId}: WorkExpCardPro
           <>
             {/* Detailed Contents */}
             <div
-              className="w-full mt-2 space-y-2 h-[420px] overflow-y-auto pr-8
+              className="w-full mt-2 space-y-2 h-[420px] overflow-y-auto pr-2
               scrollbar-thin02"
               style={{scrollbarGutter: "stable"}}
             >
@@ -80,24 +80,22 @@ function WorkExpCard({selectedMileStone, setSelectedMilestoneId}: WorkExpCardPro
                     </p>
                   </div>
                   {/* 업무 및 성과 */}
-                  <div className="flex flex-col pt-1.5 pb-2 px-2 bg-[#E5E5E5] mt-2">
-                    <div
-                      className="flex justify-end sm:justify-start gap-x-2 items-start cursor-pointer duration-200 p-1 rounded z-20"
-                      onClick={() => {
-                        setOpenProjectIndex((prev) =>
-                          prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
-                        );
-                      }}
-                    >
-                      <h4 className="hidden sm:block text-xs sm:text-sm font-bold text-gray-700 tracking-tight">
-                        담당 업무 및 성과
-                      </h4>
-                      <div className="pt-0.5">
-                        <OpenCloseIcon isSelected={openProjectIndex.includes(index)} />
-                      </div>
-                    </div>
+                  <div
+                    className={`flex flex-col pt-3  px-4 bg-[#E5E5E5] mt-2 relative
+                      ${!openProjectIndex.includes(index) ? "cursor-pointer" : ""}
+                      ${openProjectIndex.includes(index) ? "pb-12 sm:pb-2" : "pb-2"}
+                    `}
+                    onClick={() => {
+                      if (!openProjectIndex.includes(index)) {
+                        setOpenProjectIndex((prev) => [...prev, index]);
+                      }
+                    }}
+                  >
+                    <h4 className="hidden sm:block text-xs sm:text-sm font-bold text-gray-700 tracking-tight mb-1">
+                      담당 업무 및 성과
+                    </h4>
 
-                    <div className="px-2 sm:mt-0 mt-[-20px]">
+                    <div className="px-2 sm:mt-0 mt-0 relative">
                       <div
                         className={`grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 transition-all duration-300 ease-in-out overflow-hidden ${
                           openProjectIndex.includes(index) ? "max-h-[2000px] opacity-100" : "max-h-[80px] opacity-60"
@@ -119,7 +117,26 @@ function WorkExpCard({selectedMileStone, setSelectedMilestoneId}: WorkExpCardPro
                           </div>
                         ))}
                       </div>
+                      {/* 그라디언트 오버레이 */}
+                      {!openProjectIndex.includes(index) && (
+                        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#E5E5E5] via-[#E5E5E5]/70 to-transparent pointer-events-none" />
+                      )}
                     </div>
+
+                    {/* OpenCloseIcon - 우측 하단 */}
+                    {
+                      <div
+                        className="absolute bottom-2 right-2 p-2 cursor-pointer hover:bg-gray-300/50 rounded-full transition-colors duration-200 z-20"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setOpenProjectIndex((prev) =>
+                            prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
+                          );
+                        }}
+                      >
+                        <OpenCloseIcon isSelected={openProjectIndex.includes(index)} />
+                      </div>
+                    }
                   </div>
                 </div>
               ))}
