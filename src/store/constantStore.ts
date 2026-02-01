@@ -91,9 +91,9 @@ export const MILESTONES: experienceMilestoneType[] = [
         ],
       },
       {
-        title: "레거시 시스템 UI/UX 전면 업그레이드 프로젝트 참여 및 개발",
+        title: "레거시 시스템 UI/UX 전면 업그레이드 개발",
         overview:
-          "10년 이상 유지된 Java Spring Boot 기반 레거시 시스템의 및 JSP 기반 UI의 고도화 및 사용자 편의성 개선을 목표로 하는 전면 업그레이드 프로젝트의 리뉴얼 기획 / 시스템 설계 및 개발 수행",
+          "10년 이상 유지된 Java Spring Boot 기반 레거시 시스템의 JSP 기반 UI의 고도화 및 사용자 편의성 개선을 목표로 하는 전면 업그레이드 프로젝트의 리뉴얼 기획 / 시스템 설계 및 개발 수행",
         achievements: [
           {
             point: "레거시 파일 시스템 리팩토링",

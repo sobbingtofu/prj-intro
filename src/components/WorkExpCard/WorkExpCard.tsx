@@ -212,7 +212,7 @@ function WorkExpCard({selectedMileStone, setSelectedMilestoneId}: WorkExpCardPro
               {displayMilestone.techStack.map((tech, index) => (
                 <span
                   key={index}
-                  className="text-[11px] sm:text-xs bg-blue-100 text-blue-700 sm:px-3 px-2 py-1 rounded-full font-medium"
+                  className="text-[11px] sm:text-xs bg-greengray/15 text-emerald-900 sm:px-3 px-2 py-1 rounded-full font-medium"
                 >
                   {tech}
                 </span>
@@ -228,7 +228,7 @@ function WorkExpCard({selectedMileStone, setSelectedMilestoneId}: WorkExpCardPro
               {displayMilestone.coreSkills.map((skill, index) => (
                 <span
                   key={index}
-                  className="text-[11px] sm:text-xs bg-green-100 text-green-700 sm:px-3 px-2 py-1 rounded-full font-medium"
+                  className="text-[11px] sm:text-xs bg-greengray/15 text-emerald-900 sm:px-3 px-2 py-1 rounded-xl font-medium"
                 >
                   {skill}
                 </span>

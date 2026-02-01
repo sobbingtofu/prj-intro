@@ -15,6 +15,7 @@ import {
   prjAccordianCardTextContainerRef,
   prjCardTextContainerRef,
 } from "../store/refStore";
+import ProjectSection from "../sections/ProjectSection/ProjectSection";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -68,6 +69,7 @@ export default function Home() {
       >
         <MainSection />
         <WorkExperienceSection />
+        <ProjectSection />
       </div>
     </div>
   );
