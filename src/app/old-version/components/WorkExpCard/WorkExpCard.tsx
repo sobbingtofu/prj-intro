@@ -81,7 +81,7 @@ function WorkExpCard({selectedMileStone, animateWorkExpCard, isTransitioning, se
           <div className="w-full mt-2 sm:mt-0">
             {/* <h3 className="text-base font-bold mb-3 text-gray-800">Key Achievements</h3> */}
             <div className="space-y-2 sm:space-y-3">
-              {displayMilestone.keyAchievements.map((achievement, index) => (
+              {displayMilestone.keyAchievements?.map((achievement, index) => (
                 <div key={index}>
                   <div className="text-[13px] sm:text-sm 2xl:text-base font-semibold text-gray-800 mb-1">
                     • {achievement.point}
