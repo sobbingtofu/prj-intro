@@ -45,20 +45,22 @@ function ContactSection() {
         min-w-[350px] sm:min-w-[400px]"
       >
         <div className="flex flex-col items-center space-y-8">
-          <h3 className="text-sm font-[400] text-gray-500 mb-8">{"연락 주셔서 감사합니다."}</h3>
+          <h3 className="text-sm sm:text-base font-[400] text-gray-500 mb-8">{"연락 주셔서 감사합니다."}</h3>
 
           <button
             onClick={handleCopyEmail}
             className="group relative overflow-hidden button-shine-effect flex items-center space-x-3 px-8 pt-3 pb-4 shadow-xl
             transition-all duration-300 ease-out
-            bg-teal-200 animate-gentle-bounce transition-all duration-300
-            hover:bg-teal-300 rounded-xl cursor-pointer
+            text-teal-50 relative
+            bg-gradient-to-br from-greengray to-[#426c79] animate-gentle-bounce transition-all duration-300
+            rounded-xl cursor-pointer
+            hover:scale-105
             active:scale-95"
           >
             <div className="pt-1 relative z-10">
               {/* 이메일 아이콘 */}
               <svg
-                className="w-4 h-4 text-teal-800 group-hover:text-teal-900 transition-colors duration-300"
+                className="w-4 h-4"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -72,9 +74,10 @@ function ContactSection() {
             </div>
 
             {/* 이메일 텍스트 */}
-            <span className="text-base font-[400] text-teal-800 group-hover:text-teal-900 transition-colors duration-300 relative z-10">
-              {EMAIL}
-            </span>
+            <span className="text-base sm:text-[18px] font-[400] relative z-10">{EMAIL}</span>
+            <div className="animate-shine-infinite absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]">
+              <div className="relative h-full w-8 bg-white/30"></div>
+            </div>
           </button>
 
           {/* 복사 완료 메시지 */}

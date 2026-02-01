@@ -138,3 +138,27 @@ body {
 .animate-spin-and-bounce {
   animation: spin-and-bounce 20s linear infinite;
 }
+
+@keyframes shine-infinite {
+  0% {
+    transform: skew(24deg) translateX(-100%);
+  }
+  100% {
+    transform: skew(-24deg) translateX(100%);
+  }
+}
+
+.animate-shine-infinite {
+  animation: shine-infinite 2s ease-in-out infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: shine-infinite;
+  animation-timeline: auto;
+  animation-range-start: normal;
+  animation-range-end: normal;
+}
