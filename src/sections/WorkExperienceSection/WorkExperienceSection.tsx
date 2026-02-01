@@ -19,17 +19,23 @@ function WorkExperienceSection() {
     <section
       ref={workExpSectionRef}
       id="WorkExperienceSection"
-      className="w-full h-screen max-h-[1800px] max-w-[3600px] min-w-[350px]
-      bg-background flex flex-col xl:justify-start sm:justify-start justify-center items-center overflow-y-auto"
+      className="w-full h-screen
+      bg-background flex sm:items-start items-center justify-center overflow-y-auto"
     >
-      <div className="flex flex-col items-center flex-shrink-0 h-full">
-        <div className="w-[75vw] sm:w-[65vw] xl:w-[80vw] mt-[12vh] sm:mt-[5vh] 2xl:mt-[8vh] w-full flex ml-6 sm:ml-0">
-          <h1
-            className={`font-bold md:text-xl text-[14px] transition-all duration-600 ease-out
+      {/* 실제 내용물 */}
+      <div
+        className="flex flex-col items-center flex-shrink-0 h-full
+        w-[75vw] sm:w-[65vw] xl:w-[80vw] 2xl:max-w-[1200px] max-w-[1200px]
+        min-w-[350px] sm:min-w-[400px]
+        "
+      >
+        <div className="mt-[12vh] sm:mt-[5vh] 2xl:mt-[8vh] w-full flex justify-end">
+          <h3
+            className={`font-bold md:text-base text-[14px] tracking-[-0.02em] transition-all duration-600 ease-out
               ${animateTimeLine ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
           >
             Work Experience
-          </h1>
+          </h3>
         </div>
         <WorkExpTimeline selectedMilestoneId={selectedMilestoneId} setSelectedMilestoneId={setSelectedMilestoneId} />
 

@@ -5,9 +5,17 @@ export interface experienceMilestoneType {
   keyword: string;
   role: string;
   summary: string;
-  keyAchievements: {point: string; description: string; etc?: string}[];
+  keyAchievements?: {point: string; description: string; etc?: string}[];
   techStack?: string[];
   coreSkills?: string[];
+  detailedContents?: {
+    title: string;
+    overview: string;
+    achievements: {point: string; description: string[]}[];
+  }[];
+  overview?: string;
+  projects?: string[];
+  connections?: string[];
 }
 
 export interface projectType {

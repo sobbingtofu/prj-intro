@@ -36,6 +36,191 @@ export const SKILL_CARDS = [
   },
 ];
 
+export const MILESTONES: experienceMilestoneType[] = [
+  {
+    id: 1,
+    name: "(주) 스마트팩토리",
+    duration: "(2024.08<br>~ 현재)",
+    keyword: "기획부터 설계, 구현까지 제품의 전 생애 주기를 담당하는 개발자",
+    role: "Software Engineer & Technical PM",
+    summary: "솔루션 도입 전 과정(RFP 분석부터 설계, 개발, 교육)을 주도하며 고객사 비즈니스에 최적화된 시스템 구축",
+
+    techStack: ["Spring Boot", "Java", "JSP", "MSSQL", "dhtmlx suite", "Figma"],
+    detailedContents: [
+      {
+        title: "B2B 솔루션 도입 프로젝트 PM 및 개발",
+        overview:
+          "고객사의 IT 서비스 요청 & 장애 처리 솔루션(ITSM, IT Service Management) 및 기업 내부 프로세스 자산화 솔루션(PAL, Process Asset Library) 도입 프로젝트를 리드하는 Technical PM 역할 수행하며, 요구사항 분석부터 시스템 설계, 개발, 테스트, 사용자 교육까지 전 과정 주도",
+        achievements: [
+          {
+            point: "고객 RFP 분석 및 기술 요구사항 정의",
+            description: [
+              "고객사 미팅 통해 비즈니스 핵심 요구사항 도출 및 우선순위 정의",
+              "Add-on 기능에 대한 기능설계서(PRD) 작성으로 개발 범위 명확화 및 고객 합의 도출",
+            ],
+          },
+          {
+            point: "WBS 기반 프로젝트 일정 관리",
+            description: [
+              "3~6개월 프로젝트를 주 단위 마일스톤으로 세분화하여 진행률 관리",
+              "개발팀 태스크 할당 및 일정 조율",
+            ],
+          },
+          {
+            point: "Full-Stack Add-on 기능 설계 및 개발",
+            description: [
+              "MSSQL 기반 DB - 백엔드 Spring Boot 서버 연동 개발",
+              "백엔드 Spring Boot 서버 - 프론트엔드 JSP 간 통신 위한 RESTful api 개발",
+              "JSP 기반 일반사용자/편집자/관리자 용 커스텀 대시보드 및 티켓 처리 화면 등 레이아웃 설계 및 개발",
+            ],
+          },
+          {
+            point: "체계적 QA 프로세스 수립",
+            description: [
+              "기능별 테스트 시나리오 작성 및 단위·통합 테스트 수행",
+              "테스트 결과 기반 이슈 조치 위한 추가 개발 요건 정의",
+            ],
+          },
+          {
+            point: "사용자 교육 및 운영 지원",
+            description: [
+              "관리자·일반 사용자 대상 영문·국문 매뉴얼 작성 (40~150 페이지 분량)",
+              "온사이트 교육 진행 및 고객사 담당자 및 일반 사용자 문의사항 처리",
+            ],
+          },
+        ],
+      },
+      {
+        title: "레거시 시스템 UI/UX 전면 업그레이드 프로젝트 참여 및 개발",
+        overview:
+          "10년 이상 유지된 Java Spring Boot 기반 레거시 시스템의 및 JSP 기반 UI의 고도화 및 사용자 편의성 개선을 목표로 하는 전면 업그레이드 프로젝트의 리뉴얼 기획 / 시스템 설계 및 개발 수행",
+        achievements: [
+          {
+            point: "레거시 파일 시스템 리팩토링",
+            description: [
+              "기존 파일 업로드 핸들링 로직 분석 및 프론트/백엔드 각 계층의 검증·에러 처리 로직 개선",
+              "고객사별 커스텀 파일 처리 로직을 캡슐화하여 확장 가능한 구조로 재설계",
+              "파일 검증 규칙(용량, 확장자 등)을 설정 기반으로 관리하도록 변경하여 유지보수성 향상",
+            ],
+          },
+          {
+            point: "UI/UX 개선 및 프론트엔드 현대화",
+            description: [
+              "Stitch AI 활용해 기존 고객사 불편 사항을 반영한 UI 레이아웃 프로토타입 제작",
+              "프로토타입 기반 개발 후 팀원 피드백 반영하여 최적의 UI 레이아웃 선정 및 적용",
+              "전통적인 MVC 패턴의 서버 사이드 렌더링 방식을 REST API 기반 비동기 통신 방식으로 개선",
+              "불필요한 전체 페이지 리로드 제거하여 사용자 경험 개선 및 서버 부하 감소",
+            ],
+          },
+          {
+            point: "공통 컴포넌트 라이브러리 구축",
+            description: [
+              "버튼, 모달, 백드롭, 커스텀 alert 등 중복 구현된 UI 요소 분석",
+              "재사용 가능한 공통 컴포넌트로 리팩토링하여 코드 중복 제거",
+              "컴포넌트 사용 가이드 문서화로 팀 내 개발 생산성 향상",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Nemo Partners SCG",
+    duration: "(2023.07<br>~ 2023.12)",
+    keyword: "데이터와 논리에 기반하여 복잡한 비즈니스 문제를 구조화하고 해결책을 제시하는 컨설턴트",
+    role: "Business Strategy Consultant",
+    summary: "대기업 및 중견기업 대상 경영 전략 수립 및 시장 분석을 통한 비즈니스 솔루션 도출",
+    overview:
+      "신사업 기획, M&A 및 투자 타당성 분석, IPO 준비 기업 실사 등 컨설팅 프로젝트에 참여하여 데이터 분석 수행, 인사이트 도출 및 전략 수립",
+    projects: [
+      "제조업체 신사업 진출 전략 수립",
+      "SaaS 기업 M&A 타당성 Commercial Due Diligence",
+      "이동통신사 관련 정부 선정 사업 지원",
+      "RFP 분석 및 제안서 작성",
+    ],
+    connections: [
+      "복잡한 비즈니스 요구사항을 구조화하여 명확한 기술 명세로 전환하는 역량 습득",
+      "데이터 기반 의사결정 프로세스를 체득하여 프로덕트 기획 시 정량적 근거 제시 가능",
+      "클라이언트 커뮤니케이션 경험을 통해 요구사항 분석 및 기능 정의 가능",
+    ],
+    coreSkills: ["Logical Structuring", "Problem Solving", "Strategy Formulation", "Data Analysis"],
+  },
+  {
+    id: 3,
+    name: "미래에셋 VC",
+    duration: "(2022.12<br>~ 2023.02)",
+    keyword: "스타트업 시장환경 및 프로덕트 조사/분석 실무 수행",
+    role: "Investment Research Assistant",
+    summary: "기술 스타트업 투자 심사 보조 위한 스타트업 별 비즈니스 모델(BM) 및 시장 분석 통한 인사이트 도출",
+    keyAchievements: [
+      {
+        point: "산업별 시장 동향 및 테크 트렌드 조사",
+        description:
+          "투자심사역의 의사결정에 필요한 특정 산업군의 시장 규모, 경쟁 구도 및 최신 기술 트렌드 심층 조사 수행",
+      },
+      {
+        point: "스타트업 비즈니스 모델 및 서비스 분석",
+        description:
+          "검토 대상 기업의 BM, 사용자 지표 등 KPI, 수익 구조를 분석하고 서비스의 성장 잠재력과 제품 경쟁력을 정량적으로 평가",
+      },
+      {
+        point: "투자 심사 보고서 작성 및 실사 지원",
+        description:
+          "투자 심사 위원회용 보고서 작성을 보조하고, 기업 실사 과정에서 필요한 데이터 검증 및 관련 정성 자료 정리",
+      },
+      {
+        point: "투자 인사이트 도출 및 의사결정 프로세스 참여",
+        description:
+          "다양한 도메인의 서비스 분석을 통해 프로덕트의 성공 요건과 리스크 관리 방안 등 투자 인사이트 도출 과정에 기여",
+      },
+    ],
+    coreSkills: [
+      "Industry & Tech Analysis",
+      "Market Research",
+      "Market-Centric Insight Generation",
+      "Product Analysis",
+    ],
+  },
+  {
+    id: 4,
+    name: "교육 및 경험",
+    duration: "",
+    // duration: "(2018.12<br>~ 2022.11)",
+    keyword: "다양한 도메인을 경험하며 유연한 소통 능력과 실행력을 축적",
+    role: "",
+    summary: "게임 개발, 프로덕트 분석 및 연구, 영상 편집, 콘텐츠 기획 등 다양한 실무 경험",
+    keyAchievements: [
+      {
+        point: "연세대학교 졸업",
+        description: "국제학부(UIC) - 기술경영(CTM), 정보디자인(IID) 복수전공",
+      },
+      {
+        point: "센세이션 게임즈",
+        description:
+          "[PM, 게임 그래픽 디자이너] 연세대 동기들과 함께 소규모 게임개발 팀을 이뤄 Steam에 인디게임 'Soul After' 출시",
+        etc: "https://store.steampowered.com/app/2148220/Soul_After/",
+      },
+      {
+        point: "인천스케일업챌린지",
+        description: "[조사 연구원] 프로덕트 UX 연구 및 육성 프로그램 운영 지원",
+      },
+      {
+        point: "주식회사 이쿠얼키",
+        description: "[콘텐츠팀 인턴] 교육 컨텐츠 제작 및 프로덕트 QA 업무 수행",
+      },
+      {
+        point: "주식회사 BAEWUJA",
+        description: "[영상 편집자] 교육 영상 컨텐츠 편집 및 후반 처리 작업 지원",
+      },
+      {
+        point: "코스모스 악기",
+        description: "[콘텐츠팀 인턴] 온/오프라인 마케팅 콘텐츠 제작 지원",
+      },
+    ],
+  },
+];
+
 export const SECTIONS_OLD = [
   {id: 0, name: "main"},
   {id: 1, name: "workExperience"},
@@ -71,7 +256,7 @@ export const SKILL_CARDS_OLD = [
   },
 ];
 
-export const MILESTONES: experienceMilestoneType[] = [
+export const MILESTONES_OLD: experienceMilestoneType[] = [
   {
     id: 1,
     name: "주식회사<br>스마트팩토리",

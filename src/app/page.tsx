@@ -8,13 +8,29 @@ import {SECTIONS} from "../store/constantStore";
 import {useSwipeSection} from "../hooks/useApplySwipeEffect/useApplySwipeEffect";
 import SidebarDesktop from "../components/SidebarDesktop/SidebarDesktop";
 import SidebarMobile from "../components/SidebarMobile/SidebarMobile";
+import {
+  mileStoneCardContentDetailContainerRefs,
+  myStoryAccordianCardTextRefs,
+  myStoryBentoCardTextRefs,
+  prjAccordianCardTextContainerRef,
+  prjCardTextContainerRef,
+} from "../store/refStore";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
-  const exceptionRefs = useMemo(() => [], []);
+  const exceptionRefs = useMemo(
+    () => [
+      prjCardTextContainerRef,
+      prjAccordianCardTextContainerRef,
+      ...myStoryBentoCardTextRefs,
+      ...myStoryAccordianCardTextRefs,
+      ...mileStoneCardContentDetailContainerRefs,
+    ],
+    [],
+  );
 
   const {offset} = useApplyScrollEffect({
     currentSectionIndex,

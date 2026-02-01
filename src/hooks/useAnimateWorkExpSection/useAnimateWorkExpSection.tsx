@@ -27,7 +27,7 @@ function useAnimateWorkExpSection({sectionRef, setSelectedMilestoneId}: UseAnima
           if (!animateNavigation) {
             navigationDelayTimer.current = setTimeout(() => {
               setAnimateNavigation(true);
-            }, 500);
+            }, 300);
           }
         } else if (entry.intersectionRatio <= 0) {
           if (workeExpCardAnimateDelayTimer.current) {
@@ -73,7 +73,7 @@ function useAnimateWorkExpSection({sectionRef, setSelectedMilestoneId}: UseAnima
     if (animateTimeLine) {
       workeExpCardAnimateDelayTimer.current = setTimeout(() => {
         setAnimateWorkExpCard(true);
-      }, 2200);
+      }, 1800);
     } else {
       if (workeExpCardAnimateDelayTimer.current) {
         clearTimeout(workeExpCardAnimateDelayTimer.current);

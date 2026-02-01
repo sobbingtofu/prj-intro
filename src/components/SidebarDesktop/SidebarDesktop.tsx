@@ -24,7 +24,7 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
 
   return (
     <div
-      className="hidden sm:block z-50 sm:w-[180px] sm:h-screen sm:sticky top-0 shrink-0
+      className="hidden sm:block z-50 sm:w-[220px] sm:h-screen sm:sticky top-0 shrink-0
       bg-background"
     >
       <div className="bg-background flex justify-between items-center flex-col h-full max-h-[830px] min-h-[330px] space-y-5 mt-10 pb-20">
@@ -45,10 +45,10 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
               <button
                 key={section.id}
                 onClick={() => setCurrentSectionIndex(section.id)}
-                className={`w-full py-3 px-4 rounded-xl transition-all duration-300 ease-out cursor-pointer text-right
+                className={`w-full py-3 px-4 rounded-xl transition-all duration-300 ease-out cursor-pointer text-right 
                 ${
                   currentSectionIndex === section.id
-                    ? "bg-white text-black font-semibold scale-105 shadow-lg"
+                    ? " text-black font-semibold scale-105 shadow-lg bg-white"
                     : "text-gray-400 hover:text-gray-700 hover:scale-102"
                 }
                 ${animateNavigation ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}
@@ -57,7 +57,9 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
                   transitionDelay: animateNavigation ? `${index * 150}ms` : "0ms",
                 }}
               >
-                <div className="text-[13px] font-medium">{sectionNameMap[section.name] || section.name}</div>
+                <div className={`text-[13px] ${currentSectionIndex === section.id ? "font-[400]" : "font-[300]"}`}>
+                  {sectionNameMap[section.name] || section.name}
+                </div>
               </button>
             ))}
           </div>

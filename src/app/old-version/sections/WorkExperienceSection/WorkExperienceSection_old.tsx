@@ -1,8 +1,8 @@
-import WorkExpCard from "@/src/components/WorkExpCard/WorkExpCard";
-import WorkExpTimeline from "@/src/components/WorkExpTimeline/WorkExpTimeline";
 import useAnimateWorkExpSection_old from "@/src/hooks/useAnimateWorkExpSection/useAnimateWorkExpSection_old";
-import {MILESTONES} from "@/src/store/constantStore";
+import {MILESTONES_OLD} from "@/src/store/constantStore";
 import {useState, useRef} from "react";
+import WorkExpTimeline from "../../components/WorkExpTimeline/WorkExpTimeline";
+import WorkExpCard from "../../components/WorkExpCard/WorkExpCard";
 
 function WorkExperienceSection_old() {
   const [selectedMilestoneId, setSelectedMilestoneId] = useState<number>(1);
@@ -20,7 +20,8 @@ function WorkExperienceSection_old() {
     sectionRef: workExpSectionRef,
   });
 
-  const selectedMileStone = MILESTONES.find((milestone) => milestone.id === selectedMilestoneId) || MILESTONES[0];
+  const selectedMileStone =
+    MILESTONES_OLD.find((milestone) => milestone.id === selectedMilestoneId) || MILESTONES_OLD[0];
 
   return (
     <section

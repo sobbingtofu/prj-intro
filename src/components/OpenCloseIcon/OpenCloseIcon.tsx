@@ -1,6 +1,6 @@
 interface OpenCloseIconProps {
   isSelected: boolean;
-  size: "base" | "lg";
+  size?: "base" | "lg";
 }
 
 function OpenCloseIcon({isSelected, size = "base"}: OpenCloseIconProps) {

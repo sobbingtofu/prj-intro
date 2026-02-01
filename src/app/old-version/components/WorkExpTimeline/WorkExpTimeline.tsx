@@ -1,4 +1,4 @@
-import {MILESTONES} from "@/src/store/constantStore";
+import {MILESTONES_OLD} from "@/src/store/constantStore";
 
 interface WorkExpTimelineProps {
   selectedMilestoneId: number;
@@ -36,14 +36,14 @@ function WorkExpTimeline({
           {/* Timeline Points*/}
           <div className="relative w-full h-0.5">
             <div className="absolute inset-0 flex justify-between items-center flex-row-reverse">
-              {MILESTONES.map((milestone, index) => (
+              {MILESTONES_OLD.map((milestone, index) => (
                 <div
                   key={milestone.id}
                   onClick={() => handleMilestoneClick(milestone.id)}
                   className={`relative flex items-center cursor-pointer group transition-all duration-400
                     ${animateTimeLine ? "opacity-100 " : "opacity-0 "}`}
                   style={{
-                    transitionDelay: animateTimeLine ? `${1200 + (MILESTONES.length - 1 - index) * 250}ms` : "0ms",
+                    transitionDelay: animateTimeLine ? `${1200 + (MILESTONES_OLD.length - 1 - index) * 250}ms` : "0ms",
                   }}
                 >
                   {/* duration*/}
