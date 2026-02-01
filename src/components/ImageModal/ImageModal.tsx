@@ -6,7 +6,7 @@ interface ImageModalProps {
   imgSrc: string;
 }
 
-function ImageModal({setIsPopupOpen, imgSrc}: ImageModalProps) {
+function ImageModal({setIsPopupOpen}: ImageModalProps) {
   const POPUP_HEIGHT = 600;
   const IMAGE_ASPECT_RATIO = 1 / 1;
   const popupWidth = POPUP_HEIGHT * IMAGE_ASPECT_RATIO;
@@ -38,7 +38,16 @@ function ImageModal({setIsPopupOpen, imgSrc}: ImageModalProps) {
           width: `${popupWidth}px`,
         }}
       >
-        <Image src={imgSrc} alt="easter-egg" fill className="object-cover" priority />
+        <Image
+          src="/img/meFinal.png"
+          alt="easter-egg"
+          fill
+          className="object-cover"
+          priority
+          onLoad={() => {
+            return <></>;
+          }}
+        />
         <button
           onClick={() => setIsPopupOpen(false)}
           className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center cursor-pointer
