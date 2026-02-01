@@ -39,7 +39,7 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
         }
         {/* 네비게이션 */}
         {
-          <div className="flex sm:flex-col h-[50%] sm:justify-between sm:items-start sm:px-2">
+          <div className="flex sm:flex-col h-[50%] sm:justify-between sm:items-start sm:pl-5">
             {SECTIONS.map((section, index) => (
               <button
                 key={section.id}

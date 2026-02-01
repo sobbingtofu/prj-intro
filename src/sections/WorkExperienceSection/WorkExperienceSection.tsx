@@ -20,7 +20,7 @@ function WorkExperienceSection() {
       ref={workExpSectionRef}
       id="WorkExperienceSection"
       className="w-full h-screen
-      bg-background flex sm:items-start items-center justify-center overflow-y-auto"
+      bg-background flex sm:items-start items-center justify-center overflow-y-auto scrollbar-thin03"
     >
       {/* 실제 내용물 */}
       <div

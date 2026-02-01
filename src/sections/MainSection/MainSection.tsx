@@ -23,7 +23,7 @@ function MainSection() {
     <section
       ref={mainSectionRef}
       id="MainSection"
-      className="w-full h-screen overflow-auto bg-background flex items-start justify-center"
+      className="w-full h-screen overflow-auto bg-background flex items-start justify-center scrollbar-thin03"
     >
       <div
         className="flex-1 h-full w-full bg-background 
