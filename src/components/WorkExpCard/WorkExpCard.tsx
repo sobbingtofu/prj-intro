@@ -81,7 +81,7 @@ function WorkExpCard({selectedMileStone, setSelectedMilestoneId}: WorkExpCardPro
                   </div>
                   {/* 업무 및 성과 */}
                   <div
-                    className={`flex flex-col pt-3  px-4 bg-[#E5E5E5] mt-2 relative
+                    className={`flex flex-col pt-3 sm:px-4 px-1.5 bg-[#E5E5E5] mt-2 relative
                       ${!openProjectIndex.includes(index) ? "cursor-pointer" : ""}
                       ${openProjectIndex.includes(index) ? "pb-12 sm:pb-2" : "pb-2"}
                     `}
