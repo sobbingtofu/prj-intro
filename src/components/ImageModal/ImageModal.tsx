@@ -39,7 +39,7 @@ function ImageModal({setIsPopupOpen}: ImageModalProps) {
         }}
       >
         <Image
-          src="/img/meFinal.png"
+          src="square-cow-edited.png"
           alt="easter-egg"
           fill
           className="object-cover"
