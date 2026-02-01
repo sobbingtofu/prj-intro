@@ -12,12 +12,6 @@ interface SidebarDesktopProps {
 }
 
 function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDesktopProps) {
-  const sectionNameMap: Record<string, string> = {
-    main: "Overview",
-    workExperience: "Work Experience",
-    project: "Dev Projects",
-  };
-
   const {animateArrowDown} = useAnimateMainSection({mainSectionRef});
 
   const animateNavigation = zustandStore((state) => state.animateNavigation);
@@ -38,7 +32,7 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
           </div>
         }
         {/* 네비게이션 */}
-        {
+        {currentSectionIndex !== 0 && (
           <div className="flex sm:flex-col h-[50%] sm:justify-between sm:items-start sm:pl-5 w-full">
             {SECTIONS.map((section, index) => (
               <button
@@ -57,12 +51,12 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
                 }}
               >
                 <div className={`text-[13px] ${currentSectionIndex === section.id ? "font-[400]" : "font-[300]"}`}>
-                  {sectionNameMap[section.name] || section.name}
+                  {section.name}
                 </div>
               </button>
             ))}
           </div>
-        }
+        )}
         {/* 아래화살표*/}
         {
           <div

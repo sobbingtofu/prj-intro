@@ -1,9 +1,10 @@
 import {experienceMilestoneType, myStoryType, projectType} from "./constantStoreType";
 
 export const SECTIONS = [
-  {id: 0, name: "main"},
-  {id: 1, name: "workExperience"},
-  {id: 2, name: "project"},
+  {id: 0, name: "Overview"},
+  {id: 1, name: "Work Experience"},
+  {id: 2, name: "Dev Projects"},
+  {id: 3, name: "Contact"},
 ];
 
 export const SKILL_CARDS = [
@@ -35,6 +36,8 @@ export const SKILL_CARDS = [
     ],
   },
 ];
+
+export const EMAIL = "kukubasak@naver.com";
 
 export const MILESTONES: experienceMilestoneType[] = [
   {

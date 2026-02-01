@@ -16,6 +16,7 @@ import {
   prjCardTextContainerRef,
 } from "../store/refStore";
 import ProjectSection from "../sections/ProjectSection/ProjectSection";
+import ContactSection from "../sections/ContactSection/ContactSection";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -70,6 +71,7 @@ export default function Home() {
         <MainSection />
         <WorkExperienceSection />
         <ProjectSection />
+        <ContactSection />
       </div>
     </div>
   );
