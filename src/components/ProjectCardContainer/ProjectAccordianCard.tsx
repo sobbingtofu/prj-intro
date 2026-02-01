@@ -175,7 +175,7 @@ function ProjectAccordianCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="px-3 py-1.5 bg-blue-600/100 text-white text-xs font-medium rounded hover:bg-blue-500 transition-colors"
+                  className="px-3 py-1.5 bg-teal-600/100 text-white text-xs font-medium rounded hover:bg-teal-500 transition-colors"
                 >
                   Visit
                 </a>
