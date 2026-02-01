@@ -24,10 +24,10 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
 
   return (
     <div
-      className="hidden sm:block z-50 sm:max-w-[220px] sm:h-screen sm:sticky top-0 shrink-0
+      className="hidden sm:block z-50 sm:w-[160px] sm:h-screen sm:sticky top-0 shrink-0
       bg-background"
     >
-      <div className="bg-background flex justify-between items-center flex-col h-full max-h-[830px] min-h-[330px] space-y-5 mt-10 pb-20">
+      <div className="bg-background flex justify-between items-center flex-col h-full max-h-[830px] min-h-[330px] space-y-5 mt-10 pb-20 w-full">
         {
           <div
             className={`w-[80px] h-[95px] mr-[20px] relative
@@ -39,7 +39,7 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
         }
         {/* 네비게이션 */}
         {
-          <div className="flex sm:flex-col h-[50%] sm:justify-between sm:items-start sm:pl-5">
+          <div className="flex sm:flex-col h-[50%] sm:justify-between sm:items-start sm:pl-5 w-full">
             {SECTIONS.map((section, index) => (
               <button
                 key={section.id}
