@@ -56,8 +56,8 @@ function MainSection() {
             </div>
 
             <div
-              onDoubleClick={() => setIsPopupOpen(true)}
-              className={`h-full aspect-[3/4] relative 
+              onClick={() => setIsPopupOpen(true)}
+              className={`h-full aspect-[3/4] relative cursor-pointer
               transition-all duration-700 ease-out hover:opacity-90
               ${animateImage ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"}`}
             >
@@ -166,7 +166,7 @@ function MainSection() {
       {/* Easter Egg */}
       {isPopupOpen &&
         typeof window !== "undefined" &&
-        createPortal(<ImageModal setIsPopupOpen={setIsPopupOpen} imgSrc="/img/square-cow.jpg" />, document.body)}
+        createPortal(<ImageModal setIsPopupOpen={setIsPopupOpen} imgSrc="/img/square-cow-edited.png" />, document.body)}
     </section>
   );
 }

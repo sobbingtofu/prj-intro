@@ -40,7 +40,7 @@ function WorkExperienceSection() {
         <WorkExpTimeline selectedMilestoneId={selectedMilestoneId} setSelectedMilestoneId={setSelectedMilestoneId} />
 
         {/* 반응형 여백공간 */}
-        <div className="flex-grow min-h-0 sm:min-h-8 md:min-h-12 lg:min-h-16 xl:min-h-20 max-h-8" />
+        <div className="block sm:hidden flex-grow min-h-0 max-h-8" />
 
         <WorkExpCard selectedMileStone={selectedMileStone} setSelectedMilestoneId={setSelectedMilestoneId} />
       </div>
