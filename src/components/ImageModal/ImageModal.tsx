@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, {useEffect} from "react";
 
 interface ImageModalProps {
   setIsPopupOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,6 +10,20 @@ function ImageModal({setIsPopupOpen, imgSrc}: ImageModalProps) {
   const POPUP_HEIGHT = 600;
   const IMAGE_ASPECT_RATIO = 1 / 1;
   const popupWidth = POPUP_HEIGHT * IMAGE_ASPECT_RATIO;
+
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsPopupOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleEscKey);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscKey);
+    };
+  }, [setIsPopupOpen]);
 
   return (
     <div
