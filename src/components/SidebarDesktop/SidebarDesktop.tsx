@@ -24,14 +24,13 @@ function SidebarDesktop({currentSectionIndex, setCurrentSectionIndex}: SidebarDe
 
   return (
     <div
-      className="hidden sm:block z-50 sm:w-[220px] sm:h-screen sm:sticky top-0 shrink-0
+      className="hidden sm:block z-50 sm:max-w-[220px] sm:h-screen sm:sticky top-0 shrink-0
       bg-background"
     >
       <div className="bg-background flex justify-between items-center flex-col h-full max-h-[830px] min-h-[330px] space-y-5 mt-10 pb-20">
-        {/* 위화살표 추후 구현 ${animateArrowDown ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"} */}
         {
           <div
-            className={`w-[80px] h-[95px] ml-auto mr-[20px] relative
+            className={`w-[80px] h-[95px] mr-[20px] relative
               transition-all duration-700 ease-out rotate-180 opacity-0 
               `}
           >

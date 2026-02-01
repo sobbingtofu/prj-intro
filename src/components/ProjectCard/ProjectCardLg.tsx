@@ -91,6 +91,7 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 400px, 450px"
+              draggable={false}
             />
           </div>
         </div>
