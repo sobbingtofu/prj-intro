@@ -53,10 +53,10 @@ export const MILESTONES: experienceMilestoneType[] = [
       {
         title: "B2B 솔루션 도입 프로젝트 PM 및 개발",
         overview:
-          "고객사의 IT 서비스 요청 & 장애 처리 솔루션(ITSM, IT Service Management) 및 기업 내부 프로세스 자산화 솔루션(PAL, Process Asset Library) 도입 프로젝트를 리드하는 Technical PM 역할 수행하며, 요구사항 분석부터 시스템 설계, 개발, 테스트, 사용자 교육까지 전 과정 주도",
+          "IT 서비스 요청 & 장애 처리 솔루션(ITSM, IT Service Management) 및 기업 내부 프로세스 자산화 솔루션(PAL, Process Asset Library) 도입 프로젝트를 리드하는 Technical PM 역할 수행하며, 고객사 요구사항 분석부터 기능 설계, 개발, 테스트, 사용자 교육까지 전 과정 주도",
         achievements: [
           {
-            point: "고객 RFP 분석 및 기술 요구사항 정의",
+            point: "RFP 분석 및 기능 요구사항 정의",
             description: [
               "고객사 미팅 통해 비즈니스 핵심 요구사항 도출 및 우선순위 정의",
               "Add-on 기능에 대한 기능설계서(PRD) 작성으로 개발 범위 명확화 및 고객 합의 도출",
@@ -80,7 +80,7 @@ export const MILESTONES: experienceMilestoneType[] = [
           {
             point: "체계적 QA 프로세스 수립",
             description: [
-              "기능별 테스트 시나리오 작성 및 단위·통합 테스트 수행",
+              "기능별 테스트 시나리오 작성 및 테스트 수행",
               "테스트 결과 기반 이슈 조치 위한 추가 개발 요건 정의",
             ],
           },
@@ -96,13 +96,13 @@ export const MILESTONES: experienceMilestoneType[] = [
       {
         title: "레거시 시스템 UI/UX 전면 업그레이드 개발",
         overview:
-          "10년 이상 유지된 Java Spring Boot 기반 레거시 시스템의 JSP 기반 UI의 고도화 및 사용자 편의성 개선을 목표로 하는 전면 업그레이드 프로젝트의 리뉴얼 기획 / 시스템 설계 및 개발 수행",
+          "10년 이상 유지된 Java Spring Boot 기반 레거시 시스템의 JSP 기반 UI의 고도화 및 사용자 편의성 개선을 목표로 하는 전면 업그레이드에서 UI 설계 및 개발 수행",
         achievements: [
           {
-            point: "레거시 파일 시스템 리팩토링",
+            point: "파일 시스템 리팩토링",
             description: [
-              "기존 파일 업로드 핸들링 로직 분석 및 프론트/백엔드 각 계층의 검증·에러 처리 로직 개선",
-              "고객사별 커스텀 파일 처리 로직을 캡슐화하여 확장 가능한 구조로 재설계",
+              "기존 파일 업로드 핸들링 로직 분석 및 프론트/백엔드 각 계층의 검증 & 에러핸들링 로직 개선",
+              "고객사별 커스텀 처리 로직을 캡슐화하여 확장 가능한 구조로 재설계",
               "파일 검증 규칙(용량, 확장자 등)을 설정 기반으로 관리하도록 변경하여 유지보수성 향상",
             ],
           },
@@ -111,7 +111,7 @@ export const MILESTONES: experienceMilestoneType[] = [
             description: [
               "Stitch AI 활용해 기존 고객사 불편 사항을 반영한 UI 레이아웃 프로토타입 제작",
               "프로토타입 기반 개발 후 팀원 피드백 반영하여 최적의 UI 레이아웃 선정 및 적용",
-              "전통적인 MVC 패턴의 서버 사이드 렌더링 방식을 REST API 기반 비동기 통신 방식으로 개선",
+              "전통적인 MVC 패턴의 서버 사이드 렌더링 방식을 REST API 기반 비동기 통신 방식으로 전환해 초기 로딩 속도 크게 개선",
               "불필요한 전체 페이지 리로드 제거하여 사용자 경험 개선 및 서버 부하 감소",
             ],
           },
