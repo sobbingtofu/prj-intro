@@ -45,7 +45,7 @@ export const MILESTONES: experienceMilestoneType[] = [
     role: "Software Engineer & Technical PM",
     summary: "솔루션 도입 전 과정(RFP 분석부터 설계, 개발, 교육)을 주도하며 고객사 비즈니스에 최적화된 시스템 구축",
 
-    techStack: ["Spring Boot", "Java", "JSP", "MSSQL", "dhtmlx suite", "Figma"],
+    techStack: ["Spring Boot", "Java", "JSP", "Vanilla JavaScript", "MSSQL", "dhtmlx suite", "Figma"],
     detailedContents: [
       {
         title: "B2B 솔루션 도입 프로젝트 PM 및 개발",
@@ -69,8 +69,8 @@ export const MILESTONES: experienceMilestoneType[] = [
           {
             point: "Full-Stack Add-on 기능 설계 및 개발",
             description: [
-              "MSSQL 기반 DB - 백엔드 Spring Boot 서버 연동 개발",
-              "백엔드 Spring Boot 서버 - 프론트엔드 JSP 간 통신 위한 RESTful api 개발",
+              "MSSQL DB - 백엔드 Spring Boot 서버 연동 개발",
+              "서버 - 프론트엔드 JSP 간 통신 위한 RESTful api 개발",
               "JSP 기반 일반사용자/편집자/관리자 용 커스텀 대시보드 및 티켓 처리 화면 등 레이아웃 설계 및 개발",
             ],
           },

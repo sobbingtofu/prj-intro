@@ -29,7 +29,7 @@ function WorkExperienceSection() {
         min-w-[350px] sm:min-w-[400px]
         "
       >
-        <div className="mt-[12vh] sm:mt-[5vh] 2xl:mt-[8vh] w-full flex justify-end">
+        <div className="mt-[12vh] sm:mt-[5vh] 2xl:mt-[8vh] w-full flex justify-start sm:justify-end">
           <h3
             className={`font-bold md:text-base text-[14px] tracking-[-0.02em] transition-all duration-600 ease-out
               ${animateTimeLine ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
@@ -38,6 +38,9 @@ function WorkExperienceSection() {
           </h3>
         </div>
         <WorkExpTimeline selectedMilestoneId={selectedMilestoneId} setSelectedMilestoneId={setSelectedMilestoneId} />
+
+        {/* 반응형 여백공간 */}
+        <div className="flex-grow min-h-0 sm:min-h-8 md:min-h-12 lg:min-h-16 xl:min-h-20 max-h-8" />
 
         <WorkExpCard selectedMileStone={selectedMileStone} setSelectedMilestoneId={setSelectedMilestoneId} />
       </div>

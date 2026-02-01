@@ -59,11 +59,18 @@ function WorkExpTimeline({selectedMilestoneId, setSelectedMilestoneId}: WorkExpT
                   <div
                     className={`absolute pt-14 lg:pt-15 transition-colors duration-300
                       ${selectedMilestoneId === milestone.id ? "text-black" : "text-gray-400 group-hover:text-gray-700"}
-                      ${milestone.id === 4 ? "" : milestone.id === 1 ? "-translate-x-7/8" : "-translate-x-1/2"}
+                      ${milestone.id === 4 ? "text-left" : milestone.id === 1 ? "-translate-x-7/8 text-right" : "-translate-x-1/2 text-center"}
                       `}
                   >
                     <div
-                      className={`whitespace-nowrap text-center lg:text-[13px] md:text-[12px] text-[10px]
+                      className={`sm:block hidden whitespace-nowrap lg:text-[13px] md:text-[12px] text-[10px]
+                        ${selectedMilestoneId === milestone.id ? "font-[500]" : "font-[400]"}
+                        `}
+                    >
+                      {milestone.name}
+                    </div>
+                    <div
+                      className={`sm:hidden block lg:text-[13px] md:text-[12px] text-[10px] w-[76px]
                         ${selectedMilestoneId === milestone.id ? "font-[500]" : "font-[400]"}
                         `}
                     >
