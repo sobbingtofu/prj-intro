@@ -7,9 +7,10 @@ interface SidebarMobileProps {
 
 function SidebarMobile({currentSectionIndex, setCurrentSectionIndex}: SidebarMobileProps) {
   const sectionNameMap: Record<string, string> = {
-    main: "Overview",
-    workExperience: "Work",
-    project: "Projects",
+    Overview: "Overview",
+    "Work Experience": "Experiences",
+    "Dev Projects": "Projects",
+    Contact: "Contact",
   };
 
   return (
@@ -17,7 +18,7 @@ function SidebarMobile({currentSectionIndex, setCurrentSectionIndex}: SidebarMob
       className="sm:hidden flex z-200 h-[50px] w-full fixed top-0 shrink-0 px-4
       bg-gradient-to-r from-[#042020] to-[#031a1a] justify-between items-center shadow-lg"
     >
-      <div className="flex flex-row w-full justify-between items-center gap-6 max-w-[500px]">
+      <div className="flex flex-row w-full justify-between items-center gap-3 max-w-[500px]">
         {SECTIONS.map((section) => (
           <button
             key={section.id}
@@ -30,7 +31,7 @@ function SidebarMobile({currentSectionIndex, setCurrentSectionIndex}: SidebarMob
             }
           `}
           >
-            <div className="text-xs font-medium whitespace-nowrap">{sectionNameMap[section.name] || section.name}</div>
+            <div className="text-xs font-medium whitespace-nowrap">{sectionNameMap[section.name]}</div>
           </button>
         ))}
       </div>
