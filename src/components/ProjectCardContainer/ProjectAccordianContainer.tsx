@@ -28,7 +28,15 @@ function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianCon
   useEffect(() => {
     /** 아코디언 컨테이너 외부 클릭 시 >> 카드 선택 해제 */
     const handleClickOutside = (event: MouseEvent) => {
-      if (prjCardsContainerRef.current && !prjCardsContainerRef.current.contains(event.target as Node)) {
+      const target = event.target as HTMLElement;
+
+      const clickedScrollbar = event.offsetX > target.clientWidth || event.offsetY > target.clientHeight;
+
+      if (
+        !clickedScrollbar &&
+        prjCardsContainerRef.current &&
+        !prjCardsContainerRef.current.contains(event.target as Node)
+      ) {
         setSelectedAccordianCardId(null);
       }
     };

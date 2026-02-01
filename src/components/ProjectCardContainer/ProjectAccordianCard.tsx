@@ -146,7 +146,7 @@ function ProjectAccordianCard({
         {/* 확장되는 내용 (바디) */}
         <div
           className={`transition-all duration-500 ease-in-out overflow-hidden
-                    ${isSelected ? "max-h-[52vh] opacity-100" : "max-h-0 opacity-0"}`}
+                    ${isSelected ? "opacity-100" : "max-h-0 opacity-0"}`}
           style={{transitionDelay: bodyDelay}}
         >
           <div className="px-4 pb-4 space-y-4 pt-1">
