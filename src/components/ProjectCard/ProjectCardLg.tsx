@@ -18,12 +18,29 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
 
   const showContentDelayTimer = useRef<NodeJS.Timeout | null>(null);
 
-  const handleCardClick = (cardId: string) => {
-    if (isSelected) {
-      setSelectedCardId(null);
-    } else {
-      setSelectedCardId(cardId);
+  const mouseDownPosition = useRef<{x: number; y: number} | null>(null);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    mouseDownPosition.current = {x: e.clientX, y: e.clientY};
+  };
+
+  const handleCardClick = (e: React.MouseEvent, cardId: string) => {
+    if (!mouseDownPosition.current) return;
+
+    const deltaX = Math.abs(e.clientX - mouseDownPosition.current.x);
+    const deltaY = Math.abs(e.clientY - mouseDownPosition.current.y);
+    const threshold = 10; // 10px 이하 이동은 클릭으로 간주
+
+    if (deltaX < threshold && deltaY < threshold) {
+      // 실제 클릭
+      if (isSelected) {
+        setSelectedCardId(null);
+      } else {
+        setSelectedCardId(cardId);
+      }
     }
+
+    mouseDownPosition.current = null;
   };
 
   useEffect(() => {
@@ -54,7 +71,8 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
       }}
     >
       <div
-        onClick={() => handleCardClick(prj.id)}
+        onMouseDown={handleMouseDown}
+        onClick={(e) => handleCardClick(e, prj.id)}
         className="w-full h-full bg-white shadow-lg overflow-hidden cursor-pointer rounded-tr-4xl
         transition-transform duration-300 ease-out hover:scale-105 select-none flex flex-col "
       >
