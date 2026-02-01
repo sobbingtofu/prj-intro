@@ -71,7 +71,7 @@ function SkillStackCardAccordian({animateSkillStackArea = false}: SkillStackCard
               key={index}
               onClick={() => setActiveCardIndex(index)}
               className={`w-2 h-2 rounded-full transition-all ${
-                index === activeCardIndex ? "bg-primary w-6" : "bg-gray-300"
+                index === activeCardIndex ? "bg-teal-600 w-6" : "bg-gray-300"
               }`}
               aria-label={`Go to card ${index + 1}`}
             />
