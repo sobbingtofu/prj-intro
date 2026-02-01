@@ -98,8 +98,12 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
         {/* 내용물 */}
         <div className="2xl:p-5 lg:p-3 2xl:pb-2 lg:pb-0 overflow-hidden">
           {/* 제목 */}
-          <h2 className="2xl:text-2xl lg:text-xl font-bold 2xl:mb-3 lg:mb-2">{prj.title}</h2>
-
+          <div className="flex gap-x-2 items-center 2xl:mb-3 lg:mb-2">
+            <h2 className="2xl:text-2xl lg:text-xl font-bold ">{prj.title}</h2>
+            {/* {prj.id == "eevee-wiki" && (
+              <div className="text-[11px] font-[600] bg-teal-600 px-3 py-1 rounded-full text-teal-50">운영 중</div>
+            )} */}
+          </div>
           {/* 설명 */}
           <p className={`2xl:text-[15px] lg:text-sm text-gray-700  ${showContent ? "mb-3" : "mb-0"}`}>
             {prj.description}
