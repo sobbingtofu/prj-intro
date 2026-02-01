@@ -6,6 +6,7 @@ import {notoSansKr} from "../Fonts/FontConfig";
 const currentFont = notoSansKr;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || ""),
   title: "FE dev Kijoon Yun",
   description:
     "복잡한 비즈니스 요구사항을 직관적인 사용자 경험으로 구현하는 프론트엔드 개발자 윤기준의 소개 페이지입니다.",
