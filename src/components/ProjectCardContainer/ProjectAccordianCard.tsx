@@ -203,7 +203,7 @@ function ProjectAccordianCard({
             <div className="space-y-2">
               <div className="flex flex-wrap gap-2">
                 {prj.techStack.map((tech, idx) => (
-                  <span key={idx} className=" text-blue-700 text-[11px] rounded-full">
+                  <span key={idx} className=" text-teal-800 text-[11px] rounded-full">
                     {"#" + tech}
                   </span>
                 ))}
