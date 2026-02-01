@@ -15,7 +15,7 @@ function SidebarMobile({currentSectionIndex, setCurrentSectionIndex}: SidebarMob
   return (
     <div
       className="sm:hidden flex z-200 h-[50px] w-full fixed top-0 shrink-0 px-4
-      bg-gradient-to-r from-[#050d2a] to-black justify-between items-center shadow-lg"
+      bg-gradient-to-r from-[#042020] to-[#031a1a] justify-between items-center shadow-lg"
     >
       <div className="flex flex-row w-full justify-between items-center gap-6 max-w-[500px]">
         {SECTIONS.map((section) => (
