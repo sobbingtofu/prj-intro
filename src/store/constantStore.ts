@@ -1,103 +1,157 @@
 import {experienceMilestoneType, myStoryType, projectType} from "./constantStoreType";
 
 export const SECTIONS = [
-  {id: 0, name: "main"},
-  {id: 1, name: "workExperience"},
-  {id: 2, name: "project"},
-  {id: 3, name: "myStory"},
+  {id: 0, name: "Overview"},
+  {id: 1, name: "Work Experience"},
+  {id: 2, name: "Dev Projects"},
+  {id: 3, name: "Contact"},
 ];
 
 export const SKILL_CARDS = [
   {
-    title: "Modern Frontend",
+    title: "MODERN FRONTEND",
     color: "bg-primary",
-    items: ["React.js, Next.js", "TypeScript, JavaScript", "Zustand, Redux Toolkit", "Tailwind CSS"],
+    skill: [
+      {key: "REACT", item: ["Typescript, Next.js"]},
+      {key: "STATE", item: ["Zustand, Recoil, Redux Toolkit"]},
+      {key: "STYLE", item: ["Styled-Components, Tailwind CSS"]},
+    ],
   },
   {
-    title: "Backend & Systems",
-    color: "bg-orange-500",
-    items: ["Spring Boot (Java, JSP)", "MSSQL, SQL Query", "RESTful API Design", "System Architecture Design"],
-  },
-  {
-    title: "Design & UI",
+    title: "BACKEND & SYSTEMS",
     color: "bg-purple-500",
-    items: ["Figma", "UI/UX Design", "User Flow Design", "Prototyping & Wireframing"],
+    skill: [
+      {key: "JAVA", item: ["Spring Boot, RESTful API"]},
+      {key: "DB", item: ["MSSQL, SQL Query"]},
+      {key: "ARCH", item: ["System Architecture Design"]},
+    ],
   },
   {
-    title: "Product & Strategy",
-    color: "bg-green-500",
-    items: [
-      "프로젝트/프로덕트 관리 (PM)",
-      "요구사항 분석/기술 명세 정의",
-      "PRD/기능설계서 작성",
-      "WBS 기반 일정 및 리소스 관리",
+    title: "DESIGN & ETC",
+    color: "bg-purple-500",
+    skill: [
+      {key: "UI / UX", item: ["Figma, Prototyping"]},
+      {key: "TOOLS", item: ["Git&Github, SourceTree, Notion"]},
+      {key: "OFFICE", item: ["MS Excel, PowerPoint, Word"]},
     ],
   },
 ];
 
+export const EMAIL = "kukubasak@naver.com";
+
 export const MILESTONES: experienceMilestoneType[] = [
   {
     id: 1,
-    name: "주식회사<br>스마트팩토리",
+    name: "(주) 스마트팩토리",
     duration: "(2024.08<br>~ 현재)",
     keyword: "기획부터 설계, 구현까지 제품의 전 생애 주기를 담당하는 개발자",
     role: "Software Engineer & Technical PM",
     summary: "솔루션 도입 전 과정(RFP 분석부터 설계, 개발, 교육)을 주도하며 고객사 비즈니스에 최적화된 시스템 구축",
-    keyAchievements: [
+
+    techStack: ["Spring Boot", "Java", "JSP", "Vanilla JavaScript", "MSSQL", "dhtmlx suite", "Figma"],
+    detailedContents: [
       {
-        point: "Technical PM",
-        description:
-          "고객사 RFP 분석을 통한 솔루션 제안서 작성 및 기능설계서 정의, WBS 기반의 일정 관리 및 프로젝트 리딩",
+        title: "B2B 솔루션 도입 프로젝트 PM 및 개발",
+        overview:
+          "고객사의 IT 서비스 요청 & 장애 처리 솔루션(ITSM, IT Service Management) 및 기업 내부 프로세스 자산화 솔루션(PAL, Process Asset Library) 도입 프로젝트를 리드하는 Technical PM 역할 수행하며, 요구사항 분석부터 시스템 설계, 개발, 테스트, 사용자 교육까지 전 과정 주도",
+        achievements: [
+          {
+            point: "고객 RFP 분석 및 기술 요구사항 정의",
+            description: [
+              "고객사 미팅 통해 비즈니스 핵심 요구사항 도출 및 우선순위 정의",
+              "Add-on 기능에 대한 기능설계서(PRD) 작성으로 개발 범위 명확화 및 고객 합의 도출",
+            ],
+          },
+          {
+            point: "WBS 기반 프로젝트 일정 관리",
+            description: [
+              "3~6개월 프로젝트를 주 단위 마일스톤으로 세분화하여 진행률 관리",
+              "개발팀 태스크 할당 및 일정 조율",
+            ],
+          },
+          {
+            point: "Full-Stack Add-on 기능 설계 및 개발",
+            description: [
+              "MSSQL DB - 백엔드 Spring Boot 서버 연동 개발",
+              "서버 - 프론트엔드 JSP 간 통신 위한 RESTful api 개발",
+              "JSP 기반 일반사용자/편집자/관리자 용 커스텀 대시보드 및 티켓 처리 화면 등 레이아웃 설계 및 개발",
+            ],
+          },
+          {
+            point: "체계적 QA 프로세스 수립",
+            description: [
+              "기능별 테스트 시나리오 작성 및 단위·통합 테스트 수행",
+              "테스트 결과 기반 이슈 조치 위한 추가 개발 요건 정의",
+            ],
+          },
+          {
+            point: "사용자 교육 및 운영 지원",
+            description: [
+              "관리자·일반 사용자 대상 영문·국문 매뉴얼 작성 (40~150 페이지 분량)",
+              "온사이트 교육 진행 및 고객사 담당자 및 일반 사용자 문의사항 처리",
+            ],
+          },
+        ],
       },
       {
-        point: "Solution Add-on 개발",
-        description:
-          "Spring Boot 기반 Process Asset Library 및 IT Service Management 솔루션의 추가 기능, 커스텀 유저 플로우 및 API 개발",
-      },
-      {
-        point: "UI/UX 및 시스템 고도화",
-        description:
-          "기존 JSP 기반 레거시 시스템의 사용자 편의성 증대를 목표로 하는 파일 시스템 및 UI/UX 등 업그레이드 개발 수행 ",
-      },
-      {
-        point: "Full-Cycle 대응",
-        description: "DB(MSSQL) 설계부터 백엔드 라우팅, 프론트엔드 UI 구현까지 엔드투엔드 개발 수행",
+        title: "레거시 시스템 UI/UX 전면 업그레이드 개발",
+        overview:
+          "10년 이상 유지된 Java Spring Boot 기반 레거시 시스템의 JSP 기반 UI의 고도화 및 사용자 편의성 개선을 목표로 하는 전면 업그레이드 프로젝트의 리뉴얼 기획 / 시스템 설계 및 개발 수행",
+        achievements: [
+          {
+            point: "레거시 파일 시스템 리팩토링",
+            description: [
+              "기존 파일 업로드 핸들링 로직 분석 및 프론트/백엔드 각 계층의 검증·에러 처리 로직 개선",
+              "고객사별 커스텀 파일 처리 로직을 캡슐화하여 확장 가능한 구조로 재설계",
+              "파일 검증 규칙(용량, 확장자 등)을 설정 기반으로 관리하도록 변경하여 유지보수성 향상",
+            ],
+          },
+          {
+            point: "UI/UX 개선 및 프론트엔드 현대화",
+            description: [
+              "Stitch AI 활용해 기존 고객사 불편 사항을 반영한 UI 레이아웃 프로토타입 제작",
+              "프로토타입 기반 개발 후 팀원 피드백 반영하여 최적의 UI 레이아웃 선정 및 적용",
+              "전통적인 MVC 패턴의 서버 사이드 렌더링 방식을 REST API 기반 비동기 통신 방식으로 개선",
+              "불필요한 전체 페이지 리로드 제거하여 사용자 경험 개선 및 서버 부하 감소",
+            ],
+          },
+          {
+            point: "공통 컴포넌트 라이브러리 구축",
+            description: [
+              "버튼, 모달, 백드롭, 커스텀 alert 등 중복 구현된 UI 요소 분석",
+              "재사용 가능한 공통 컴포넌트로 리팩토링하여 코드 중복 제거",
+              "컴포넌트 사용 가이드 문서화로 팀 내 개발 생산성 향상",
+            ],
+          },
+        ],
       },
     ],
-    techStack: ["Spring Boot", "Java", "JSP", "MSSQL", "dhtmlx suite", "Figma"],
   },
   {
     id: 2,
-    name: "Nemo Partners<br>Strategy Consulting",
+    name: "Nemo Partners SCG",
     duration: "(2023.07<br>~ 2023.12)",
     keyword: "데이터와 논리에 기반하여 복잡한 비즈니스 문제를 구조화하고 해결책을 제시하는 컨설턴트",
     role: "Business Strategy Consultant",
     summary: "대기업 및 중견기업 대상 경영 전략 수립 및 시장 분석을 통한 비즈니스 솔루션 도출",
-    keyAchievements: [
-      {
-        point: "신사업 기획 및 사업 확장 전략 수립",
-        description: "시장 동향 및 경쟁사, 기보유 역량 분석하여 신규 BM을 기획하고 구체적인 시장 진입 전략 도출",
-      },
-      {
-        point: "M&A 및 IPO 대상 기업 CDD 수행",
-        description:
-          "기업 인수 및 상장을 위한 Commercial Due Diligence에 참여하여 사업타당성, 잠재성 및 리스크 정밀 분석",
-      },
-      {
-        point: "프로젝트 RFP 분석 및 제안서 작성",
-        description: "제안요청서(RFP) 및 시장 분석 통해 핵심 아젠다를 도출하고 논리적인 해결책을 제시하는 제안서 작성",
-      },
-      {
-        point: "비즈니스 데이터 구조화 및 인사이트 도출",
-        description:
-          "산재된 정량적·정성적 데이터의 구조화 및 시각화 통해 의사결정을 위한 핵심 인사이트 도출 및 전략 보고서 작성",
-      },
+    overview:
+      "신사업 기획, M&A 및 투자 타당성 분석, IPO 준비 기업 실사 등 컨설팅 프로젝트에 참여하여 데이터 분석 수행, 인사이트 도출 및 전략 수립",
+    projects: [
+      "제조업체 신사업 진출 전략 수립",
+      "SaaS 기업 M&A 타당성 Commercial Due Diligence",
+      "이동통신사 관련 정부 선정 사업 지원",
+      "RFP 분석 및 제안서 작성",
+    ],
+    connections: [
+      "복잡한 비즈니스 요구사항을 구조화하여 명확한 기술 명세로 전환하는 역량 습득",
+      "데이터 기반 의사결정 프로세스를 체득하여 프로덕트 기획 시 정량적 근거 제시 가능",
+      "클라이언트 커뮤니케이션 경험을 통해 요구사항 분석 및 기능 정의 가능",
     ],
     coreSkills: ["Logical Structuring", "Problem Solving", "Strategy Formulation", "Data Analysis"],
   },
   {
     id: 3,
-    name: "미래에셋<br>벤처투자",
+    name: "미래에셋 VC",
     duration: "(2022.12<br>~ 2023.02)",
     keyword: "스타트업 시장환경 및 프로덕트 조사/분석 실무 수행",
     role: "Investment Research Assistant",
@@ -133,11 +187,11 @@ export const MILESTONES: experienceMilestoneType[] = [
   },
   {
     id: 4,
-    name: "교육 및<br>전문경험",
+    name: "교육 및 경험",
     duration: "",
     // duration: "(2018.12<br>~ 2022.11)",
     keyword: "다양한 도메인을 경험하며 유연한 소통 능력과 실행력을 축적",
-    role: "Multidisciplinary Contributor",
+    role: "",
     summary: "게임 개발, 프로덕트 분석 및 연구, 영상 편집, 콘텐츠 기획 등 다양한 실무 경험",
     keyAchievements: [
       {

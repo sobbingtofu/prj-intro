@@ -20,21 +20,27 @@ function ProjectSection() {
     <section
       id="ProjectSection"
       ref={projectSectionRef}
-      className="w-full h-screen max-h-[1800px] max-w-[3600px] min-w-[350px]
-      bg-background flex flex-col xl:justify-start sm:justify-start justify-center items-center "
+      className="w-full h-screen
+      bg-background flex sm:items-start items-center justify-center overflow-y-auto scrollbar-thin03"
     >
+      {/* 실제 내용물 */}
       <div
         className="flex flex-col items-center flex-shrink-0 h-full
-        w-[90vw] sm:w-[80vw] "
+        w-[75vw] sm:w-[80vw] xl:w-[80vw] 2xl:max-w-[1400px] max-w-[1200px]
+        min-w-[350px] sm:min-w-[400px]
+       "
       >
         {/* 섹션 타이틀 */}
-        <div className="mt-[12vh] sm:mt-[5vh] 2xl:mt-[8vh] w-full">
-          <h1
-            className={`font-bold text-[14px] md:text-xl transition-all duration-600 ease-out
+        <div
+          className="w-[75vw] sm:w-[65vw] xl:w-[80vw] 2xl:max-w-[1200px] max-w-[1200px]
+        mt-[12vh] sm:mt-[5vh] 2xl:mt-[8vh] flex justify-start sm:justify-end"
+        >
+          <h3
+            className={`font-bold md:text-base text-[14px] tracking-[-0.02em] transition-all duration-600 ease-out
               ${animatePrjSectionTitle ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
           >
             {"Dev Projects"}
-          </h1>
+          </h3>
         </div>
 
         {/* lg 이상 */}

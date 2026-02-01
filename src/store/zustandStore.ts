@@ -12,6 +12,9 @@ const zustandStore = create<zustandStoreType>((set) => ({
     set((state) => ({
       orderedProjects: typeof projects === "function" ? projects(state.orderedProjects) : projects,
     })),
+
+  animateNavigation: false,
+  setAnimateNavigation: (animate) => set({animateNavigation: animate}),
 }));
 
 export default zustandStore;

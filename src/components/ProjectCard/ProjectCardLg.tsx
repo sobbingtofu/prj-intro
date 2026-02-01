@@ -18,12 +18,29 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
 
   const showContentDelayTimer = useRef<NodeJS.Timeout | null>(null);
 
-  const handleCardClick = (cardId: string) => {
-    if (isSelected) {
-      setSelectedCardId(null);
-    } else {
-      setSelectedCardId(cardId);
+  const mouseDownPosition = useRef<{x: number; y: number} | null>(null);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    mouseDownPosition.current = {x: e.clientX, y: e.clientY};
+  };
+
+  const handleCardClick = (e: React.MouseEvent, cardId: string) => {
+    if (!mouseDownPosition.current) return;
+
+    const deltaX = Math.abs(e.clientX - mouseDownPosition.current.x);
+    const deltaY = Math.abs(e.clientY - mouseDownPosition.current.y);
+    const threshold = 10; // 10px 이하 이동은 클릭으로 간주
+
+    if (deltaX < threshold && deltaY < threshold) {
+      // 실제 클릭
+      if (isSelected) {
+        setSelectedCardId(null);
+      } else {
+        setSelectedCardId(cardId);
+      }
     }
+
+    mouseDownPosition.current = null;
   };
 
   useEffect(() => {
@@ -54,17 +71,18 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
       }}
     >
       <div
-        onClick={() => handleCardClick(prj.id)}
-        className="w-full h-full bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer
+        onMouseDown={handleMouseDown}
+        onClick={(e) => handleCardClick(e, prj.id)}
+        className="w-full h-full bg-white shadow-lg overflow-hidden cursor-pointer rounded-tr-4xl
         transition-transform duration-300 ease-out hover:scale-105 select-none flex flex-col "
       >
         {/* 이미지 */}
         <div
-          className={`w-full rounded-t-lg h-auto bg-white pt-3 transition-all duration-300
+          className={`w-full rounded-tr-4xl h-auto bg-white pt-3 transition-all duration-300
           ${isSelected ? "2xl:h-[23%] lg:h-[18%]" : "2xl:h-[62%] lg:h-[62%]"}`}
         >
           <div
-            className={`w-[93%] h-full mx-auto rounded-t-lg
+            className={`w-[93%] h-full mx-auto rounded-tr-3xl
             relative overflow-hidden shadow-md`}
           >
             <Image
@@ -73,14 +91,19 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 400px, 450px"
+              draggable={false}
             />
           </div>
         </div>
         {/* 내용물 */}
         <div className="2xl:p-5 lg:p-3 2xl:pb-2 lg:pb-0 overflow-hidden">
           {/* 제목 */}
-          <h2 className="2xl:text-2xl lg:text-xl font-bold 2xl:mb-3 lg:mb-2">{prj.title}</h2>
-
+          <div className="flex gap-x-2 items-center 2xl:mb-3 lg:mb-2">
+            <h2 className="2xl:text-2xl lg:text-xl font-bold ">{prj.title}</h2>
+            {/* {prj.id == "eevee-wiki" && (
+              <div className="text-[11px] font-[600] bg-teal-600 px-3 py-1 rounded-full text-teal-50">운영 중</div>
+            )} */}
+          </div>
           {/* 설명 */}
           <p className={`2xl:text-[15px] lg:text-sm text-gray-700  ${showContent ? "mb-3" : "mb-0"}`}>
             {prj.description}
@@ -116,7 +139,7 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
             {prj.techStack.map((tech, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1 bg-blue-100 text-blue-700 2xl:text-[11px] lg:text-[10px] rounded-full"
+                className="px-3 py-1 bg-greengray/15 text-emerald-900 2xl:text-[11px] lg:text-[10px] rounded-full"
               >
                 {tech}
               </span>
@@ -138,7 +161,7 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-gray-500 transition-colors text-center"
+              className="flex-1 px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded hover:bg-teal-500 transition-colors text-center"
             >
               Visit
             </a>

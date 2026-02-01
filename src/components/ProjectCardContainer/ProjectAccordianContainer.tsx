@@ -28,7 +28,15 @@ function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianCon
   useEffect(() => {
     /** 아코디언 컨테이너 외부 클릭 시 >> 카드 선택 해제 */
     const handleClickOutside = (event: MouseEvent) => {
-      if (prjCardsContainerRef.current && !prjCardsContainerRef.current.contains(event.target as Node)) {
+      const target = event.target as HTMLElement;
+
+      const clickedScrollbar = event.offsetX > target.clientWidth || event.offsetY > target.clientHeight;
+
+      if (
+        !clickedScrollbar &&
+        prjCardsContainerRef.current &&
+        !prjCardsContainerRef.current.contains(event.target as Node)
+      ) {
         setSelectedAccordianCardId(null);
       }
     };
@@ -49,7 +57,8 @@ function ProjectAccordianContainer({animatePrjSectionCards}: ProjectAccordianCon
   return (
     <div
       ref={prjCardsContainerRef}
-      className={`lg:hidden p-0 pb-8 my-4 w-full gap-y-4 flex flex-col max-h-[90vh] transition-all duration-500 ease-in-out`}
+      className={`lg:hidden p-0 pb-8 w-full sm:w-[80%] gap-y-4 flex flex-col max-h-[90vh] transition-all duration-500 ease-in-out
+      mt-4 sm:mt-16`}
       style={{justifyContent: isNoCardSelected ? "flex-start" : "space-between"}}
     >
       {orderedProjects.map((prj, index) => {

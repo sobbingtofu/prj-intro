@@ -1,21 +1,22 @@
 "use client";
 
 import {useMemo, useRef, useState} from "react";
-import SidebarDesktop from "../components/SidebarDesktop/SidebarDesktop";
-import SidebarMobile from "../components/SidebarMobile/SidebarMobile";
-import {useApplyScrollEffect} from "../hooks/useApplyScrollEffect/useApplyScrollEffect";
 import MainSection from "../sections/MainSection/MainSection";
+import WorkExperienceSection from "../sections/WorkExperienceSection/WorkExperienceSection";
+import {useApplyScrollEffect} from "../hooks/useApplyScrollEffect/useApplyScrollEffect";
 import {SECTIONS} from "../store/constantStore";
 import {useSwipeSection} from "../hooks/useApplySwipeEffect/useApplySwipeEffect";
-import WorkExperienceSection from "../sections/WorkExperienceSection/WorkExperienceSection";
-import ProjectSection from "../sections/ProjectSection/ProjectSection";
+import SidebarDesktop from "../components/SidebarDesktop/SidebarDesktop";
+import SidebarMobile from "../components/SidebarMobile/SidebarMobile";
 import {
+  mileStoneCardContentDetailContainerRefs,
   myStoryAccordianCardTextRefs,
   myStoryBentoCardTextRefs,
   prjAccordianCardTextContainerRef,
   prjCardTextContainerRef,
 } from "../store/refStore";
-import MyStorySection from "../sections/MyStorySection/MyStorySection";
+import ProjectSection from "../sections/ProjectSection/ProjectSection";
+import ContactSection from "../sections/ContactSection/ContactSection";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,8 +29,9 @@ export default function Home() {
       prjAccordianCardTextContainerRef,
       ...myStoryBentoCardTextRefs,
       ...myStoryAccordianCardTextRefs,
+      ...mileStoneCardContentDetailContainerRefs,
     ],
-    []
+    [],
   );
 
   const {offset} = useApplyScrollEffect({
@@ -58,8 +60,6 @@ export default function Home() {
     <div ref={containerRef} className="bg-black h-screen flex flex-row overflow-hidden">
       {/* 데스크탑 용 사이드바 */}
       <SidebarDesktop currentSectionIndex={currentSectionIndex} setCurrentSectionIndex={setCurrentSectionIndex} />
-
-      {/* 모바일 용 사이드바 */}
       <SidebarMobile currentSectionIndex={currentSectionIndex} setCurrentSectionIndex={setCurrentSectionIndex} />
       <div
         className="flex-1 min-w-0"
@@ -71,7 +71,7 @@ export default function Home() {
         <MainSection />
         <WorkExperienceSection />
         <ProjectSection />
-        <MyStorySection />
+        <ContactSection />
       </div>
     </div>
   );

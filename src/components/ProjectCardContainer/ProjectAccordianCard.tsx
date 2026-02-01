@@ -26,7 +26,7 @@ function ProjectAccordianCard({
   prevCardRectArr,
   cardToOpenIdRef,
 }: ProjectAccordianCardProps) {
-  const {setOrderedProjects} = zustandStore();
+  const setOrderedProjects = zustandStore((state) => state.setOrderedProjects);
   const cardClickDelayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const cardClickDelay = 840; // ms
@@ -146,7 +146,7 @@ function ProjectAccordianCard({
         {/* 확장되는 내용 (바디) */}
         <div
           className={`transition-all duration-500 ease-in-out overflow-hidden
-                    ${isSelected ? "max-h-[52vh] opacity-100" : "max-h-0 opacity-0"}`}
+                    ${isSelected ? "opacity-100" : "max-h-0 opacity-0"}`}
           style={{transitionDelay: bodyDelay}}
         >
           <div className="px-4 pb-4 space-y-4 pt-1">
@@ -175,7 +175,7 @@ function ProjectAccordianCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="px-3 py-1.5 bg-blue-600/100 text-white text-xs font-medium rounded hover:bg-blue-500 transition-colors"
+                  className="px-3 py-1.5 bg-teal-600/100 text-white text-xs font-medium rounded hover:bg-teal-500 transition-colors"
                 >
                   Visit
                 </a>
@@ -203,7 +203,7 @@ function ProjectAccordianCard({
             <div className="space-y-2">
               <div className="flex flex-wrap gap-2">
                 {prj.techStack.map((tech, idx) => (
-                  <span key={idx} className=" text-blue-700 text-[11px] rounded-full">
+                  <span key={idx} className=" text-teal-800 text-[11px] rounded-full">
                     {"#" + tech}
                   </span>
                 ))}
