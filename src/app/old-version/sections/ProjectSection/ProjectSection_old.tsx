@@ -3,7 +3,7 @@ import ProjectCardFlexContainer from "@/src/components/ProjectCardContainer/Proj
 import useAnimatePrjSection from "@/src/hooks/useAnimatePrjSection/useAnimatePrjSection";
 import {useRef, useState} from "react";
 
-function ProjectSection() {
+function ProjectSection_old() {
   const projectSectionRef = useRef<HTMLDivElement>(null!);
 
   const [animatePrjSectionTitle, setAnimatePrjSectionTitle] = useState<boolean>(false);
@@ -46,4 +46,4 @@ function ProjectSection() {
   );
 }
 
-export default ProjectSection;
+export default ProjectSection_old;

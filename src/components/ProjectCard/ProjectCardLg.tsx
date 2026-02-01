@@ -55,16 +55,16 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
     >
       <div
         onClick={() => handleCardClick(prj.id)}
-        className="w-full h-full bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer
+        className="w-full h-full bg-white shadow-lg overflow-hidden cursor-pointer rounded-tr-4xl
         transition-transform duration-300 ease-out hover:scale-105 select-none flex flex-col "
       >
         {/* 이미지 */}
         <div
-          className={`w-full rounded-t-lg h-auto bg-white pt-3 transition-all duration-300
+          className={`w-full rounded-tr-4xl h-auto bg-white pt-3 transition-all duration-300
           ${isSelected ? "2xl:h-[23%] lg:h-[18%]" : "2xl:h-[62%] lg:h-[62%]"}`}
         >
           <div
-            className={`w-[93%] h-full mx-auto rounded-t-lg
+            className={`w-[93%] h-full mx-auto rounded-tr-3xl
             relative overflow-hidden shadow-md`}
           >
             <Image
@@ -116,7 +116,7 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
             {prj.techStack.map((tech, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1 bg-blue-100 text-blue-700 2xl:text-[11px] lg:text-[10px] rounded-full"
+                className="px-3 py-1 bg-greengray/15 text-emerald-900 2xl:text-[11px] lg:text-[10px] rounded-full"
               >
                 {tech}
               </span>
@@ -138,7 +138,7 @@ function ProjectCardLg({prj, selectedCardId, setSelectedCardId, animatePrjSectio
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="flex-1 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-gray-500 transition-colors text-center"
+              className="flex-1 px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded hover:bg-teal-500 transition-colors text-center"
             >
               Visit
             </a>

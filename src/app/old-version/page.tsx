@@ -14,7 +14,7 @@ import SidebarDesktop from "./components/SidebarDesktop/SidebarDesktop";
 import SidebarMobile from "./components/SidebarMobile/SidebarMobile";
 import MainSection_old from "./sections/MainSection/MainSection_old";
 import WorkExperienceSection_old from "./sections/WorkExperienceSection/WorkExperienceSection_old";
-import ProjectSection from "./sections/ProjectSection/ProjectSection";
+import ProjectSection_old from "./sections/ProjectSection/ProjectSection_old";
 import MyStorySection from "./sections/MyStorySection/MyStorySection";
 
 export default function Home() {
@@ -70,7 +70,7 @@ export default function Home() {
       >
         <MainSection_old />
         <WorkExperienceSection_old />
-        <ProjectSection />
+        <ProjectSection_old />
         <MyStorySection />
       </div>
     </div>

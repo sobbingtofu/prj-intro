@@ -2,6 +2,7 @@ import {PROJECTS} from "@/src/store/constantStore";
 import {useRef, useEffect, useState} from "react";
 import ProjectCardLg from "../ProjectCard/ProjectCardLg";
 import zustandStore from "@/src/store/zustandStore";
+import usePrjCardContainerGrabMove from "@/src/hooks/usePrjCardContainerGrabMove/usePrjCardContainerGrabMove";
 
 interface ProjectCardFlexContainerProps {
   animatePrjSectionCardsLg: boolean;
@@ -9,7 +10,7 @@ interface ProjectCardFlexContainerProps {
 
 function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexContainerProps) {
   const {selectedFlexCardId, setSelectedFlexCardId} = zustandStore();
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null!);
 
   const [overflowY, setOverflowY] = useState<string>("hidden");
 
@@ -51,12 +52,21 @@ function ProjectCardFlexContainer({animatePrjSectionCardsLg}: ProjectCardFlexCon
     };
   }, [animatePrjSectionCardsLg, setSelectedFlexCardId]);
 
+  const {handleMouseDown, handleMouseMove, handleMouseUp, handleMouseLeave} = usePrjCardContainerGrabMove({
+    containerRef,
+  });
+
   return (
     <div
       ref={containerRef}
-      className={`hidden lg:block p-4 pb-8 mt-4 2xl:mt-10
-        w-full overflow-x-auto ${overflowY === "auto" ? "overflow-y-auto" : "overflow-y-hidden"} 
-        scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100`}
+      className={`hidden lg:block p-4 pb-8 mt-4 2xl:mt-10 min-h-[415px]
+        w-full overflow-x-auto scrollbar-thin02
+        ${overflowY === "auto" ? "overflow-y-auto" : "overflow-y-hidden"}`}
+      style={{cursor: "grab"}}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
     >
       <div ref={containerRef} className="flex flex-row justify-between w-auto gap-[2%]">
         {PROJECTS.map((prj, index) => {
