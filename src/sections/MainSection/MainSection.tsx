@@ -33,7 +33,7 @@ function MainSection() {
         {/* 실제 내용물 컨테이너 : sm 이상 */}
         <div
           className="hidden sm:block
-          2xl:max-w-[2000px] 2xl:w-[1520px] xl:h-[780px] h-[660px] bg-background border
+          2xl:max-w-[2000px] 2xl:w-[1520px] xl:h-[780px] h-[660px] bg-background
           xl:max-w-[1200px] xl:min-w-[1150px]
           max-w-[1150px] min-w-[945px]
           2xl:pt-[20px] xl:pt-[45px] pt-[25px] pb-[35px] px-[50px]"
