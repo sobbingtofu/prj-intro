@@ -87,6 +87,14 @@ function ContactSection() {
           >
             ✓ 이메일이 복사되었습니다
           </div>
+          {/* 깃헙주소 */}
+          <div>
+            <a href="https://github.com/sobbingtofu" target="_blank" rel="noopener noreferrer">
+              <p className="py-3 underline font-[300] text-sm hover:scale-105 transition-all duration-200 ease-out">
+                https://github.com/sobbingtofu
+              </p>
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -10,6 +10,7 @@
   --color-greengray: #669aaa;
 
   --breakpoint-2xl: 110rem;
+  --breakpoint-xl: 90rem;
 }
 
 body {
