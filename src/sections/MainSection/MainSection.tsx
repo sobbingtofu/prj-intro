@@ -27,16 +27,16 @@ function MainSection() {
     >
       <div
         className="flex-1 h-full w-full bg-background 
-        2xl:pt-[calc((100vh-830px)/2)] pt-[calc((100vh-780px)/2)] pb-[calc((100vh-780px)/2)]
+        2xl:pt-[calc((100vh-830px)/2)] xl:pt-[calc((100vh-780px)/2)] pt-[calc((100vh-680px)/2)] pb-[calc((100vh-780px)/2)]
         2xl:px-[calc((100vw-1520px-220px)/2)] px-[calc((100vw-1200px-220px)/2)]"
       >
         {/* 실제 내용물 컨테이너 : sm 이상 */}
         <div
           className="hidden sm:block
-          2xl:max-w-[2000px] 2xl:w-[1520px] h-[780px] bg-background
+          2xl:max-w-[2000px] 2xl:w-[1520px] xl:h-[780px] h-[660px] bg-background border
           xl:max-w-[1200px] xl:min-w-[1150px]
           max-w-[1150px] min-w-[945px]
-          2xl:pt-[20px] pt-[45px] pb-[35px] px-[50px]"
+          2xl:pt-[20px] xl:pt-[45px] pt-[25px] pb-[35px] px-[50px]"
         >
           {/* 서브텍스트 및 이미지 */}
           <div
@@ -103,7 +103,7 @@ function MainSection() {
             </div>
           </div>
           {/* 기술 카드 */}
-          <div className="2xl:mt-[65px] mt-[75px] ml-auto items-start 2xl:mr-[180px] xl:mr-[130px] mr-[100px] 2xl:w-[65%] w-[70%]">
+          <div className="2xl:mt-[65px] mt-[75px] ml-auto items-start 2xl:mr-[180px] xl:mr-[130px] mr-[100px] 2xl:w-[65%] xl:w-[70%] w-[75%]">
             <SkillStackCardContainer animateSkillStackArea={animateSkillStackArea} />
           </div>
         </div>
